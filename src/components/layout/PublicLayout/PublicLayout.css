@@ -136,6 +136,19 @@
     .mobile-menu-btn {
         display: flex;
     }
+
+    .header-actions {
+        gap: var(--space-2);
+    }
+
+    .header-actions .btn {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--font-size-sm);
+    }
+
+    .header-actions .btn-ghost {
+        padding: var(--space-2);
+    }
 }
 
 /* Main */
