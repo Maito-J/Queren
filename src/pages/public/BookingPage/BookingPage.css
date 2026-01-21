@@ -1,0 +1,307 @@
+.booking-page {
+    padding: var(--space-8) 0 var(--space-16);
+    background: var(--color-bg);
+}
+
+.booking-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+}
+
+.booking-header h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-2);
+}
+
+.booking-header p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+}
+
+/* Layout */
+.booking-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--space-8);
+    /* Note: No align-items: start - wrapper needs full height for sticky to work */
+}
+
+@media (max-width: 1000px) {
+    .booking-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form */
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.form-section {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    border: 1px solid var(--color-border);
+}
+
+.form-section h2 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-4);
+}
+
+.section-helper {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+}
+
+.form-row {
+    margin-bottom: var(--space-4);
+}
+
+.form-row.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+@media (max-width: 600px) {
+    .form-row.two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reassurance {
+    color: var(--color-success);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-4);
+}
+
+/* Service Type Cards */
+.service-type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+@media (max-width: 600px) {
+    .service-type-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.service-type-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-6);
+    background: var(--color-bg-subtle);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.service-type-card:hover {
+    border-color: var(--color-primary-light);
+    background: white;
+}
+
+.service-type-card.active {
+    border-color: var(--color-primary);
+    background: var(--color-primary-50);
+}
+
+.service-type-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-3);
+}
+
+.service-type-name {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-1);
+}
+
+.service-type-price {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.service-type-desc {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+/* Addons */
+.addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-3);
+}
+
+.addon-card {
+    display: flex;
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.addon-card:hover {
+    border-color: var(--color-primary-light);
+}
+
+.addon-card input {
+    display: none;
+}
+
+.addon-card:has(input:checked) {
+    border-color: var(--color-primary);
+    background: var(--color-primary-50);
+}
+
+.addon-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.addon-name {
+    font-weight: var(--font-weight-medium);
+}
+
+.addon-price {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.addon-check {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+}
+
+.addon-card:has(input:checked) .addon-check {
+    background: var(--color-primary);
+}
+
+/* Summary - Sticky Sidebar */
+.booking-summary-wrapper {
+    position: relative;
+    /* wrapper stretches to grid row height, allowing sticky to work */
+}
+
+.summary-sentinel {
+    height: 1px;
+    margin-bottom: -1px;
+}
+
+.booking-summary {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-6));
+    max-height: calc(100vh - var(--header-height) - var(--space-8));
+    overflow-y: auto;
+    transition: box-shadow 0.2s ease;
+}
+
+.booking-summary.is-stuck {
+    box-shadow: var(--shadow-lg);
+}
+
+.summary-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-4);
+    text-align: center;
+}
+
+.summary-lines {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+}
+
+.summary-line.subtotal {
+    font-weight: var(--font-weight-medium);
+}
+
+.summary-line.total {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+}
+
+.summary-divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: var(--space-3) 0;
+}
+
+.summary-estimate {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin: var(--space-4) 0;
+}
+
+.summary-note {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-4);
+    line-height: var(--line-height-relaxed);
+}
+
+/* Mobile Submit */
+.mobile-submit {
+    background: white;
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+
+.final-reassurance {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin-top: var(--space-3);
+}
+
+/* Mobile: Hide summary sidebar */
+@media (max-width: 1000px) {
+    .booking-summary-wrapper {
+        display: none;
+    }
+
+    .mobile-submit {
+        display: block;
+    }
+}
+
+@media (min-width: 1001px) {
+    .mobile-submit {
+        display: none;
+    }
+}

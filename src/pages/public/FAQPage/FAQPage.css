@@ -1,0 +1,97 @@
+.faq-page {
+    padding: var(--space-8) 0 var(--space-16);
+    background: var(--color-bg);
+    min-height: 100vh;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.faq-header h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+}
+
+.faq-header p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Sections */
+.faq-sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-3);
+    border-bottom: 2px solid var(--color-primary-100);
+}
+
+.faq-section-icon {
+    font-size: 1.75rem;
+}
+
+.faq-section-header h2 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* Contact CTA */
+.faq-contact {
+    margin-top: var(--space-16);
+    display: flex;
+    justify-content: center;
+}
+
+.faq-contact-card {
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary-50) 0%, white 100%);
+    border: 1px solid var(--color-primary-100);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10) var(--space-12);
+    max-width: 480px;
+}
+
+.faq-contact-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--space-4);
+}
+
+.faq-contact-card h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.faq-contact-card p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .faq-header h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .faq-contact-card {
+        padding: var(--space-8);
+    }
+}

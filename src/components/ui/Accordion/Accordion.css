@@ -1,0 +1,114 @@
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.accordion-item {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.accordion-item:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.accordion-item.open {
+    border-color: var(--color-primary-light);
+    box-shadow: var(--shadow-md);
+}
+
+.accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background var(--transition-fast);
+}
+
+.accordion-trigger:hover {
+    background: var(--color-bg-subtle);
+}
+
+.accordion-item.open .accordion-trigger {
+    background: var(--color-primary-50);
+}
+
+.accordion-question {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    line-height: var(--line-height-normal);
+}
+
+.accordion-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-light);
+    color: var(--color-primary);
+    background: var(--color-primary-50);
+    border-radius: var(--radius-full);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.accordion-item.open .accordion-icon {
+    background: var(--color-primary);
+    color: white;
+    transform: rotate(180deg);
+}
+
+/* Smooth expand/collapse animation using CSS grid */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-item.open .accordion-content {
+    grid-template-rows: 1fr;
+}
+
+.accordion-answer {
+    overflow: hidden;
+}
+
+.accordion-answer-inner {
+    padding: var(--space-4) var(--space-6) var(--space-5);
+}
+
+.accordion-answer p {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+}
+
+.accordion-answer p+p {
+    margin-top: var(--space-3);
+}
+
+.accordion-answer ul {
+    margin: var(--space-3) 0 0;
+    padding-left: var(--space-6);
+    color: var(--color-text-muted);
+}
+
+.accordion-answer li {
+    margin-bottom: var(--space-2);
+    line-height: var(--line-height-relaxed);
+}
