@@ -45,7 +45,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                             ) : (
                                 <>
                                     <Link to="/login" className="btn btn-ghost">
-                                        Log In
+                                        Log In / Register
                                     </Link>
                                     <Link to="/booking" className="btn btn-primary">
                                         Book Now
