@@ -305,3 +305,51 @@
         display: none;
     }
 }
+
+/* Mobile Floating Price Indicator */
+.mobile-price-indicator {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .mobile-price-indicator {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid var(--color-border);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        padding: var(--space-3) var(--space-4);
+        z-index: 100;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .mobile-price-indicator.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .mobile-price-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .mobile-price-label {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-muted);
+        font-weight: var(--font-weight-medium);
+    }
+
+    .mobile-price-value {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-primary);
+    }
+}

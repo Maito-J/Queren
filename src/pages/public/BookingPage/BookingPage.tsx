@@ -451,6 +451,14 @@ export function BookingPage() {
                     </div>
                 </div>
             </div>
+
+            {/* Mobile Floating Price Indicator */}
+            <div className={`mobile-price-indicator ${isStuck ? 'visible' : ''}`}>
+                <div className="mobile-price-content">
+                    <span className="mobile-price-label">Your Total</span>
+                    <span className="mobile-price-value">{formatMoney(quote.total)}</span>
+                </div>
+            </div>
         </div>
     )
 }
