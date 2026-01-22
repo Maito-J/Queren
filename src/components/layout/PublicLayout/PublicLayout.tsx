@@ -8,7 +8,7 @@ interface PublicLayoutProps {
 }
 
 export function PublicLayout({ children }: PublicLayoutProps) {
-    const { user, profile } = useAuth()
+    const { user, profile, isLoading } = useAuth()
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
 
     return (
@@ -30,7 +30,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                         </nav>
 
                         <div className="header-actions">
-                            {user ? (
+                            {isLoading ? null : user ? (
                                 <>
                                     {/* Profile icon only for clients - owners/workers have separate portals */}
                                     {(!profile?.role || profile.role === 'client') && (
