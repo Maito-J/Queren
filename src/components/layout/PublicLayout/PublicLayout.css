@@ -34,7 +34,8 @@
 }
 
 .logo-icon {
-    font-size: 1.5em;
+    height: 64px;
+    width: auto;
 }
 
 .nav-main {
@@ -162,7 +163,7 @@
     }
 
     .logo-icon {
-        font-size: 1.2em;
+        height: 36px;
     }
 
     .header-actions .btn-ghost {

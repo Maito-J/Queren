@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '@/hooks'
+import logo from '@/assets/Logo/transparent-logo.svg'
 import './PublicLayout.css'
 
 interface PublicLayoutProps {
@@ -17,8 +18,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                 <div className="container">
                     <div className="header-content">
                         <Link to="/" className="logo">
-                            <span className="logo-icon">✨</span>
-                            <span className="logo-text">Queren</span>
+                            <img src={logo} alt="Queren" className="logo-icon" />
                         </Link>
 
                         <nav className={`nav-main ${mobileMenuOpen ? 'open' : ''}`}>
@@ -74,8 +74,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                     <div className="footer-grid">
                         <div className="footer-brand">
                             <Link to="/" className="logo">
-                                <span className="logo-icon">✨</span>
-                                <span className="logo-text">Queren</span>
+                                <img src={logo} alt="Queren" className="logo-icon" />
                             </Link>
                             <p className="footer-tagline">
                                 Professional cleaning services for your home. Trusted, vetted cleaners.
