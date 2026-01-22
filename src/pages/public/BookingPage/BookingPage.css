@@ -24,7 +24,6 @@
     display: grid;
     grid-template-columns: 1fr 380px;
     gap: var(--space-8);
-    /* Note: No align-items: start - wrapper needs full height for sticky to work */
 }
 
 @media (max-width: 1000px) {
