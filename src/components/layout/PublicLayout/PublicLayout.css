@@ -151,6 +151,35 @@
     }
 }
 
+/* Extra narrow mobile screens (360px and below) */
+@media (max-width: 400px) {
+    .header-content {
+        gap: var(--space-2);
+    }
+
+    .logo {
+        font-size: var(--font-size-lg);
+    }
+
+    .logo-icon {
+        font-size: 1.2em;
+    }
+
+    .header-actions .btn-ghost {
+        padding: var(--space-1) var(--space-2);
+        font-size: var(--font-size-xs);
+        white-space: nowrap;
+    }
+
+    .mobile-menu-btn {
+        padding: var(--space-1);
+    }
+
+    .mobile-menu-btn span {
+        width: 20px;
+    }
+}
+
 /* Main */
 .public-main {
     flex: 1;
