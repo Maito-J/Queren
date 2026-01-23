@@ -1,17 +1,19 @@
 import { useState } from 'react'
 import { DashboardLayout } from '@/components/layout'
 import { Card, CardBody, Button, Input, Alert, Badge } from '@/components/ui'
+import { Icon, IconName } from '@/components/Icon'
+import { DEFAULT_IMAGES } from '@/lib/defaultImages'
 import './WorkerPages.css'
 
-const workerLinks = [
-    { to: '/worker', label: 'Dashboard', icon: '🏠' },
-    { to: '/worker/onboarding', label: 'Onboarding', icon: '📋' },
-    { to: '/worker/jobs', label: 'Available Jobs', icon: '✨' },
-    { to: '/worker/schedule', label: 'My Schedule', icon: '📅' },
-    { to: '/worker/tracking', label: 'Time Tracking', icon: '⏱️' },
-    { to: '/worker/earnings', label: 'Earnings', icon: '💰' },
-    { to: '/worker/training', label: 'Training Hub', icon: '📚' },
-    { to: '/worker/profile', label: 'Profile', icon: '👤' },
+const workerLinks: { to: string; label: string; icon: IconName }[] = [
+    { to: '/worker', label: 'Dashboard', icon: 'home' },
+    { to: '/worker/onboarding', label: 'Onboarding', icon: 'clipboard' },
+    { to: '/worker/jobs', label: 'Available Jobs', icon: 'sparkle' },
+    { to: '/worker/schedule', label: 'My Schedule', icon: 'calendar' },
+    { to: '/worker/tracking', label: 'Time Tracking', icon: 'clock' },
+    { to: '/worker/earnings', label: 'Earnings', icon: 'dollar' },
+    { to: '/worker/training', label: 'Training Hub', icon: 'book' },
+    { to: '/worker/profile', label: 'Profile', icon: 'user' },
 ]
 
 export { workerLinks }
@@ -24,7 +26,7 @@ export function WorkerDashboard() {
         <DashboardLayout title="Worker Dashboard" links={workerLinks}>
             <Card className="mb-6 welcome-banner">
                 <CardBody>
-                    <h2>Welcome back! 👋</h2>
+                    <h2>Welcome back! <Icon name="wave" size="md" /></h2>
                     <p>You have 2 jobs scheduled today.</p>
                 </CardBody>
             </Card>
@@ -44,7 +46,7 @@ export function WorkerDashboard() {
                 </Card>
                 <Card>
                     <CardBody className="stat-card">
-                        <div className="stat-value">4.9★</div>
+                        <div className="stat-value">4.9<Icon name="starFilled" size="sm" filled /></div>
                         <div className="stat-label">Your Rating</div>
                     </CardBody>
                 </Card>
@@ -114,7 +116,7 @@ export function WorkerOnboarding() {
                     <div className="progress-tracker">
                         {steps.map((step, i) => (
                             <div key={step.num} className={`progress-step ${step.status}`}>
-                                <div className="step-circle">{step.status === 'complete' ? '✓' : step.num}</div>
+                                <div className="step-circle">{step.status === 'complete' ? <Icon name="check" size="sm" /> : step.num}</div>
                                 <span className="step-title">{step.title}</span>
                                 {i < steps.length - 1 && <div className="step-line" />}
                             </div>
@@ -130,19 +132,19 @@ export function WorkerOnboarding() {
 
                     <div className="upload-grid">
                         <div className="upload-box">
-                            <div className="upload-icon">📄</div>
+                            <div className="upload-icon"><Icon name="document" size="lg" /></div>
                             <h4>Government ID (Front)</h4>
                             <p>Driver's license or passport</p>
                             <Button variant="secondary">Upload</Button>
                         </div>
                         <div className="upload-box">
-                            <div className="upload-icon">📄</div>
+                            <div className="upload-icon"><Icon name="document" size="lg" /></div>
                             <h4>Government ID (Back)</h4>
                             <p>Back of your ID</p>
                             <Button variant="secondary">Upload</Button>
                         </div>
                         <div className="upload-box completed">
-                            <div className="upload-icon">✅</div>
+                            <div className="upload-icon"><Icon name="check" size="lg" /></div>
                             <h4>Proof of Address</h4>
                             <p>Utility bill or bank statement</p>
                             <Badge variant="success">Uploaded</Badge>
@@ -198,7 +200,7 @@ export function WorkerJobs() {
                             <div className="job-header">
                                 <div>
                                     <h3 className="job-type">{job.type}</h3>
-                                    <p className="job-location">📍 {job.location} • {job.distance} away</p>
+                                    <p className="job-location"><Icon name="mapPin" size="sm" /> {job.location} • {job.distance} away</p>
                                 </div>
                                 {job.status === 'new' && <Badge variant="primary">New</Badge>}
                             </div>
@@ -244,9 +246,9 @@ export function WorkerSchedule() {
             <Card>
                 <CardBody>
                     <div className="schedule-header">
-                        <Button variant="ghost">← Previous</Button>
+                        <Button variant="ghost"><Icon name="arrowLeft" size="sm" /> Previous</Button>
                         <h3>January 13 - 19, 2026</h3>
-                        <Button variant="ghost">Next →</Button>
+                        <Button variant="ghost">Next <Icon name="arrowRight" size="sm" /></Button>
                     </div>
 
                     <div className="calendar-week">
@@ -328,7 +330,7 @@ export function WorkerTracking() {
                 <Card>
                     <CardBody>
                         <div className="empty-state">
-                            <div className="empty-icon">⏱️</div>
+                            <div className="empty-icon"><Icon name="clock" size="xl" /></div>
                             <h3>No Active Job</h3>
                             <p>When it's time for your next job, check in here to start tracking.</p>
                         </div>
@@ -620,7 +622,7 @@ export function WorkerTraining() {
                                 <CardBody>
                                     <div className="training-item">
                                         <div className="training-icon">
-                                            {module.completed ? '✅' : module.type === 'video' ? '🎬' : '📄'}
+                                            {module.completed ? <Icon name="check" size="md" /> : module.type === 'video' ? <Icon name="video" size="md" /> : <Icon name="document" size="md" />}
                                         </div>
                                         <div className="training-info">
                                             <h4>{module.title}</h4>
@@ -648,21 +650,21 @@ export function WorkerTraining() {
                     <div className="resource-grid">
                         <Card hover>
                             <CardBody className="resource-card">
-                                <span className="resource-icon">📋</span>
+                                <span className="resource-icon"><Icon name="clipboard" size="lg" /></span>
                                 <h4>Cleaning Checklist</h4>
                                 <p>Standard checklist for all jobs</p>
                             </CardBody>
                         </Card>
                         <Card hover>
                             <CardBody className="resource-card">
-                                <span className="resource-icon">📞</span>
+                                <span className="resource-icon"><Icon name="phone" size="lg" /></span>
                                 <h4>Support Contact</h4>
                                 <p>Get help when you need it</p>
                             </CardBody>
                         </Card>
                         <Card hover>
                             <CardBody className="resource-card">
-                                <span className="resource-icon">💡</span>
+                                <span className="resource-icon"><Icon name="lightbulb" size="lg" /></span>
                                 <h4>Tips & Tricks</h4>
                                 <p>Pro cleaning techniques</p>
                             </CardBody>
@@ -673,13 +675,13 @@ export function WorkerTraining() {
 
             {view === 'content' && selectedModule && (
                 <div className="module-viewer">
-                    <Button variant="ghost" onClick={backToList} className="mb-4">← Back to Training</Button>
+                    <Button variant="ghost" onClick={backToList} className="mb-4"><Icon name="arrowLeft" size="sm" /> Back to Training</Button>
 
                     <Card className="mb-6">
                         <CardBody>
                             <div className="module-header">
                                 <div className="module-type-icon">
-                                    {selectedModule.type === 'video' ? '🎬' : '📄'}
+                                    {selectedModule.type === 'video' ? <Icon name="video" size="lg" /> : <Icon name="document" size="lg" />}
                                 </div>
                                 <div>
                                     <h2>{selectedModule.title}</h2>
@@ -694,15 +696,27 @@ export function WorkerTraining() {
                             <div className="content-preview">
                                 {selectedModule.type === 'video' ? (
                                     <div className="video-placeholder">
-                                        <span className="placeholder-icon">▶️</span>
-                                        <p>Video Player</p>
-                                        <small className="text-muted">{selectedModule.contentUrl}</small>
+                                        <img
+                                            src={DEFAULT_IMAGES.training.video}
+                                            alt="Training video preview"
+                                            className="placeholder-image"
+                                        />
+                                        <div className="placeholder-overlay">
+                                            <span className="placeholder-icon"><Icon name="play" size="xl" /></span>
+                                            <p>Video Player</p>
+                                        </div>
                                     </div>
                                 ) : (
                                     <div className="pdf-placeholder">
-                                        <span className="placeholder-icon">📄</span>
-                                        <p>PDF Viewer</p>
-                                        <small className="text-muted">{selectedModule.contentUrl}</small>
+                                        <img
+                                            src={DEFAULT_IMAGES.training.document}
+                                            alt="Document preview"
+                                            className="placeholder-image"
+                                        />
+                                        <div className="placeholder-overlay">
+                                            <span className="placeholder-icon"><Icon name="document" size="xl" /></span>
+                                            <p>PDF Viewer</p>
+                                        </div>
                                     </div>
                                 )}
                             </div>
@@ -730,7 +744,7 @@ export function WorkerTraining() {
 
             {view === 'quiz' && selectedModule && (
                 <div className="quiz-taking">
-                    <Button variant="ghost" onClick={() => setView('content')} className="mb-4">← Back to Content</Button>
+                    <Button variant="ghost" onClick={() => setView('content')} className="mb-4"><Icon name="arrowLeft" size="sm" /> Back to Content</Button>
 
                     <Card className="mb-6">
                         <CardBody>
@@ -783,7 +797,7 @@ export function WorkerTraining() {
                         <CardBody>
                             <div className={`result-display ${quizResult.passed ? 'passed' : 'failed'}`}>
                                 <div className="result-icon">
-                                    {quizResult.passed ? '🎉' : '😔'}
+                                    {quizResult.passed ? <Icon name="party" size="xl" /> : <Icon name="frown" size="xl" />}
                                 </div>
                                 <h2>{quizResult.passed ? 'Congratulations!' : 'Not Quite...'}</h2>
                                 <div className="result-score">

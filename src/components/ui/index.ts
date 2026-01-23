@@ -21,3 +21,6 @@ export { Alert } from './Alert'
 export type { AlertProps } from './Alert'
 
 export { Accordion } from './Accordion'
+
+export { LandingBackgroundBubbles } from './LandingBackgroundBubbles'
+export type { LandingBackgroundBubblesProps } from './LandingBackgroundBubbles'

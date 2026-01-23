@@ -1,11 +1,12 @@
 import React from 'react'
 import { Accordion } from '@/components/ui'
+import { Icon, IconName } from '@/components/Icon'
 import './FAQPage.css'
 
 interface FAQSection {
     id: string
     title: string
-    icon: string
+    icon: IconName
     items: { id: string; question: string; answer: string | React.ReactNode }[]
 }
 
@@ -13,7 +14,7 @@ const faqSections: FAQSection[] = [
     {
         id: 'pricing',
         title: 'Pricing & Payments',
-        icon: '💰',
+        icon: 'dollar',
         items: [
             {
                 id: 'pricing-1',
@@ -40,7 +41,7 @@ const faqSections: FAQSection[] = [
     {
         id: 'services',
         title: 'Services & Scope',
-        icon: '🧹',
+        icon: 'broom',
         items: [
             {
                 id: 'services-1',
@@ -62,7 +63,7 @@ const faqSections: FAQSection[] = [
     {
         id: 'supplies',
         title: 'Supplies & Equipment',
-        icon: '🧴',
+        icon: 'bottle',
         items: [
             {
                 id: 'supplies-1',
@@ -87,7 +88,7 @@ const faqSections: FAQSection[] = [
     {
         id: 'scheduling',
         title: 'Scheduling & Cancellations',
-        icon: '📅',
+        icon: 'calendar',
         items: [
             {
                 id: 'scheduling-1',
@@ -104,7 +105,7 @@ const faqSections: FAQSection[] = [
     {
         id: 'satisfaction',
         title: 'Satisfaction & Issues',
-        icon: '✅',
+        icon: 'check',
         items: [
             {
                 id: 'satisfaction-1',
@@ -121,7 +122,7 @@ const faqSections: FAQSection[] = [
     {
         id: 'trust',
         title: 'Cleaners & Trust',
-        icon: '🤝',
+        icon: 'handshake',
         items: [
             {
                 id: 'trust-1',
@@ -150,7 +151,7 @@ export function FAQPage() {
                     {faqSections.map(section => (
                         <section key={section.id} className="faq-section">
                             <div className="faq-section-header">
-                                <span className="faq-section-icon">{section.icon}</span>
+                                <span className="faq-section-icon"><Icon name={section.icon} size="lg" /></span>
                                 <h2>{section.title}</h2>
                             </div>
                             <Accordion items={section.items} />
@@ -160,7 +161,7 @@ export function FAQPage() {
 
                 <div className="faq-contact">
                     <div className="faq-contact-card">
-                        <span className="faq-contact-icon">💬</span>
+                        <span className="faq-contact-icon"><Icon name="message" size="lg" /></span>
                         <h3>Still have questions?</h3>
                         <p>We're here to help. Reach out and we'll get back to you quickly.</p>
                         <a href="/contact" className="btn btn-primary">Contact Us</a>

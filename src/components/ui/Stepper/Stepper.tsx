@@ -1,3 +1,5 @@
+import { Icon } from '../../Icon'
+
 export interface StepperProps {
     value: number
     min?: number
@@ -26,7 +28,7 @@ export function Stepper({ value, min = 1, max = 10, onChange, label }: StepperPr
                     disabled={value <= min}
                     aria-label="Decrease"
                 >
-                    −
+                    <Icon name="minus" size="sm" />
                 </button>
                 <span className="stepper-value" aria-live="polite">
                     {value}
@@ -38,7 +40,7 @@ export function Stepper({ value, min = 1, max = 10, onChange, label }: StepperPr
                     disabled={value >= max}
                     aria-label="Increase"
                 >
-                    +
+                    <Icon name="plus" size="sm" />
                 </button>
             </div>
         </div>

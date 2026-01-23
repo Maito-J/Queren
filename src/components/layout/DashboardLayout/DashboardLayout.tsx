@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks'
+import { Icon, IconName } from '../../Icon'
 import './DashboardLayout.css'
 
 interface SidebarLink {
     to: string
     label: string
-    icon: string
+    icon: IconName
 }
 
 interface DashboardLayoutProps {
@@ -30,7 +31,7 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
             <aside className={`dashboard-sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="sidebar-header">
                     <Link to="/" className="logo">
-                        <span className="logo-icon">✨</span>
+                        <span className="logo-icon"><Icon name="sparkle" size="md" /></span>
                         <span className="logo-text">Queren</span>
                     </Link>
                 </div>
@@ -43,7 +44,7 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
                             className="sidebar-link"
                             end={link.to === '/dashboard' || link.to === '/worker' || link.to === '/owner'}
                         >
-                            <span className="sidebar-icon">{link.icon}</span>
+                            <span className="sidebar-icon"><Icon name={link.icon} size="sm" /></span>
                             {link.label}
                         </NavLink>
                     ))}
@@ -72,7 +73,7 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
                         onClick={() => setSidebarOpen(!sidebarOpen)}
                         aria-label="Toggle sidebar"
                     >
-                        ☰
+                        <Icon name="menu" size="md" />
                     </button>
                     <h1 className="dashboard-title">{title}</h1>
                 </header>

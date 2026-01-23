@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Icon } from '../../Icon'
 import './Accordion.css'
 
 interface AccordionItem {
@@ -34,7 +35,7 @@ export function Accordion({ items, className = '' }: AccordionProps) {
                     >
                         <span className="accordion-question">{item.question}</span>
                         <span className="accordion-icon" aria-hidden="true">
-                            {openId === item.id ? '−' : '+'}
+                            <Icon name={openId === item.id ? 'minus' : 'plus'} size="sm" />
                         </span>
                     </button>
                     <div

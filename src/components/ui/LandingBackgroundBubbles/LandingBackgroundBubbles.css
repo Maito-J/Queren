@@ -1,0 +1,54 @@
+/* ===================================
+   Landing Background Bubbles
+   Subtle animated floating effect
+   =================================== */
+
+.bubble-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bubble {
+    position: absolute;
+    color: var(--color-primary);
+    /* Uses the lilac primary color */
+    opacity: var(--bubble-opacity, 0.15);
+    animation: float-up var(--bubble-duration, 20s) ease-in-out infinite;
+    animation-delay: var(--bubble-delay, 0s);
+    will-change: transform;
+}
+
+/* Float animation - uses ONLY transform for GPU acceleration */
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(1);
+    }
+
+    25% {
+        transform: translateY(75vh) translateX(var(--bubble-sway, 15px)) scale(1.05);
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(calc(var(--bubble-sway, 15px) * -0.5)) scale(1);
+    }
+
+    75% {
+        transform: translateY(25vh) translateX(var(--bubble-sway, 15px)) scale(0.95);
+    }
+
+    100% {
+        transform: translateY(-10vh) translateX(0) scale(1);
+    }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .bubble {
+        animation: none;
+        opacity: calc(var(--bubble-opacity, 0.15) * 0.5);
+        transform: translateY(50vh);
+    }
+}

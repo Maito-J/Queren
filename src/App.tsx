@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from '@/hooks'
 import { PublicLayout } from '@/components/layout'
+import { DEFAULT_IMAGES, getRandomCleaningImage } from '@/lib/defaultImages'
 
 // Public Pages
 import { HomePage } from '@/pages/public/HomePage'
@@ -73,18 +74,18 @@ function AppRoutes() {
             <Route path="/booking/confirmation" element={<PublicLayout><BookingConfirmationPage /></PublicLayout>} />
 
             {/* Placeholder public pages */}
-            <Route path="/services" element={<PublicLayout><PlaceholderPage title="Our Services" /></PublicLayout>} />
-            <Route path="/services/regular" element={<PublicLayout><PlaceholderPage title="Regular Cleaning" /></PublicLayout>} />
-            <Route path="/services/deep" element={<PublicLayout><PlaceholderPage title="Deep Cleaning" /></PublicLayout>} />
-            <Route path="/services/pricing" element={<PublicLayout><PlaceholderPage title="Pricing" /></PublicLayout>} />
-            <Route path="/about" element={<PublicLayout><PlaceholderPage title="About Us" /></PublicLayout>} />
-            <Route path="/about/story" element={<PublicLayout><PlaceholderPage title="Our Story" /></PublicLayout>} />
-            <Route path="/about/areas" element={<PublicLayout><PlaceholderPage title="Service Areas" /></PublicLayout>} />
-            <Route path="/about/values" element={<PublicLayout><PlaceholderPage title="Our Values" /></PublicLayout>} />
-            <Route path="/about/careers" element={<PublicLayout><PlaceholderPage title="Careers" /></PublicLayout>} />
+            <Route path="/services" element={<PublicLayout><PlaceholderPage title="Our Services" imageType="service" /></PublicLayout>} />
+            <Route path="/services/regular" element={<PublicLayout><PlaceholderPage title="Regular Cleaning" imageType="service" /></PublicLayout>} />
+            <Route path="/services/deep" element={<PublicLayout><PlaceholderPage title="Deep Cleaning" imageType="service" /></PublicLayout>} />
+            <Route path="/services/pricing" element={<PublicLayout><PlaceholderPage title="Pricing" imageType="service" /></PublicLayout>} />
+            <Route path="/about" element={<PublicLayout><PlaceholderPage title="About Us" imageType="team" /></PublicLayout>} />
+            <Route path="/about/story" element={<PublicLayout><PlaceholderPage title="Our Story" imageType="team" /></PublicLayout>} />
+            <Route path="/about/areas" element={<PublicLayout><PlaceholderPage title="Service Areas" imageType="general" /></PublicLayout>} />
+            <Route path="/about/values" element={<PublicLayout><PlaceholderPage title="Our Values" imageType="team" /></PublicLayout>} />
+            <Route path="/about/careers" element={<PublicLayout><PlaceholderPage title="Careers" imageType="team" /></PublicLayout>} />
             <Route path="/faq" element={<PublicLayout><FAQPage /></PublicLayout>} />
-            <Route path="/policies" element={<PublicLayout><PlaceholderPage title="Policies" /></PublicLayout>} />
-            <Route path="/contact" element={<PublicLayout><PlaceholderPage title="Contact" /></PublicLayout>} />
+            <Route path="/policies" element={<PublicLayout><PlaceholderPage title="Policies" imageType="general" /></PublicLayout>} />
+            <Route path="/contact" element={<PublicLayout><PlaceholderPage title="Contact" imageType="general" /></PublicLayout>} />
 
             {/* Auth Routes */}
             <Route path="/login" element={<LoginPage />} />
@@ -121,9 +122,35 @@ function AppRoutes() {
     )
 }
 
-function PlaceholderPage({ title }: { title: string }) {
+function PlaceholderPage({ title, imageType = 'general' }: { title: string; imageType?: 'service' | 'team' | 'general' }) {
+    const getImage = () => {
+        switch (imageType) {
+            case 'service':
+                return DEFAULT_IMAGES.services.professional
+            case 'team':
+                return DEFAULT_IMAGES.team
+            case 'general':
+            default:
+                return getRandomCleaningImage()
+        }
+    }
+
     return (
         <div className="container" style={{ padding: '4rem 1rem', textAlign: 'center' }}>
+            <div style={{
+                maxWidth: '400px',
+                margin: '0 auto 2rem',
+                borderRadius: 'var(--radius-lg)',
+                overflow: 'hidden',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)'
+            }}>
+                <img
+                    src={getImage()}
+                    alt={title}
+                    style={{ width: '100%', height: '250px', objectFit: 'cover', display: 'block' }}
+                    loading="lazy"
+                />
+            </div>
             <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>{title}</h1>
             <p style={{ color: 'var(--color-text-muted)' }}>This page is coming soon.</p>
         </div>

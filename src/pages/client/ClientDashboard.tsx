@@ -1,14 +1,15 @@
 import { DashboardLayout } from '@/components/layout'
 import { Card, CardBody, Button } from '@/components/ui'
+import { Icon, IconName } from '@/components/Icon'
 import { useAuth } from '@/hooks'
 import { Link } from 'react-router-dom'
 
-const clientLinks = [
-    { to: '/dashboard', label: 'Overview', icon: '🏠' },
-    { to: '/dashboard/profile', label: 'Profile', icon: '👤' },
-    { to: '/dashboard/billing', label: 'Billing', icon: '💳' },
-    { to: '/dashboard/history', label: 'History', icon: '📋' },
-    { to: '/dashboard/preferences', label: 'Preferences', icon: '⚙️' },
+const clientLinks: { to: string; label: string; icon: IconName }[] = [
+    { to: '/dashboard', label: 'Overview', icon: 'home' },
+    { to: '/dashboard/profile', label: 'Profile', icon: 'user' },
+    { to: '/dashboard/billing', label: 'Billing', icon: 'creditCard' },
+    { to: '/dashboard/history', label: 'History', icon: 'clipboard' },
+    { to: '/dashboard/preferences', label: 'Preferences', icon: 'settings' },
 ]
 
 export function ClientDashboard() {
@@ -20,7 +21,7 @@ export function ClientDashboard() {
             <Card className="mb-6" style={{ background: 'linear-gradient(135deg, var(--color-primary-50), var(--color-bg))' }}>
                 <CardBody>
                     <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
-                        Hi, {profile?.full_name || 'there'}! 👋
+                        Hi, {profile?.full_name || 'there'}! <Icon name="wave" size="md" />
                     </h2>
                     <p style={{ color: 'var(--color-text-muted)' }}>
                         Your home is in good hands. Ready to schedule your next cleaning?
@@ -58,7 +59,7 @@ export function ClientDashboard() {
                 <CardBody>
                     <h3 style={{ marginBottom: '1rem' }}>Next Scheduled Cleaning</h3>
                     <div className="empty-state" style={{ padding: '2rem' }}>
-                        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📅</div>
+                        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}><Icon name="calendar" size="xl" /></div>
                         <p style={{ marginBottom: '1rem' }}>No upcoming cleanings scheduled</p>
                         <Link to="/booking">
                             <Button variant="secondary">Book Your First Cleaning</Button>

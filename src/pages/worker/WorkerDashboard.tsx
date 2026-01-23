@@ -1,15 +1,16 @@
 import { DashboardLayout } from '@/components/layout'
 import { Card, CardBody, Badge } from '@/components/ui'
+import { Icon, IconName } from '@/components/Icon'
 
-const workerLinks = [
-    { to: '/worker', label: 'Dashboard', icon: '🏠' },
-    { to: '/worker/onboarding', label: 'Onboarding', icon: '📋' },
-    { to: '/worker/jobs', label: 'Available Jobs', icon: '✨' },
-    { to: '/worker/schedule', label: 'My Schedule', icon: '📅' },
-    { to: '/worker/tracking', label: 'Time Tracking', icon: '⏱️' },
-    { to: '/worker/earnings', label: 'Earnings', icon: '💰' },
-    { to: '/worker/training', label: 'Training Hub', icon: '📚' },
-    { to: '/worker/profile', label: 'Profile', icon: '👤' },
+const workerLinks: { to: string; label: string; icon: IconName }[] = [
+    { to: '/worker', label: 'Dashboard', icon: 'home' },
+    { to: '/worker/onboarding', label: 'Onboarding', icon: 'clipboard' },
+    { to: '/worker/jobs', label: 'Available Jobs', icon: 'sparkle' },
+    { to: '/worker/schedule', label: 'My Schedule', icon: 'calendar' },
+    { to: '/worker/tracking', label: 'Time Tracking', icon: 'clock' },
+    { to: '/worker/earnings', label: 'Earnings', icon: 'dollar' },
+    { to: '/worker/training', label: 'Training Hub', icon: 'book' },
+    { to: '/worker/profile', label: 'Profile', icon: 'user' },
 ]
 
 export function WorkerDashboard() {
@@ -17,7 +18,7 @@ export function WorkerDashboard() {
         <DashboardLayout title="Worker Dashboard" links={workerLinks}>
             <Card className="mb-6" style={{ background: 'linear-gradient(135deg, var(--color-primary-50), var(--color-bg))' }}>
                 <CardBody>
-                    <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Welcome back! 👋</h2>
+                    <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Welcome back! <Icon name="wave" size="md" /></h2>
                     <p style={{ color: 'var(--color-text-muted)' }}>You have 0 jobs scheduled today.</p>
                 </CardBody>
             </Card>

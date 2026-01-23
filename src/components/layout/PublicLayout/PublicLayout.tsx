@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '@/hooks'
+import { Icon } from '../../Icon'
 import logo from '@/assets/Logo/transparent-logo.svg'
 import './PublicLayout.css'
 
@@ -35,7 +36,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                     {/* Profile icon only for clients - owners/workers have separate portals */}
                                     {(!profile?.role || profile.role === 'client') && (
                                         <Link to="/dashboard" className="header-profile-link" title="My Account">
-                                            👤
+                                            <Icon name="user" size="md" aria-label="My Account" />
                                         </Link>
                                     )}
                                     <Link to="/booking" className="btn btn-primary">

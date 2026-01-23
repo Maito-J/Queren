@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import { DashboardLayout } from '@/components/layout'
 import { Card, CardBody, Button, Input, Badge, Alert } from '@/components/ui'
+import { Icon, IconName } from '@/components/Icon'
 import './OwnerPages.css'
 
-const ownerLinks = [
-    { to: '/q-admin', label: 'Dashboard', icon: '📊' },
-    { to: '/q-admin/bookings', label: 'Bookings', icon: '📋' },
-    { to: '/q-admin/cleaners', label: 'Cleaners', icon: '👥' },
-    { to: '/q-admin/training', label: 'Training', icon: '📚' },
-    { to: '/q-admin/pricing', label: 'Pricing', icon: '💰' },
-    { to: '/q-admin/revenue', label: 'Revenue', icon: '📈' },
-    { to: '/q-admin/reviews', label: 'Reviews', icon: '⭐' },
-    { to: '/q-admin/support', label: 'Support', icon: '🎧' },
+const ownerLinks: { to: string; label: string; icon: IconName }[] = [
+    { to: '/q-admin', label: 'Dashboard', icon: 'chart' },
+    { to: '/q-admin/bookings', label: 'Bookings', icon: 'clipboard' },
+    { to: '/q-admin/cleaners', label: 'Cleaners', icon: 'users' },
+    { to: '/q-admin/training', label: 'Training', icon: 'book' },
+    { to: '/q-admin/pricing', label: 'Pricing', icon: 'dollar' },
+    { to: '/q-admin/revenue', label: 'Revenue', icon: 'trendUp' },
+    { to: '/q-admin/reviews', label: 'Reviews', icon: 'star' },
+    { to: '/q-admin/support', label: 'Support', icon: 'headphones' },
 ]
 
 export { ownerLinks }
@@ -34,7 +35,7 @@ export function OwnerDashboard() {
                 <CardBody>
                     <div className="welcome-content">
                         <div className="welcome-text">
-                            <h2>Good afternoon, Queren! 👋</h2>
+                            <h2>Good afternoon, Queren! <Icon name="wave" size="md" /></h2>
                             <p>{currentDate}</p>
                         </div>
                         <div className="welcome-summary">
@@ -68,7 +69,7 @@ export function OwnerDashboard() {
                     <CardBody>
                         <div className="kpi-content-enhanced">
                             <div className="kpi-header">
-                                <span className="kpi-icon-lg">💰</span>
+                                <Icon name="dollar" size="lg" />
                                 <span className="kpi-trend positive">↑ 12%</span>
                             </div>
                             <span className="kpi-value-lg">$12,450</span>
@@ -82,7 +83,7 @@ export function OwnerDashboard() {
                     <CardBody>
                         <div className="kpi-content-enhanced">
                             <div className="kpi-header">
-                                <span className="kpi-icon-lg">📋</span>
+                                <Icon name="clipboard" size="lg" />
                                 <span className="kpi-trend positive">↑ 8%</span>
                             </div>
                             <span className="kpi-value-lg">156</span>
@@ -99,7 +100,7 @@ export function OwnerDashboard() {
                     <CardBody>
                         <div className="kpi-content-enhanced">
                             <div className="kpi-header">
-                                <span className="kpi-icon-lg">👥</span>
+                                <Icon name="users" size="lg" />
                                 <span className="kpi-trend neutral">—</span>
                             </div>
                             <span className="kpi-value-lg">12</span>
@@ -116,7 +117,7 @@ export function OwnerDashboard() {
                     <CardBody>
                         <div className="kpi-content-enhanced">
                             <div className="kpi-header">
-                                <span className="kpi-icon-lg">⭐</span>
+                                <Icon name="star" size="lg" />
                                 <span className="kpi-trend positive">↑ 0.1</span>
                             </div>
                             <span className="kpi-value-lg">4.9</span>
@@ -130,7 +131,7 @@ export function OwnerDashboard() {
                     <CardBody>
                         <div className="kpi-content-enhanced">
                             <div className="kpi-header">
-                                <span className="kpi-icon-lg">🔄</span>
+                                <Icon name="refresh" size="lg" />
                                 <span className="kpi-trend positive">↑ 5%</span>
                             </div>
                             <span className="kpi-value-lg">68%</span>
@@ -144,7 +145,7 @@ export function OwnerDashboard() {
                     <CardBody>
                         <div className="kpi-content-enhanced">
                             <div className="kpi-header">
-                                <span className="kpi-icon-lg">💵</span>
+                                <Icon name="banknote" size="lg" />
                                 <span className="kpi-trend positive">↑ 3%</span>
                             </div>
                             <span className="kpi-value-lg">$80</span>
@@ -160,7 +161,7 @@ export function OwnerDashboard() {
                 <Card className="today-card">
                     <CardBody>
                         <div className="card-header-row">
-                            <h3>📅 Today's Schedule</h3>
+                            <h3><Icon name="calendar" size="md" /> Today's Schedule</h3>
                             <Badge variant="primary">4 jobs</Badge>
                         </div>
                         <div className="timeline">
@@ -206,30 +207,30 @@ export function OwnerDashboard() {
 
                 <Card className="quick-actions-card">
                     <CardBody>
-                        <h3>⚡ Quick Actions</h3>
+                        <h3><Icon name="sparkle" size="md" /> Quick Actions</h3>
                         <div className="quick-actions-grid">
                             <button className="quick-action">
-                                <span className="qa-icon">➕</span>
+                                <Icon name="plus" size="md" />
                                 <span>New Booking</span>
                             </button>
                             <button className="quick-action">
-                                <span className="qa-icon">👤</span>
+                                <Icon name="user" size="md" />
                                 <span>Add Cleaner</span>
                             </button>
                             <button className="quick-action">
-                                <span className="qa-icon">💳</span>
+                                <Icon name="creditCard" size="md" />
                                 <span>Process Payout</span>
                             </button>
                             <button className="quick-action">
-                                <span className="qa-icon">📊</span>
+                                <Icon name="chart" size="md" />
                                 <span>View Reports</span>
                             </button>
                             <button className="quick-action">
-                                <span className="qa-icon">💬</span>
+                                <Icon name="message" size="md" />
                                 <span>Reply Reviews</span>
                             </button>
                             <button className="quick-action">
-                                <span className="qa-icon">⚙️</span>
+                                <Icon name="settings" size="md" />
                                 <span>Settings</span>
                             </button>
                         </div>
@@ -263,7 +264,7 @@ export function OwnerDashboard() {
                 <Card>
                     <CardBody>
                         <div className="card-header-row">
-                            <h3>👥 Team Performance</h3>
+                            <h3><Icon name="users" size="md" /> Team Performance</h3>
                             <Button variant="ghost" size="sm">View All</Button>
                         </div>
                         <div className="team-leaderboard">
@@ -280,7 +281,7 @@ export function OwnerDashboard() {
                                     </div>
                                     <div className="cleaner-metrics">
                                         <span>{cleaner.jobs} jobs</span>
-                                        <span>{cleaner.rating}★</span>
+                                        <span>{cleaner.rating}<Icon name="starFilled" size="sm" /></span>
                                         <span className="earnings">${cleaner.earnings}</span>
                                     </div>
                                 </div>
@@ -292,19 +293,19 @@ export function OwnerDashboard() {
                 <Card>
                     <CardBody>
                         <div className="card-header-row">
-                            <h3>📝 Recent Activity</h3>
+                            <h3><Icon name="document" size="md" /> Recent Activity</h3>
                             <Button variant="ghost" size="sm">View All</Button>
                         </div>
                         <div className="activity-feed">
                             {[
-                                { icon: '✅', text: 'Jane D. completed Booking #2155', time: '15 min ago' },
-                                { icon: '⭐', text: 'New 5-star review from Sarah M.', time: '32 min ago' },
-                                { icon: '💰', text: 'Payment received: $149 from John K.', time: '1 hour ago' },
-                                { icon: '📋', text: 'New booking: Lisa P. for Jan 15', time: '2 hours ago' },
-                                { icon: '👤', text: 'Sarah Lee submitted verification docs', time: '3 hours ago' },
+                                { icon: 'check', text: 'Jane D. completed Booking #2155', time: '15 min ago' },
+                                { icon: 'star', text: 'New 5-star review from Sarah M.', time: '32 min ago' },
+                                { icon: 'dollar', text: 'Payment received: $149 from John K.', time: '1 hour ago' },
+                                { icon: 'clipboard', text: 'New booking: Lisa P. for Jan 15', time: '2 hours ago' },
+                                { icon: 'user', text: 'Sarah Lee submitted verification docs', time: '3 hours ago' },
                             ].map((activity, i) => (
                                 <div key={i} className="activity-item">
-                                    <span className="activity-icon">{activity.icon}</span>
+                                    <span className="activity-icon"><Icon name={activity.icon as IconName} size="sm" /></span>
                                     <span className="activity-text">{activity.text}</span>
                                     <span className="activity-time">{activity.time}</span>
                                 </div>
@@ -319,7 +320,7 @@ export function OwnerDashboard() {
                 <Card className="wide-card">
                     <CardBody>
                         <div className="card-header-row">
-                            <h3>📈 Weekly Revenue</h3>
+                            <h3><Icon name="trendUp" size="md" /> Weekly Revenue</h3>
                             <div className="chart-legend">
                                 <span className="legend-item"><span className="dot primary" /> This Week: $2,450</span>
                                 <span className="legend-item"><span className="dot muted" /> Last Week: $2,180</span>
@@ -354,10 +355,10 @@ export function OwnerDashboard() {
             <div className="dashboard-row mt-6">
                 <Card>
                     <CardBody>
-                        <h3>🧹 Service Breakdown (This Month)</h3>
+                        <h3><Icon name="broom" size="md" /> Service Breakdown (This Month)</h3>
                         <div className="service-stats">
                             <div className="service-stat">
-                                <div className="service-icon regular">🏠</div>
+                                <div className="service-icon regular"><Icon name="home" size="md" /></div>
                                 <div className="service-info">
                                     <span className="service-name">Regular Cleaning</span>
                                     <span className="service-count">98 bookings</span>
@@ -365,7 +366,7 @@ export function OwnerDashboard() {
                                 <span className="service-revenue">$8,722</span>
                             </div>
                             <div className="service-stat">
-                                <div className="service-icon deep">✨</div>
+                                <div className="service-icon deep"><Icon name="sparkle" size="md" /></div>
                                 <div className="service-info">
                                     <span className="service-name">Deep Cleaning</span>
                                     <span className="service-count">42 bookings</span>
@@ -373,7 +374,7 @@ export function OwnerDashboard() {
                                 <span className="service-revenue">$6,258</span>
                             </div>
                             <div className="service-stat">
-                                <div className="service-icon addon">➕</div>
+                                <div className="service-icon addon"><Icon name="plus" size="md" /></div>
                                 <div className="service-info">
                                     <span className="service-name">Add-On Services</span>
                                     <span className="service-count">67 orders</span>
@@ -387,7 +388,7 @@ export function OwnerDashboard() {
                 <Card>
                     <CardBody>
                         <div className="card-header-row">
-                            <h3>⭐ Recent Reviews</h3>
+                            <h3><Icon name="star" size="md" /> Recent Reviews</h3>
                             <Button variant="ghost" size="sm">View All</Button>
                         </div>
                         <div className="reviews-compact">
@@ -397,7 +398,7 @@ export function OwnerDashboard() {
                                 { rating: 4, text: 'Good overall, just a few spots missed.', client: 'Lisa P.', responded: true },
                             ].map((review, i) => (
                                 <div key={i} className="review-compact-item">
-                                    <div className="review-rating">{'⭐'.repeat(review.rating)}</div>
+                                    <div className="review-rating">{Array.from({ length: review.rating }).map((_, i) => <Icon key={i} name="starFilled" size="sm" />)}</div>
                                     <p>"{review.text}"</p>
                                     <div className="review-meta">
                                         <span>— {review.client}</span>
@@ -530,7 +531,7 @@ export function OwnerCleaners() {
                                     <span className="stat-label">Jobs</span>
                                 </div>
                                 <div className="cleaner-stat">
-                                    <span className="stat-value">{cleaner.rating ? `${cleaner.rating}★` : '-'}</span>
+                                    <span className="stat-value">{cleaner.rating ? <>{cleaner.rating}<Icon name="starFilled" size="sm" /></> : '-'}</span>
                                     <span className="stat-label">Rating</span>
                                 </div>
                             </div>
@@ -773,7 +774,7 @@ export function OwnerReviews() {
                 <Card>
                     <CardBody className="kpi-card-small">
                         <span className="kpi-label">Average Rating</span>
-                        <span className="kpi-value">4.9 ⭐</span>
+                        <span className="kpi-value">4.9 <Icon name="starFilled" size="sm" /></span>
                     </CardBody>
                 </Card>
                 <Card>
@@ -796,7 +797,7 @@ export function OwnerReviews() {
                         <CardBody>
                             <div className="review-header">
                                 <div className="review-meta">
-                                    <span className="review-stars">{'⭐'.repeat(review.rating)}</span>
+                                    <span className="review-stars">{Array.from({ length: review.rating }).map((_, i) => <Icon key={i} name="starFilled" size="sm" />)}</span>
                                     <span className="review-date">{review.date}</span>
                                 </div>
                                 {!review.responded && <Badge variant="warning">Needs Response</Badge>}

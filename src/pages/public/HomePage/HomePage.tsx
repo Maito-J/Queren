@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Button, Card, CardBody } from '@/components/ui'
+import { Button, Card, CardBody, LandingBackgroundBubbles } from '@/components/ui'
+import { Icon, IconName } from '@/components/Icon'
+import { DEFAULT_IMAGES } from '@/lib/defaultImages'
 import './HomePage.css'
 
 const testimonials = [
@@ -8,10 +10,10 @@ const testimonials = [
     { name: 'Linda P.', rating: 5, text: 'The booking process was so easy, and the cleaning exceeded expectations.', city: 'Calgary' },
 ]
 
-const features = [
-    { icon: '✓', title: 'Vetted Cleaners', description: 'Every cleaner is background-checked and professionally trained.' },
-    { icon: '💰', title: 'Transparent Pricing', description: 'No hidden fees. Know your exact price before you book.' },
-    { icon: '📅', title: 'Flexible Scheduling', description: 'Book online 24/7. Cancel or reschedule anytime.' },
+const features: { icon: IconName; title: string; description: string }[] = [
+    { icon: 'check', title: 'Vetted Cleaners', description: 'Every cleaner is background-checked and professionally trained.' },
+    { icon: 'dollar', title: 'Transparent Pricing', description: 'No hidden fees. Know your exact price before you book.' },
+    { icon: 'calendar', title: 'Flexible Scheduling', description: 'Book online 24/7. Cancel or reschedule anytime.' },
 ]
 
 const services = [
@@ -23,6 +25,7 @@ const services = [
 export function HomePage() {
     return (
         <div className="home-page">
+            <LandingBackgroundBubbles />
             {/* Hero */}
             <section className="hero">
                 <div className="container">
@@ -43,7 +46,7 @@ export function HomePage() {
                             </Link>
                         </div>
                         <div className="hero-trust">
-                            <span>⭐ 4.9 Rating</span>
+                            <span><Icon name="starFilled" size="sm" filled /> 4.9 Rating</span>
                             <span>•</span>
                             <span>500+ Happy Homes</span>
                             <span>•</span>
@@ -51,9 +54,11 @@ export function HomePage() {
                         </div>
                     </div>
                     <div className="hero-image">
-                        <div className="hero-image-placeholder">
-                            🏠
-                        </div>
+                        <img
+                            src={DEFAULT_IMAGES.hero}
+                            alt="Professional cleaning service - couple cleaning their home together"
+                            className="hero-img"
+                        />
                     </div>
                 </div>
             </section>
@@ -64,7 +69,7 @@ export function HomePage() {
                     <div className="features-grid">
                         {features.map((feature, i) => (
                             <div key={i} className="feature-item">
-                                <span className="feature-icon">{feature.icon}</span>
+                                <span className="feature-icon"><Icon name={feature.icon} size="lg" /></span>
                                 <h3 className="feature-title">{feature.title}</h3>
                                 <p className="feature-text">{feature.description}</p>
                             </div>
@@ -133,7 +138,7 @@ export function HomePage() {
                         {testimonials.map((t, i) => (
                             <Card key={i} className="testimonial-card">
                                 <CardBody>
-                                    <div className="testimonial-stars">{'⭐'.repeat(t.rating)}</div>
+                                    <div className="testimonial-stars">{Array(t.rating).fill(null).map((_, idx) => <Icon key={idx} name="starFilled" size="sm" filled />)}</div>
                                     <p className="testimonial-text">"{t.text}"</p>
                                     <p className="testimonial-author">
                                         <strong>{t.name}</strong> — {t.city}

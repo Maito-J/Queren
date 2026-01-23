@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input, Select, Stepper, Card, CardBody, Alert } from '@/components/ui'
+import { Icon } from '@/components/Icon'
 import { computeQuote, formatMoney } from '@/lib/pricing'
 import { DEFAULT_PRICING, ServiceType, BookingFormData, PriceBreakdown } from '@/types'
 import { useAuth } from '@/hooks'
@@ -183,7 +184,7 @@ export function BookingPage() {
                                     className={`service-type-card ${formData.serviceType === 'regular' ? 'active' : ''}`}
                                     onClick={() => handleServiceTypeChange('regular')}
                                 >
-                                    <span className="service-type-icon">🧹</span>
+                                    <span className="service-type-icon"><Icon name="broom" size="lg" /></span>
                                     <span className="service-type-name">Regular Cleaning</span>
                                     <span className="service-type-price">From $89</span>
                                     <span className="service-type-desc">Weekly or bi-weekly maintenance</span>
@@ -193,13 +194,13 @@ export function BookingPage() {
                                     className={`service-type-card ${formData.serviceType === 'deep' ? 'active' : ''}`}
                                     onClick={() => handleServiceTypeChange('deep')}
                                 >
-                                    <span className="service-type-icon">✨</span>
+                                    <span className="service-type-icon"><Icon name="sparkle" size="lg" /></span>
                                     <span className="service-type-name">Deep Cleaning</span>
                                     <span className="service-type-price">From $149</span>
                                     <span className="service-type-desc">Thorough top-to-bottom clean</span>
                                 </button>
                             </div>
-                            <p className="reassurance">✓ Great choice! Our cleaners love this service.</p>
+                            <p className="reassurance"><Icon name="check" size="sm" /> Great choice! Our cleaners love this service.</p>
                         </section>
 
                         {/* Section 2: Home Details */}
@@ -233,7 +234,7 @@ export function BookingPage() {
                                     onChange={(v) => setFormData(prev => ({ ...prev, bathrooms: v }))}
                                 />
                             </div>
-                            <p className="reassurance">✓ Got it! We'll match you with a cleaning expert.</p>
+                            <p className="reassurance"><Icon name="check" size="sm" /> Got it! We'll match you with a cleaning expert.</p>
                         </section>
 
                         {/* Section 3: Add-ons */}
@@ -252,12 +253,12 @@ export function BookingPage() {
                                             <span className="addon-name">{addon.label}</span>
                                             <span className="addon-price">+{formatMoney(addon.price)}</span>
                                         </span>
-                                        <span className="addon-check">✓</span>
+                                        <span className="addon-check"><Icon name="check" size="sm" /></span>
                                     </label>
                                 ))}
                             </div>
                             {formData.addons.length > 0 && (
-                                <p className="reassurance">✓ These extras will make your home sparkle!</p>
+                                <p className="reassurance"><Icon name="check" size="sm" /> These extras will make your home sparkle!</p>
                             )}
                         </section>
 
@@ -283,7 +284,7 @@ export function BookingPage() {
                                     required
                                 />
                             </div>
-                            <p className="reassurance">✓ Perfect timing. You can reschedule later if needed.</p>
+                            <p className="reassurance"><Icon name="check" size="sm" /> Perfect timing. You can reschedule later if needed.</p>
                         </section>
 
                         {/* Section 5: Contact Info */}
