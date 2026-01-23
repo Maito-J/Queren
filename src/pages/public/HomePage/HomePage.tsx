@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Button, Card, CardBody } from '@/components/ui'
 import './HomePage.css'
+import checkIcon from '@/assets/icon/check.svg'
+import paidMoneyIcon from '@/assets/icon/paid_money.svg'
+import editCalendarIcon from '@/assets/icon/edit_calendar.svg'
 
 const testimonials = [
     { name: 'Sarah M.', rating: 5, text: 'Amazing service! My home has never been this clean. Highly recommend.', city: 'Toronto' },
@@ -9,9 +12,9 @@ const testimonials = [
 ]
 
 const features = [
-    { icon: '✓', title: 'Vetted Cleaners', description: 'Every cleaner is background-checked and professionally trained.' },
-    { icon: '💰', title: 'Transparent Pricing', description: 'No hidden fees. Know your exact price before you book.' },
-    { icon: '📅', title: 'Flexible Scheduling', description: 'Book online 24/7. Cancel or reschedule anytime.' },
+    { icon: checkIcon, title: 'Vetted Cleaners', description: 'Every cleaner is background-checked and professionally trained.' },
+    { icon: paidMoneyIcon, title: 'Transparent Pricing', description: 'No hidden fees. Know your exact price before you book.' },
+    { icon: editCalendarIcon, title: 'Flexible Scheduling', description: 'Book online 24/7. Cancel or reschedule anytime.' },
 ]
 
 const services = [
@@ -64,7 +67,7 @@ export function HomePage() {
                     <div className="features-grid">
                         {features.map((feature, i) => (
                             <div key={i} className="feature-item">
-                                <span className="feature-icon">{feature.icon}</span>
+                                <img src={feature.icon} alt={feature.title} className="feature-icon" />
                                 <h3 className="feature-title">{feature.title}</h3>
                                 <p className="feature-text">{feature.description}</p>
                             </div>
