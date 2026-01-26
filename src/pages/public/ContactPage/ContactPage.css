@@ -5,106 +5,121 @@
 
 /* Hero Section */
 .contact-hero {
-    padding: var(--space-12) 0;
+    padding: var(--space-16) 0 var(--space-10);
+    text-align: center;
     background: linear-gradient(135deg, var(--color-primary-50) 0%, white 100%);
 }
 
-.contact-hero .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-10);
-    align-items: center;
-}
-
-@media (max-width: 768px) {
-    .contact-hero .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}
-
-.contact-hero .hero-text .page-title {
+.contact-page .page-title {
     font-size: 3rem;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-4);
     color: var(--color-text);
 }
 
-.contact-hero .hero-text .page-subtitle {
+.contact-page .page-subtitle {
     font-size: var(--font-size-xl);
     color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.contact-hero .hero-image {
+/* Contact Info Section - Photo Left, Info Right */
+.contact-info-section {
+    padding: var(--space-12) 0;
+    background: white;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+}
+
+.contact-photo {
     border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
 }
 
-.contact-hero .hero-image img {
+.contact-photo img {
     width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;
     display: block;
 }
 
-/* Contact Info Bar */
-.contact-info-bar {
-    background: white;
-    padding: var(--space-8) 0;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+/* Contact Details */
+.contact-details {
+    display: flex;
+    flex-direction: column;
     gap: var(--space-6);
 }
 
-@media (max-width: 900px) {
-    .info-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-lg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-@media (max-width: 500px) {
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
+.contact-detail-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.info-item {
+.detail-icon {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
-}
-
-.info-item svg {
-    width: 40px;
-    height: 40px;
-    padding: var(--space-2);
-    background: var(--color-primary-50);
-    color: var(--color-primary);
-    border-radius: var(--radius-full);
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-lg);
     flex-shrink: 0;
 }
 
-.info-item h3 {
-    font-size: var(--font-size-sm);
+.detail-content h3 {
+    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--color-text);
-    margin-bottom: 2px;
+    margin-bottom: var(--space-1);
 }
 
-.info-item p {
-    font-size: var(--font-size-sm);
+.detail-content p {
+    font-size: var(--font-size-base);
     color: var(--color-text-muted);
     margin: 0;
+}
+
+.service-area-list {
+    margin-top: var(--space-2);
+    padding-left: var(--space-4);
+    list-style: disc;
+}
+
+.service-area-list li {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-1);
 }
 
 /* Contact Form Section */
 .contact-form-section {
     padding: var(--space-12) 0 var(--space-16);
+    background: var(--color-bg-subtle);
 }
 
 .contact-form-card {
@@ -194,7 +209,11 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .contact-hero .hero-text .page-title {
+    .contact-page .page-title {
         font-size: 2.25rem;
+    }
+
+    .contact-photo img {
+        height: 300px;
     }
 }

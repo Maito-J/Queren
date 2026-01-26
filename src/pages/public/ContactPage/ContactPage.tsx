@@ -33,53 +33,55 @@ export function ContactPage() {
 
     return (
         <div className="contact-page">
-            {/* Hero with Photo */}
+            {/* Hero Section */}
             <section className="contact-hero">
                 <div className="container">
-                    <div className="hero-content">
-                        <div className="hero-text">
-                            <h1 className="page-title">Contact Us</h1>
-                            <p className="page-subtitle">
-                                Have questions? We'd love to hear from you.
-                            </p>
-                        </div>
-                        <div className="hero-image">
-                            <img src={DEFAULT_IMAGES.team} alt="Our cleaning team" />
-                        </div>
-                    </div>
+                    <h1 className="page-title">Contact Us</h1>
+                    <p className="page-subtitle">
+                        Have questions? We'd love to hear from you.
+                    </p>
                 </div>
             </section>
 
-            {/* Contact Info Bar */}
-            <section className="contact-info-bar">
+            {/* Contact Info Section - Photo Left, Info Right */}
+            <section className="contact-info-section">
                 <div className="container">
-                    <div className="info-grid">
-                        <div className="info-item">
-                            <Icon name="phone" size="md" />
-                            <div>
-                                <h3>Phone</h3>
-                                <p>(647) 123-4567</p>
-                            </div>
+                    <div className="contact-info-grid">
+                        <div className="contact-photo">
+                            <img src={DEFAULT_IMAGES.team} alt="Our cleaning team" />
                         </div>
-                        <div className="info-item">
-                            <Icon name="email" size="md" />
-                            <div>
-                                <h3>Email</h3>
-                                <p>hello@queren.ca</p>
+                        <div className="contact-details">
+                            <div className="contact-detail-item">
+                                <div className="detail-icon">
+                                    <Icon name="phone" size="md" />
+                                </div>
+                                <div className="detail-content">
+                                    <h3>Phone</h3>
+                                    <p>(647) 123-4567</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="info-item">
-                            <Icon name="clock" size="md" />
-                            <div>
-                                <h3>Hours</h3>
-                                <p>Mon-Fri 8am-6pm</p>
+                            <div className="contact-detail-item">
+                                <div className="detail-icon">
+                                    <Icon name="email" size="md" />
+                                </div>
+                                <div className="detail-content">
+                                    <h3>Email</h3>
+                                    <p>hello@queren.ca</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="info-item">
-                            <Icon name="location" size="md" />
-                            <div>
-                                <h3>Service Area</h3>
-                                <p>Greater Toronto Area</p>
+                            <div className="contact-detail-item">
+                                <div className="detail-icon">
+                                    <Icon name="location" size="md" />
+                                </div>
+                                <div className="detail-content">
+                                    <h3>Service Area</h3>
+                                    <p>New Westminster</p>
+                                    <ul className="service-area-list">
+                                        <li>Maximum 25 km radius by car</li>
+                                        <li>Maximum ETA: 45 minutes by vehicle</li>
+                                        <li>Public transit: max 1 hour 15 minutes</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
