@@ -260,8 +260,8 @@
 
 /* CTA */
 .cta {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #7c3aed 100%);
-    color: white;
+    background: #b69cc9;
+    color: #2d1f3d;
 }
 
 .cta-content {
@@ -273,23 +273,24 @@
 .cta h2 {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--space-4);
+    color: #2d1f3d;
 }
 
 .cta p {
     font-size: var(--font-size-lg);
-    opacity: 0.9;
+    color: #4a3a5c;
     margin-bottom: var(--space-8);
 }
 
 .cta .btn {
-    background: white;
-    color: var(--color-primary);
+    background: var(--color-primary);
+    color: white;
     transition: all 0.3s ease;
 }
 
 .cta .btn:hover {
-    background: #f0e6ff;
-    color: var(--color-primary);
+    background: var(--color-primary-dark);
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
