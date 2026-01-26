@@ -121,7 +121,38 @@
     font-size: var(--font-size-lg);
     color: var(--color-text-muted);
     line-height: 1.7;
+    margin-bottom: var(--space-4);
+}
+
+/* Pricing Display */
+.service-pricing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
     margin-bottom: var(--space-6);
+}
+
+.price-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-primary-50) 0%, white 100%);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-5);
+    min-width: 100px;
+}
+
+.price-hours {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-medium);
+}
+
+.price-amount {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
 }
 
 /* What's Included List */

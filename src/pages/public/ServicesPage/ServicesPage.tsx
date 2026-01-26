@@ -46,6 +46,11 @@ const airbnbCleaningIncludes = [
     'Satisfaction guaranteed',
 ]
 
+interface PriceOption {
+    hours: number
+    price: number
+}
+
 interface ServiceSectionProps {
     title: string
     description: string
@@ -56,6 +61,7 @@ interface ServiceSectionProps {
     buttonText?: string
     imageOnRight?: boolean
     comingSoon?: boolean
+    pricing?: PriceOption[]
 }
 
 function ServiceSection({
@@ -67,7 +73,8 @@ function ServiceSection({
     link,
     buttonText,
     imageOnRight = false,
-    comingSoon
+    comingSoon,
+    pricing
 }: ServiceSectionProps) {
     return (
         <section className={`service-section ${imageOnRight ? 'image-right' : 'image-left'}`}>
@@ -82,6 +89,16 @@ function ServiceSection({
                             {comingSoon && <span className="coming-soon-badge">Coming Soon</span>}
                         </h2>
                         <p className="service-description">{description}</p>
+                        {pricing && pricing.length > 0 && (
+                            <div className="service-pricing">
+                                {pricing.map((option, index) => (
+                                    <div key={index} className="price-option">
+                                        <span className="price-hours">{option.hours} hours</span>
+                                        <span className="price-amount">${option.price} CAD</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                         <div className="service-includes">
                             <h3 className="includes-title">What's Included</h3>
                             <ul className="includes-list">
@@ -128,6 +145,7 @@ export function ServicesPage() {
                 link="/booking"
                 buttonText="Book Regular Cleaning"
                 imageOnRight={false}
+                pricing={[{ hours: 3, price: 120 }]}
             />
 
             {/* Deep Cleaning - Intro Left, Photo Right */}
@@ -140,6 +158,11 @@ export function ServicesPage() {
                 link="/booking"
                 buttonText="Book Deep Cleaning"
                 imageOnRight={true}
+                pricing={[
+                    { hours: 4, price: 160 },
+                    { hours: 5, price: 200 },
+                    { hours: 6, price: 240 }
+                ]}
             />
 
             {/* Custom Cleaning - Photo Left, Intro Right */}
