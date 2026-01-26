@@ -188,7 +188,7 @@
 
 /* Footer */
 .public-footer {
-    background: #b69cc9;
+    background: linear-gradient(135deg, #2d1b4e 0%, #1a1030 100%);
     border-top: none;
     padding: var(--space-12) 0 var(--space-6);
     margin-top: auto;
@@ -221,14 +221,14 @@
 }
 
 .footer-tagline {
-    color: #4a3a5c;
+    color: rgba(255, 255, 255, 0.7);
     max-width: 300px;
 }
 
 .footer-links h4 {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
-    color: #2d1f3d;
+    color: white;
     margin-bottom: var(--space-4);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -236,20 +236,20 @@
 
 .footer-links a {
     display: block;
-    color: #4a3a5c;
+    color: rgba(255, 255, 255, 0.7);
     padding: var(--space-1) 0;
     transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
-    color: var(--color-primary-dark);
+    color: #c4a7e7;
 }
 
 .footer-bottom {
     margin-top: var(--space-8);
     padding-top: var(--space-6);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    color: #4a3a5c;
+    color: rgba(255, 255, 255, 0.5);
     font-size: var(--font-size-sm);
 }
