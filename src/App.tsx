@@ -8,6 +8,7 @@ import { HomePage } from '@/pages/public/HomePage'
 import { BookingPage } from '@/pages/public/BookingPage'
 import { BookingConfirmationPage } from '@/pages/public/BookingPage/BookingConfirmationPage'
 import { FAQPage } from '@/pages/public/FAQPage'
+import { ServicesPage } from '@/pages/public/ServicesPage'
 
 // Auth Pages
 import { LoginPage, SignupPage } from '@/pages/auth'
@@ -74,7 +75,7 @@ function AppRoutes() {
             <Route path="/booking/confirmation" element={<PublicLayout><BookingConfirmationPage /></PublicLayout>} />
 
             {/* Placeholder public pages */}
-            <Route path="/services" element={<PublicLayout><PlaceholderPage title="Our Services" imageType="service" /></PublicLayout>} />
+            <Route path="/services" element={<PublicLayout><ServicesPage /></PublicLayout>} />
             <Route path="/services/regular" element={<PublicLayout><PlaceholderPage title="Regular Cleaning" imageType="service" /></PublicLayout>} />
             <Route path="/services/deep" element={<PublicLayout><PlaceholderPage title="Deep Cleaning" imageType="service" /></PublicLayout>} />
             <Route path="/services/pricing" element={<PublicLayout><PlaceholderPage title="Pricing" imageType="service" /></PublicLayout>} />
