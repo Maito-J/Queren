@@ -29,6 +29,7 @@ import {
     Phone,
     Headphones,
     MapPin,
+    Mail,
     BarChart3,
     TrendingUp,
     RefreshCw,
@@ -86,6 +87,8 @@ const iconMap: Record<string, LucideIcon> = {
     message: MessageCircle,
     phone: Phone,
     headphones: Headphones,
+    email: Mail,
+    location: MapPin,
 
     // Misc
     mapPin: MapPin,
