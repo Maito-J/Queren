@@ -9,6 +9,7 @@ import { BookingPage } from '@/pages/public/BookingPage'
 import { BookingConfirmationPage } from '@/pages/public/BookingPage/BookingConfirmationPage'
 import { FAQPage } from '@/pages/public/FAQPage'
 import { ServicesPage } from '@/pages/public/ServicesPage'
+import { ContactPage } from '@/pages/public/ContactPage'
 
 // Auth Pages
 import { LoginPage, SignupPage } from '@/pages/auth'
@@ -86,7 +87,7 @@ function AppRoutes() {
             <Route path="/about/careers" element={<PublicLayout><PlaceholderPage title="Careers" imageType="team" /></PublicLayout>} />
             <Route path="/faq" element={<PublicLayout><FAQPage /></PublicLayout>} />
             <Route path="/policies" element={<PublicLayout><PlaceholderPage title="Policies" imageType="general" /></PublicLayout>} />
-            <Route path="/contact" element={<PublicLayout><PlaceholderPage title="Contact" imageType="general" /></PublicLayout>} />
+            <Route path="/contact" element={<PublicLayout><ContactPage /></PublicLayout>} />
 
             {/* Auth Routes */}
             <Route path="/login" element={<LoginPage />} />
