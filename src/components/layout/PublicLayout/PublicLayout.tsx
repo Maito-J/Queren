@@ -86,7 +86,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                             <h4>Services</h4>
                             <Link to="/services/regular">Regular Cleaning</Link>
                             <Link to="/services/deep">Deep Cleaning</Link>
-                            <Link to="/services/pricing">Pricing</Link>
+                            <Link to="/contact">Custom Clean</Link>
                         </div>
 
                         <div className="footer-links">
