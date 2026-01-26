@@ -188,8 +188,8 @@
 
 /* Footer */
 .public-footer {
-    background: var(--color-bg-subtle);
-    border-top: 1px solid var(--color-border);
+    background: #1a1a2e;
+    border-top: none;
     padding: var(--space-12) 0 var(--space-6);
     margin-top: auto;
 }
@@ -221,14 +221,14 @@
 }
 
 .footer-tagline {
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.7);
     max-width: 300px;
 }
 
 .footer-links h4 {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
+    color: white;
     margin-bottom: var(--space-4);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -236,20 +236,20 @@
 
 .footer-links a {
     display: block;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.7);
     padding: var(--space-1) 0;
     transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-light);
 }
 
 .footer-bottom {
     margin-top: var(--space-8);
     padding-top: var(--space-6);
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.5);
     font-size: var(--font-size-sm);
 }
