@@ -222,6 +222,11 @@
     margin-bottom: var(--space-4);
 }
 
+.footer-brand .logo-icon {
+    height: 80px;
+    filter: brightness(0) invert(1);
+}
+
 .footer-tagline {
     color: rgba(255, 255, 255, 0.8);
     max-width: 300px;
