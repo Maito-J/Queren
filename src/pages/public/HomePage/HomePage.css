@@ -260,7 +260,7 @@
 
 /* CTA */
 .cta {
-    background: var(--color-bg-subtle);
+    background: white;
     color: var(--color-text);
 }
 
@@ -280,17 +280,4 @@
     font-size: var(--font-size-lg);
     color: var(--color-text-muted);
     margin-bottom: var(--space-8);
-}
-
-.cta .btn {
-    background: var(--color-primary);
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.cta .btn:hover {
-    background: var(--color-primary-dark);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }

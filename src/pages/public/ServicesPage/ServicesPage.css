@@ -201,9 +201,8 @@
 /* CTA Section */
 .services-cta {
     padding: var(--space-16) 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: white;
     text-align: center;
-    color: white;
 }
 
 .services-cta .cta-content {
@@ -215,21 +214,13 @@
     font-size: 2.5rem;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-4);
+    color: var(--color-text);
 }
 
 .services-cta p {
     font-size: var(--font-size-lg);
-    opacity: 0.9;
+    color: var(--color-text-muted);
     margin-bottom: var(--space-8);
-}
-
-.services-cta .btn {
-    background: white;
-    color: var(--color-primary);
-}
-
-.services-cta .btn:hover {
-    background: var(--color-bg);
 }
 
 /* Responsive */
