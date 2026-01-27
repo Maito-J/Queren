@@ -35,7 +35,7 @@ export function AboutPage() {
                 <div className="container">
                     <div className="about-hero-content">
                         <h1 className="about-hero-title">
-                            More Than Just Cleaning—<br />
+                            More Than Just Cleaning<br />
                             <span className="text-highlight">We Create a Home You Love Coming Back To</span>
                         </h1>
                         <p className="about-hero-subtitle">
@@ -62,7 +62,6 @@ export function AboutPage() {
                 <div className="container">
                     <div className="story-content">
                         <div className="story-text">
-                            <span className="section-badge">About Us</span>
                             <h2 className="section-title">Our Story</h2>
                             <p className="story-paragraph">
                                 At Queren-Hapuque Cleaning, we believe that a truly clean home is the foundation of a peaceful life. Our mission is to deliver premium cleaning services with meticulous attention to detail, transforming spaces into sanctuaries of comfort and well-being.
@@ -96,7 +95,6 @@ export function AboutPage() {
                             </div>
                         </div>
                         <div className="founder-text">
-                            <span className="section-badge"><Icon name="sparkle" size="sm" /> Meet Our Founder</span>
                             <h2 className="section-title">Queren's Story</h2>
                             <p className="founder-paragraph">
                                 With <strong>6 years of dedicated experience</strong> in the cleaning industry, Queren founded Queren-Hapuque Cleaning with a simple yet powerful vision: to elevate cleaning from a routine task to an art form.
@@ -123,7 +121,6 @@ export function AboutPage() {
             <section className="about-values section">
                 <div className="container">
                     <div className="values-header">
-                        <span className="section-badge">What We Stand For</span>
                         <h2 className="section-title text-center">Our Core Values</h2>
                         <p className="section-subtitle text-center">
                             The principles that guide everything we do
@@ -166,13 +163,7 @@ export function AboutPage() {
                                         <p>25 km from Queensborough</p>
                                     </div>
                                 </div>
-                                <div className="info-item">
-                                    <div className="info-icon"><Icon name="star" size="lg" /></div>
-                                    <div className="info-content">
-                                        <h4>Premium Rate</h4>
-                                        <p>$40/hour</p>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                         <div className="service-info-map">
@@ -209,18 +200,7 @@ export function AboutPage() {
                 </div>
             </section>
 
-            {/* Final CTA */}
-            <section className="about-final-cta section">
-                <div className="container">
-                    <div className="final-cta-content">
-                        <h2>Ready to Experience the Difference?</h2>
-                        <p>Book your first cleaning and see why families trust Queren-Hapuque Cleaning.</p>
-                        <Link to="/booking">
-                            <Button size="lg">Book Your Cleaning Today</Button>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+
         </div>
     )
 }

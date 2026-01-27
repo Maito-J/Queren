@@ -498,20 +498,20 @@
 
 .vision-btn {
     display: inline-block;
-    padding: var(--space-3) var(--space-8);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: var(--space-4) var(--space-8);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-full);
     text-decoration: none;
     transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(155, 126, 217, 0.4);
 }
 
 .vision-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(155, 126, 217, 0.5);
     color: white;
 }
 
