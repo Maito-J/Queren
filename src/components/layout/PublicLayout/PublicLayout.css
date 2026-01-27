@@ -188,22 +188,12 @@
 
 /* Footer */
 .public-footer {
-    background: var(--color-bg-subtle);
+    background: var(--color-primary);
     border-top: none;
     padding: var(--space-12) 0 var(--space-6);
     margin-top: auto;
     position: relative;
     z-index: 10;
-}
-
-.public-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary), var(--color-primary-light));
 }
 
 .footer-grid {
@@ -233,7 +223,7 @@
 }
 
 .footer-tagline {
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.8);
     max-width: 300px;
     line-height: 1.6;
 }
@@ -241,7 +231,7 @@
 .footer-links h4 {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
+    color: white;
     margin-bottom: var(--space-4);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -249,22 +239,22 @@
 
 .footer-links a {
     display: block;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.8);
     padding: var(--space-2) 0;
     transition: all var(--transition-fast);
     font-weight: var(--font-weight-medium);
 }
 
 .footer-links a:hover {
-    color: var(--color-primary);
+    color: white;
     transform: translateX(4px);
 }
 
 .footer-bottom {
     margin-top: var(--space-8);
     padding-top: var(--space-6);
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.7);
     font-size: var(--font-size-sm);
 }

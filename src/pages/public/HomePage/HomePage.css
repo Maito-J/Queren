@@ -357,63 +357,48 @@
 
 /* CTA */
 .cta {
-    background: linear-gradient(135deg, #7B5EC9 0%, #9B7ED9 50%, #C4B5E0 100%);
-    color: white;
     position: relative;
     overflow: hidden;
     padding: var(--space-20) 0;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
 }
 
-.cta-decorative-bg {
+.cta-background {
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    overflow: hidden;
+    z-index: 0;
 }
 
-.cta-glow {
+.cta-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cta-overlay {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.4;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(45, 27, 78, 0.85) 0%, rgba(123, 94, 201, 0.75) 100%);
 }
 
-.cta-glow-1 {
-    width: 400px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.3);
-    top: -100px;
-    left: -100px;
-    animation: float 8s ease-in-out infinite;
-}
-
-.cta-glow-2 {
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.25);
-    bottom: -80px;
-    right: -50px;
-    animation: float 6s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    50% {
-        transform: translate(20px, -20px) scale(1.05);
-    }
-}
-
-.cta-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
+.cta .container {
     position: relative;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.cta-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10);
+    max-width: 550px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
 }
 
 .cta-badge {
@@ -421,12 +406,11 @@
     align-items: center;
     gap: var(--space-2);
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-full);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-5);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -436,47 +420,22 @@
 }
 
 .cta h2 {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-4);
     color: white;
     line-height: 1.2;
 }
 
-.cta-highlight {
-    position: relative;
-    display: inline-block;
-}
-
-.cta-highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-    z-index: -1;
-}
-
 .cta p {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: var(--space-8);
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: var(--space-6);
     line-height: 1.6;
 }
 
 .cta-actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-6);
-    margin-bottom: var(--space-8);
-    flex-wrap: wrap;
+    margin-bottom: var(--space-6);
 }
 
 .cta .btn {
@@ -486,39 +445,21 @@
     padding: var(--space-4) var(--space-8);
     font-size: var(--font-size-lg);
     border: none;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
 .cta .btn:hover {
     background: white;
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-}
-
-.cta-secondary-link {
-    color: white;
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-lg);
-    text-decoration: none;
-    opacity: 0.9;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-}
-
-.cta-secondary-link:hover {
-    opacity: 1;
-    color: white;
-    transform: translateX(4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .cta-features {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-6);
+    gap: var(--space-5);
     flex-wrap: wrap;
     font-size: var(--font-size-sm);
     color: rgba(255, 255, 255, 0.9);
@@ -538,19 +479,20 @@
 @media (max-width: 768px) {
     .cta {
         padding: var(--space-12) 0;
+        min-height: 400px;
+    }
+
+    .cta-card {
+        padding: var(--space-6);
+        margin: 0 var(--space-4);
     }
 
     .cta h2 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .cta p {
-        font-size: var(--font-size-lg);
-    }
-
-    .cta-actions {
-        flex-direction: column;
-        gap: var(--space-4);
+        font-size: var(--font-size-base);
     }
 
     .cta-features {

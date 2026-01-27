@@ -17,9 +17,9 @@ const features: { icon: IconName; title: string; description: string }[] = [
 ]
 
 const services = [
-    { title: 'Regular Cleaning', price: 89, description: 'Weekly or bi-weekly maintenance cleaning to keep your home fresh.', link: '/services/regular' },
-    { title: 'Deep Cleaning', price: 149, description: 'Thorough top-to-bottom cleaning for a complete refresh.', link: '/services/deep' },
-    { title: 'Custom Clean', price: null, description: 'Special requests? Moving? We can customize to your needs.', link: '/contact' },
+    { title: 'Regular Cleaning', price: 89, description: 'Weekly or bi-weekly maintenance cleaning to keep your home fresh.', link: '/services' },
+    { title: 'Deep Cleaning', price: 149, description: 'Thorough top-to-bottom cleaning for a complete refresh.', link: '/services' },
+    { title: 'Custom Clean', price: null, description: 'Special requests? Moving? We can customize to your needs.', link: '/services' },
 ]
 
 export function HomePage() {
@@ -152,30 +152,29 @@ export function HomePage() {
 
             {/* CTA */}
             <section className="section cta">
-                <div className="cta-decorative-bg">
-                    <div className="cta-glow cta-glow-1"></div>
-                    <div className="cta-glow cta-glow-2"></div>
+                <div className="cta-background">
+                    <img
+                        src={DEFAULT_IMAGES.general[1]}
+                        alt="Professional home cleaning"
+                    />
+                    <div className="cta-overlay"></div>
                 </div>
                 <div className="container">
-                    <div className="cta-content">
+                    <div className="cta-card">
                         <div className="cta-badge">
                             <Icon name="starFilled" size="sm" filled />
                             <span>Trusted by 500+ Happy Homes</span>
                         </div>
-                        <h2>Ready for a <span className="cta-highlight">Sparkling</span> Home?</h2>
+                        <h2>Ready for a Sparkling Home?</h2>
                         <p>Book your cleaning in under 2 minutes. No surprises, just clean.</p>
                         <div className="cta-actions">
                             <Link to="/booking">
                                 <Button size="lg">Book Your Cleaning</Button>
                             </Link>
-                            <Link to="/services" className="cta-secondary-link">
-                                View Services →
-                            </Link>
                         </div>
                         <div className="cta-features">
                             <span><Icon name="check" size="sm" /> Free Cancellation</span>
                             <span><Icon name="check" size="sm" /> Satisfaction Guaranteed</span>
-                            <span><Icon name="check" size="sm" /> Secure Payment</span>
                         </div>
                     </div>
                 </div>

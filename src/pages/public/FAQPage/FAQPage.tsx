@@ -1,5 +1,6 @@
 import React from 'react'
-import { Accordion } from '@/components/ui'
+import { Link } from 'react-router-dom'
+import { Accordion, Button } from '@/components/ui'
 import { Icon, IconName } from '@/components/Icon'
 import './FAQPage.css'
 
@@ -164,7 +165,9 @@ export function FAQPage() {
                         <span className="faq-contact-icon"><Icon name="message" size="lg" /></span>
                         <h3>Still have questions?</h3>
                         <p>We're here to help. Reach out and we'll get back to you quickly.</p>
-                        <a href="/contact" className="btn btn-primary">Contact Us</a>
+                        <Link to="/contact">
+                            <Button>Contact Us</Button>
+                        </Link>
                     </div>
                 </div>
             </div>

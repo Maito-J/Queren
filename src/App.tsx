@@ -10,6 +10,7 @@ import { BookingConfirmationPage } from '@/pages/public/BookingPage/BookingConfi
 import { FAQPage } from '@/pages/public/FAQPage'
 import { ServicesPage } from '@/pages/public/ServicesPage'
 import { ContactPage } from '@/pages/public/ContactPage'
+import { AboutPage } from '@/pages/public/AboutPage'
 
 // Auth Pages
 import { LoginPage, SignupPage } from '@/pages/auth'
@@ -80,7 +81,7 @@ function AppRoutes() {
             <Route path="/services/regular" element={<PublicLayout><PlaceholderPage title="Regular Cleaning" imageType="service" /></PublicLayout>} />
             <Route path="/services/deep" element={<PublicLayout><PlaceholderPage title="Deep Cleaning" imageType="service" /></PublicLayout>} />
             <Route path="/services/pricing" element={<PublicLayout><PlaceholderPage title="Pricing" imageType="service" /></PublicLayout>} />
-            <Route path="/about" element={<PublicLayout><PlaceholderPage title="About Us" imageType="team" /></PublicLayout>} />
+            <Route path="/about" element={<PublicLayout><AboutPage /></PublicLayout>} />
             <Route path="/about/story" element={<PublicLayout><PlaceholderPage title="Our Story" imageType="team" /></PublicLayout>} />
             <Route path="/about/areas" element={<PublicLayout><PlaceholderPage title="Service Areas" imageType="general" /></PublicLayout>} />
             <Route path="/about/values" element={<PublicLayout><PlaceholderPage title="Our Values" imageType="team" /></PublicLayout>} />
