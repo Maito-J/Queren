@@ -152,13 +152,31 @@ export function HomePage() {
 
             {/* CTA */}
             <section className="section cta">
+                <div className="cta-decorative-bg">
+                    <div className="cta-glow cta-glow-1"></div>
+                    <div className="cta-glow cta-glow-2"></div>
+                </div>
                 <div className="container">
                     <div className="cta-content">
-                        <h2>Ready for a Sparkling Home?</h2>
+                        <div className="cta-badge">
+                            <Icon name="starFilled" size="sm" filled />
+                            <span>Trusted by 500+ Happy Homes</span>
+                        </div>
+                        <h2>Ready for a <span className="cta-highlight">Sparkling</span> Home?</h2>
                         <p>Book your cleaning in under 2 minutes. No surprises, just clean.</p>
-                        <Link to="/booking">
-                            <Button size="lg">Book Your Cleaning</Button>
-                        </Link>
+                        <div className="cta-actions">
+                            <Link to="/booking">
+                                <Button size="lg">Book Your Cleaning</Button>
+                            </Link>
+                            <Link to="/services" className="cta-secondary-link">
+                                View Services →
+                            </Link>
+                        </div>
+                        <div className="cta-features">
+                            <span><Icon name="check" size="sm" /> Free Cancellation</span>
+                            <span><Icon name="check" size="sm" /> Satisfaction Guaranteed</span>
+                            <span><Icon name="check" size="sm" /> Secure Payment</span>
+                        </div>
                     </div>
                 </div>
             </section>
