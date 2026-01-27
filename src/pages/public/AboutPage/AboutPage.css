@@ -96,7 +96,9 @@
 
 /* Section Badge */
 .section-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 100%);
     color: var(--color-primary);
     font-size: var(--font-size-sm);
@@ -235,87 +237,49 @@
 .founder-image-wrapper {
     border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: 0 25px 60px rgba(155, 126, 217, 0.2);
-    aspect-ratio: 1;
-    max-width: 350px;
+    box-shadow: 0 25px 60px rgba(155, 126, 217, 0.15);
+    max-width: 400px;
     margin: 0 auto;
 }
 
-.founder-placeholder {
+.founder-image-wrapper img {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.founder-placeholder span {
-    font-size: 8rem;
-    font-weight: var(--font-weight-bold);
-    color: white;
-    opacity: 0.9;
-}
-
-.founder-badge {
-    position: absolute;
-    bottom: var(--space-4);
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.founder-badge span {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-primary);
-}
-
-.founder-role {
-    font-size: var(--font-size-lg);
-    color: var(--color-primary);
-    font-weight: var(--font-weight-medium);
-    margin-bottom: var(--space-4);
+    height: 500px;
+    object-fit: cover;
+    display: block;
 }
 
 .founder-paragraph {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     color: var(--color-text-muted);
     line-height: 1.8;
     margin-bottom: var(--space-4);
 }
 
-.founder-traits {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-top: var(--space-6);
-}
-
-@media (max-width: 900px) {
-    .founder-traits {
-        justify-content: center;
-    }
-}
-
-.trait {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    background: white;
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
+.founder-paragraph strong {
     color: var(--color-text);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    font-weight: var(--font-weight-semibold);
 }
 
-.trait svg {
-    color: #4ADE80;
+.founder-quote {
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+}
+
+.founder-quote p {
+    font-size: var(--font-size-base);
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+    line-height: 1.6;
+}
+
+.founder-quote cite {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+    font-style: normal;
 }
 
 /* Core Values Section */
@@ -369,8 +333,16 @@
 }
 
 .value-icon {
-    font-size: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    border-radius: var(--radius-full);
     margin-bottom: var(--space-4);
+    box-shadow: 0 8px 24px rgba(155, 126, 217, 0.3);
 }
 
 .value-title {
@@ -429,7 +401,14 @@
 }
 
 .info-icon {
-    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary-50);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
     flex-shrink: 0;
 }
 
@@ -449,150 +428,104 @@
     position: relative;
 }
 
-.map-image-wrapper {
+.service-info-image {
     border-radius: var(--radius-xl);
     overflow: hidden;
     box-shadow: 0 25px 60px rgba(155, 126, 217, 0.2);
-    position: relative;
 }
 
-.map-image-wrapper img {
+.service-info-image img {
     width: 100%;
     height: 350px;
     object-fit: cover;
     display: block;
 }
 
-.map-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(123, 94, 201, 0.7) 0%, rgba(155, 126, 217, 0.6) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.map-pin {
-    font-size: 4rem;
-    margin-bottom: var(--space-4);
-    animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.map-overlay span {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: white;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
 /* Vision Section */
 .about-vision {
-    background: linear-gradient(135deg, #7B5EC9 0%, #9B7ED9 50%, #C4B5E0 100%);
-    color: white;
     position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
     overflow: hidden;
 }
 
-.vision-decorative {
+.vision-background {
     position: absolute;
     inset: 0;
-    pointer-events: none;
+    z-index: 0;
 }
 
-.vision-glow {
+.vision-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vision-overlay {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.3;
+    inset: 0;
+    background: rgba(90, 80, 75, 0.7);
 }
 
-.vision-glow-1 {
-    width: 400px;
-    height: 400px;
-    background: white;
-    top: -150px;
-    left: -100px;
-}
-
-.vision-glow-2 {
-    width: 300px;
-    height: 300px;
-    background: white;
-    bottom: -100px;
-    right: -50px;
-}
-
-.vision-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+.about-vision .container {
     position: relative;
     z-index: 1;
 }
 
+.vision-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-16) 0;
+}
+
 .vision-title {
-    font-size: 2.5rem;
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-4);
+    font-size: 2.25rem;
+    font-weight: var(--font-weight-normal);
+    margin-bottom: var(--space-6);
     color: white;
+    font-style: italic;
+    line-height: 1.4;
 }
 
 .vision-description {
     font-size: var(--font-size-xl);
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.7;
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-8);
 }
 
-.vision-cta {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-xl);
-    padding: var(--space-8);
+.vision-btn {
+    display: inline-block;
+    padding: var(--space-3) var(--space-8);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.vision-cta h3 {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-3);
+.vision-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
     color: white;
 }
 
-.vision-cta p {
-    font-size: var(--font-size-lg);
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: var(--space-6);
-    line-height: 1.6;
-}
-
-.vision-cta .btn {
-    background: white;
-    color: var(--color-primary-dark);
-    font-weight: var(--font-weight-semibold);
-}
-
-.vision-cta .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
 @media (max-width: 768px) {
+    .about-vision {
+        min-height: 350px;
+    }
+
+    .vision-content {
+        padding: var(--space-12) var(--space-4);
+    }
+
     .vision-title {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     .vision-description {

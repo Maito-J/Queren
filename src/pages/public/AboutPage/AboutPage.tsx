@@ -1,27 +1,27 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui'
-import { Icon } from '@/components/Icon'
+import { Icon, IconName } from '@/components/Icon'
 import { DEFAULT_IMAGES } from '@/lib/defaultImages'
 import './AboutPage.css'
 
-const coreValues = [
+const coreValues: { icon: IconName; title: string; description: string }[] = [
     {
-        icon: '✨',
+        icon: 'sparkle',
         title: 'Impeccable Quality',
         description: 'We believe every corner matters. From baseboards to ceiling fans, we deliver spotless results that exceed expectations.'
     },
     {
-        icon: '🤝',
+        icon: 'handshake',
         title: 'Trust & Professionalism',
         description: 'Your home is your sanctuary. We treat it with the utmost respect, showing up on time and maintaining the highest standards.'
     },
     {
-        icon: '💡',
+        icon: 'lightbulb',
         title: 'Proactive Helpfulness',
         description: 'We anticipate your needs. If we notice something that could use attention, we take care of it without being asked.'
     },
     {
-        icon: '🌿',
+        icon: 'broom',
         title: 'Healthy Living',
         description: 'A clean home is a healthy home. We use safe, effective products to create environments where families thrive.'
     }
@@ -62,25 +62,20 @@ export function AboutPage() {
                 <div className="container">
                     <div className="story-content">
                         <div className="story-text">
-                            <span className="section-badge">Our Story</span>
-                            <h2 className="section-title">Making Families Feel at Home</h2>
+                            <span className="section-badge">About Us</span>
+                            <h2 className="section-title">Our Story</h2>
                             <p className="story-paragraph">
-                                At Queren-Hapuque Cleaning, we believe that coming home should feel like a breath of fresh air. Our mission goes beyond just cleaning—we want every family to feel good the moment they step through their front door.
+                                At Queren-Hapuque Cleaning, we believe that a truly clean home is the foundation of a peaceful life. Our mission is to deliver premium cleaning services with meticulous attention to detail, transforming spaces into sanctuaries of comfort and well-being.
                             </p>
                             <p className="story-paragraph">
-                                We understand that your home is where life happens. It's where your children play, where you relax after a long day, and where memories are made. That's why we approach every home with the same care and attention we'd give our own.
+                                We're not just about cleaning—we're about creating environments where you can thrive. Every corner, every surface, every detail matters to us because your peace of mind matters to us.
                             </p>
-                            <blockquote className="story-quote">
-                                <Icon name="quote" size="lg" />
-                                <p>"Enter a home as if it were your own; leave every space impeccable."</p>
-                                <cite>— Our Philosophy</cite>
-                            </blockquote>
                         </div>
                         <div className="story-image">
                             <div className="story-image-wrapper">
                                 <img
-                                    src={DEFAULT_IMAGES.team}
-                                    alt="Professional cleaning service creating a welcoming home"
+                                    src={DEFAULT_IMAGES.general[4]}
+                                    alt="Clean and bright home interior"
                                 />
                             </div>
                         </div>
@@ -94,38 +89,31 @@ export function AboutPage() {
                     <div className="founder-content">
                         <div className="founder-image">
                             <div className="founder-image-wrapper">
-                                <div className="founder-placeholder">
-                                    <span>Q</span>
-                                </div>
-                            </div>
-                            <div className="founder-badge">
-                                <span>6+ Years Experience</span>
+                                <img
+                                    src={DEFAULT_IMAGES.general[2]}
+                                    alt="Queren - Founder of Queren-Hapuque Cleaning"
+                                />
                             </div>
                         </div>
                         <div className="founder-text">
-                            <span className="section-badge">Meet the Founder</span>
-                            <h2 className="section-title">Queren</h2>
-                            <p className="founder-role">Founder & Lead Cleaning Specialist</p>
+                            <span className="section-badge"><Icon name="sparkle" size="sm" /> Meet Our Founder</span>
+                            <h2 className="section-title">Queren's Story</h2>
                             <p className="founder-paragraph">
-                                With over 6 years of experience in residential cleaning, Queren brings an unmatched attention to detail to every home she touches. Her passion for perfection means nothing is overlooked—from the baseboards that collect dust to the corners that often go unnoticed.
+                                With <strong>6 years of dedicated experience</strong> in the cleaning industry, Queren founded Queren-Hapuque Cleaning with a simple yet powerful vision: to elevate cleaning from a routine task to an art form.
                             </p>
                             <p className="founder-paragraph">
-                                As a self-proclaimed perfectionist, Queren understands that it's the small things that make life easier for busy families. A sparkling countertop, freshly made beds, and a bathroom that shines—these details create the foundation for a peaceful home.
+                                What sets Queren apart is her unwavering attention to detail. While many overlook the small things, Queren has developed a signature focus on often-neglected areas—particularly <strong>baseboards</strong>. To her, these overlooked details are the hallmark of truly exceptional cleaning.
                             </p>
-                            <div className="founder-traits">
-                                <div className="trait">
-                                    <Icon name="check" size="sm" />
-                                    <span>Detail-Oriented Perfectionist</span>
-                                </div>
-                                <div className="trait">
-                                    <Icon name="check" size="sm" />
-                                    <span>Family-Focused Approach</span>
-                                </div>
-                                <div className="trait">
-                                    <Icon name="check" size="sm" />
-                                    <span>Passionate About Clean Spaces</span>
-                                </div>
-                            </div>
+                            <p className="founder-paragraph">
+                                "When I walk into a room, I see it from every angle," Queren explains. "The baseboards tell the story of how much care has been put into a space. That's where true professionalism shows."
+                            </p>
+                            <p className="founder-paragraph">
+                                This philosophy of comprehensive care has become the cornerstone of Queren-Hapuque Cleaning, where no corner is too small to matter and every detail receives the attention it deserves.
+                            </p>
+                            <blockquote className="founder-quote">
+                                <p>"Excellence is in the details. It's not about cleaning faster—it's about cleaning better."</p>
+                                <cite>— Queren, Founder</cite>
+                            </blockquote>
                         </div>
                     </div>
                 </div>
@@ -144,7 +132,7 @@ export function AboutPage() {
                     <div className="values-grid">
                         {coreValues.map((value, index) => (
                             <div key={index} className="value-card">
-                                <div className="value-icon">{value.icon}</div>
+                                <div className="value-icon"><Icon name={value.icon} size="xl" /></div>
                                 <h3 className="value-title">{value.title}</h3>
                                 <p className="value-description">{value.description}</p>
                             </div>
@@ -165,21 +153,21 @@ export function AboutPage() {
                             </p>
                             <div className="service-info-details">
                                 <div className="info-item">
-                                    <div className="info-icon">📍</div>
+                                    <div className="info-icon"><Icon name="mapPin" size="lg" /></div>
                                     <div className="info-content">
                                         <h4>Location</h4>
                                         <p>Queensborough, New Westminster</p>
                                     </div>
                                 </div>
                                 <div className="info-item">
-                                    <div className="info-icon">🗺️</div>
+                                    <div className="info-icon"><Icon name="location" size="lg" /></div>
                                     <div className="info-content">
                                         <h4>Service Radius</h4>
                                         <p>25 km from Queensborough</p>
                                     </div>
                                 </div>
                                 <div className="info-item">
-                                    <div className="info-icon">💎</div>
+                                    <div className="info-icon"><Icon name="star" size="lg" /></div>
                                     <div className="info-content">
                                         <h4>Premium Rate</h4>
                                         <p>$40/hour</p>
@@ -188,41 +176,35 @@ export function AboutPage() {
                             </div>
                         </div>
                         <div className="service-info-map">
-                            <div className="map-image-wrapper">
+                            <div className="service-info-image">
                                 <img
-                                    src={DEFAULT_IMAGES.general[0]}
-                                    alt="Professional cleaning in your area"
+                                    src={DEFAULT_IMAGES.general[3]}
+                                    alt="Professional cleaning in New Westminster area"
                                 />
-                                <div className="map-overlay">
-                                    <div className="map-pin">📍</div>
-                                    <span>Queensborough, New Westminster</span>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Vision & Careers CTA Section */}
-            <section className="about-vision section">
-                <div className="vision-decorative">
-                    <div className="vision-glow vision-glow-1"></div>
-                    <div className="vision-glow vision-glow-2"></div>
+            {/* Vision Section */}
+            <section className="about-vision">
+                <div className="vision-background">
+                    <img
+                        src={DEFAULT_IMAGES.general[5]}
+                        alt="Our vision for professional cleaning"
+                    />
+                    <div className="vision-overlay"></div>
                 </div>
                 <div className="container">
                     <div className="vision-content">
-                        <span className="section-badge section-badge-light">Our Vision</span>
-                        <h2 className="vision-title">Growing Together, Cleaning Better</h2>
+                        <h2 className="vision-title">Ready to experience a truly clean home?</h2>
                         <p className="vision-description">
-                            We're building more than a cleaning company—we're creating a team of passionate professionals who share our commitment to excellence. Our vision is to grow into a 5-person team within the next 2 years, expanding our reach while maintaining the personal touch that sets us apart.
+                            Start your journey with Queren-Hapuque Cleaning today.
                         </p>
-                        <div className="vision-cta">
-                            <h3>Join Our Growing Team</h3>
-                            <p>Are you a professional cleaner who takes pride in their work? We're looking for dedicated individuals who share our passion for creating clean, healthy homes.</p>
-                            <Link to="/about/careers">
-                                <Button size="lg" variant="secondary">View Career Opportunities</Button>
-                            </Link>
-                        </div>
+                        <Link to="/booking" className="vision-btn">
+                            Book a Cleaning
+                        </Link>
                     </div>
                 </div>
             </section>
