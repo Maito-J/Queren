@@ -188,10 +188,12 @@
 
 /* Footer */
 .public-footer {
-    background: white;
-    border-top: 1px solid var(--color-border);
+    background: var(--color-bg-subtle);
+    border-top: none;
     padding: var(--space-12) 0 var(--space-6);
     margin-top: auto;
+    position: relative;
+    z-index: 10;
 }
 
 .footer-grid {
