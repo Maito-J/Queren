@@ -1,5 +1,6 @@
 import { Button, Card, CardBody } from '@/components/ui'
 import { Icon } from '@/components/Icon'
+import { DEFAULT_IMAGES } from '@/lib/defaultImages'
 import './CareersPage.css'
 
 export function CareersPage() {
@@ -113,11 +114,18 @@ export function CareersPage() {
 
                             {/* Testimonial */}
                             <div className="career-testimonial">
-                                <p>“I love working at Queren. The management really cares about us, and the clients are great. It's the best cleaning company I've worked for.”</p>
-                                <div className="testimonial-author">
-                                    <strong>Maria S.</strong>
-                                    <span>Cleaning Professional</span>
+                                <div className="testimonial-header">
+                                    <img
+                                        src={DEFAULT_IMAGES.general[0]}
+                                        alt="Maria S."
+                                        className="testimonial-photo"
+                                    />
+                                    <div className="testimonial-author">
+                                        <strong>Maria S.</strong>
+                                        <span>Cleaning Professional</span>
+                                    </div>
                                 </div>
+                                <p>“I love working at Queren. The management really cares about us, and the clients are great. It's the best cleaning company I've worked for.”</p>
                             </div>
                         </div>
 
