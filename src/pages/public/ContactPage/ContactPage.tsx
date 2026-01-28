@@ -48,7 +48,7 @@ export function ContactPage() {
                 <div className="container">
                     <div className="contact-info-grid">
                         <div className="contact-photo">
-                            <img src={DEFAULT_IMAGES.team} alt="Our cleaning team" />
+                            <img src={DEFAULT_IMAGES.general[6]} alt="Professional cleaner ready to help" />
                         </div>
                         <div className="contact-details">
                             <div className="contact-detail-item">
