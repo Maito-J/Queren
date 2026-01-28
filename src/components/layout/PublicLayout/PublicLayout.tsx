@@ -26,6 +26,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                             <NavLink to="/" className="nav-link" end>Home</NavLink>
                             <NavLink to="/services" className="nav-link">Services</NavLink>
                             <NavLink to="/about" className="nav-link">About</NavLink>
+                            <NavLink to="/careers" className="nav-link">Careers</NavLink>
                             <NavLink to="/faq" className="nav-link">FAQ</NavLink>
                             <NavLink to="/contact" className="nav-link">Contact</NavLink>
                         </nav>
