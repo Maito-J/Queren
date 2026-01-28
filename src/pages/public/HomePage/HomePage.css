@@ -297,7 +297,7 @@
 
 /* Testimonials */
 .testimonials {
-    background: linear-gradient(180deg, white 0%, var(--color-bg-subtle) 100%);
+    background: var(--color-bg-subtle);
 }
 
 .testimonials-grid {
