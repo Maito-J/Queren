@@ -116,7 +116,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+    background: var(--color-border);
 }
 
 .features-grid {
@@ -149,7 +149,7 @@
     justify-content: center;
     width: 72px;
     height: 72px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: var(--color-primary);
     color: white;
     border-radius: var(--radius-full);
     font-size: 1.75rem;
@@ -221,7 +221,7 @@
 .step-number {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: var(--color-primary);
     color: white;
     border-radius: var(--radius-full);
     display: inline-flex;
@@ -480,7 +480,7 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: var(--color-primary);
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-full);
     font-size: var(--font-size-sm);
