@@ -196,11 +196,26 @@ export function ServicesPage() {
             <section className="section supplies-section">
                 <div className="container">
                     <div className="supplies-card">
-                        <div className="supplies-icon">
-                            <Icon name="check" size="lg" />
+                        <div className="supplies-visual">
+                            <div className="supplies-icon-glow"></div>
+                            <div className="supplies-icon">
+                                <Icon name="sparkle" size="lg" />
+                            </div>
                         </div>
                         <div className="supplies-content">
-                            <h2>Professional-Grade Supplies Included</h2>
+                            <div className="supplies-header">
+                                <h2>Professional-Grade Supplies Included</h2>
+                                <div className="supplies-badges">
+                                    <span className="supply-badge">
+                                        <Icon name="check" size="sm" />
+                                        Safe for Pets
+                                    </span>
+                                    <span className="supply-badge">
+                                        <Icon name="check" size="sm" />
+                                        Eco-Friendly
+                                    </span>
+                                </div>
+                            </div>
                             <p>
                                 We bring our own professional-grade cleaning products at <strong>no extra charge</strong>. Our carefully selected supplies ensure the highest quality results while being safe for your home and family.
                             </p>
