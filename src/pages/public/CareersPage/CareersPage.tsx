@@ -1,7 +1,5 @@
-import React from 'react'
 import { Button, Card, CardBody } from '@/components/ui'
 import { Icon } from '@/components/Icon'
-import { DEFAULT_IMAGES } from '@/lib/defaultImages'
 import './CareersPage.css'
 
 export function CareersPage() {

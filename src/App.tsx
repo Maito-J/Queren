@@ -11,6 +11,7 @@ import { FAQPage } from '@/pages/public/FAQPage'
 import { ServicesPage } from '@/pages/public/ServicesPage'
 import { ContactPage } from '@/pages/public/ContactPage'
 import { AboutPage } from '@/pages/public/AboutPage'
+import { CareersPage } from '@/pages/public/CareersPage/CareersPage'
 
 // Auth Pages
 import { LoginPage, SignupPage } from '@/pages/auth'
@@ -85,7 +86,7 @@ function AppRoutes() {
             <Route path="/about/story" element={<PublicLayout><PlaceholderPage title="Our Story" imageType="team" /></PublicLayout>} />
             <Route path="/about/areas" element={<PublicLayout><PlaceholderPage title="Service Areas" imageType="general" /></PublicLayout>} />
             <Route path="/about/values" element={<PublicLayout><PlaceholderPage title="Our Values" imageType="team" /></PublicLayout>} />
-            <Route path="/about/careers" element={<PublicLayout><PlaceholderPage title="Careers" imageType="team" /></PublicLayout>} />
+            <Route path="/about/careers" element={<PublicLayout><CareersPage /></PublicLayout>} />
             <Route path="/faq" element={<PublicLayout><FAQPage /></PublicLayout>} />
             <Route path="/policies" element={<PublicLayout><PlaceholderPage title="Policies" imageType="general" /></PublicLayout>} />
             <Route path="/contact" element={<PublicLayout><ContactPage /></PublicLayout>} />
