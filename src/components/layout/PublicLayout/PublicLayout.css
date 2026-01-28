@@ -8,7 +8,7 @@
 .public-header {
     position: sticky;
     top: 0;
-    background: rgba(253, 251, 255, 0.95);
+    background: rgba(247, 245, 251, 0.98);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     z-index: 100;
@@ -46,20 +46,20 @@
 
 .nav-link {
     padding: var(--space-2) var(--space-4);
-    color: var(--color-text);
+    color: #6B6B7A;
     font-weight: var(--font-weight-medium);
     border-radius: var(--radius-full);
     transition: all var(--transition-fast);
 }
 
 .nav-link:hover {
-    color: var(--color-primary);
-    background: var(--color-primary-50);
+    color: #1A1A2D;
+    background: var(--color-primary-light);
 }
 
 .nav-link.active {
-    color: var(--color-primary);
-    background: var(--color-primary-50);
+    color: #1A1A2D;
+    background: var(--color-primary-light);
 }
 
 .header-actions {
@@ -188,8 +188,8 @@
 
 /* Footer */
 .public-footer {
-    background: var(--color-primary);
-    border-top: none;
+    background: #F7F5FB;
+    border-top: 1px solid var(--color-border);
     padding: var(--space-12) 0 var(--space-6);
     margin-top: auto;
     position: relative;
@@ -224,11 +224,11 @@
 
 .footer-brand .logo-icon {
     height: 80px;
-    filter: brightness(0) invert(1);
+    filter: none;
 }
 
 .footer-tagline {
-    color: rgba(255, 255, 255, 0.8);
+    color: #6B6B7A;
     max-width: 300px;
     line-height: 1.6;
 }
@@ -236,7 +236,7 @@
 .footer-links h4 {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
-    color: white;
+    color: #1A1A2D;
     margin-bottom: var(--space-4);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -244,22 +244,22 @@
 
 .footer-links a {
     display: block;
-    color: rgba(255, 255, 255, 0.8);
+    color: #6B6B7A;
     padding: var(--space-2) 0;
     transition: all var(--transition-fast);
     font-weight: var(--font-weight-medium);
 }
 
 .footer-links a:hover {
-    color: white;
+    color: #1A1A2D;
     transform: translateX(4px);
 }
 
 .footer-bottom {
     margin-top: var(--space-8);
     padding-top: var(--space-6);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid var(--color-border);
     text-align: center;
-    color: rgba(255, 255, 255, 0.7);
+    color: #6B6B7A;
     font-size: var(--font-size-sm);
 }

@@ -498,7 +498,7 @@
 /* CTA Section */
 .services-cta {
     padding: var(--space-20) 0;
-    background: linear-gradient(135deg, #2D1B4E 0%, #5A3D7A 50%, #7B5EC9 100%);
+    background: linear-gradient(135deg, #2D1B4E 0%, #5A3D7A 50%, #9681BB 100%);
     text-align: center;
     position: relative;
     overflow: hidden;

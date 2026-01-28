@@ -5,19 +5,24 @@
 
 :root {
   /* Colors */
-  --color-primary: #9B7ED9;
-  --color-primary-light: #C4B5E0;
-  --color-primary-dark: #7B5EC9;
-  --color-primary-50: #F5F0FA;
-  --color-primary-100: #E8DFF4;
+  --color-primary: #9681BB;
+  --color-primary-light: #E8E1F4;
+  --color-primary-dark: #694691;
+  --color-primary-50: #F7F5FB;
+  --color-primary-100: #E8E1F4;
 
   --color-bg: #FDFBFF;
-  --color-bg-subtle: #F5F0FA;
+  --color-bg-subtle: #F7F5FB;
   --color-bg-card: #FFFFFF;
 
+  /* Text colors for regular backgrounds */
   --color-text: #2D2D3A;
-  --color-text-muted: #6B6B7B;
+  --color-text-muted: #6B6B7A;
   --color-text-light: #9090A0;
+
+  /* Text colors for purple backgrounds (header/footer) */
+  --color-text-on-purple-title: #1A1A2D;
+  --color-text-on-purple: #6B6B7A;
 
   --color-success: #4CAF50;
   --color-success-light: #E8F5E9;
