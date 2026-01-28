@@ -249,23 +249,27 @@ export function ServicesPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="services-cta">
-                <div className="cta-background-shapes">
-                    <div className="cta-shape cta-shape-1"></div>
-                    <div className="cta-shape cta-shape-2"></div>
-                    <div className="cta-shape cta-shape-3"></div>
+            <section className="section services-cta">
+                <div className="cta-background">
+                    <img
+                        src={DEFAULT_IMAGES.general[5]}
+                        alt="Professional home cleaning"
+                    />
+                    <div className="cta-overlay"></div>
                 </div>
                 <div className="container">
                     <div className="cta-card">
                         <div className="cta-badge">
-                            <Icon name="starFilled" size="sm" />
+                            <Icon name="starFilled" size="sm" filled />
                             <span>Trusted by Happy Families</span>
                         </div>
                         <h2>Ready to Experience the Difference?</h2>
                         <p>Book your cleaning service today and discover what "impeccable" really means.</p>
-                        <Link to="/booking">
-                            <Button size="lg">Book Your Cleaning</Button>
-                        </Link>
+                        <div className="cta-actions">
+                            <Link to="/booking">
+                                <Button size="lg">Book Your Cleaning</Button>
+                            </Link>
+                        </div>
                         <div className="cta-features">
                             <span><Icon name="check" size="sm" /> $40/hour flat rate</span>
                             <span><Icon name="check" size="sm" /> Satisfaction guaranteed</span>
