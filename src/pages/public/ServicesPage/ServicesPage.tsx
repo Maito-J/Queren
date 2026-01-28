@@ -207,11 +207,11 @@ export function ServicesPage() {
                                 <h2>Professional-Grade Supplies Included</h2>
                                 <div className="supplies-badges">
                                     <span className="supply-badge">
-                                        <Icon name="check" size="sm" />
+                                        <Icon name="check" size="md" />
                                         Safe for Pets
                                     </span>
                                     <span className="supply-badge">
-                                        <Icon name="check" size="sm" />
+                                        <Icon name="check" size="md" />
                                         Eco-Friendly
                                     </span>
                                 </div>
