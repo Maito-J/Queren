@@ -171,7 +171,7 @@ export function HomePage() {
                                 <li><Icon name="check" size="sm" /> Professional training provided</li>
                                 <li><Icon name="check" size="sm" /> Supportive team culture</li>
                             </ul>
-                            <Link to="/about/careers">
+                            <Link to="/careers">
                                 <Button size="lg">View Career Opportunities</Button>
                             </Link>
                         </div>
