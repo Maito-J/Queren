@@ -150,34 +150,7 @@ export function HomePage() {
                 </div>
             </section>
 
-            {/* Join Our Team */}
-            <section className="section join-team">
-                <div className="container">
-                    <div className="join-team-content">
-                        <div className="join-team-image">
-                            <img
-                                src={DEFAULT_IMAGES.team}
-                                alt="Our cleaning team working together"
-                            />
-                        </div>
-                        <div className="join-team-text">
-                            <h2 className="section-title">Become Part of Our Team</h2>
-                            <p className="join-team-desc">
-                                Join our growing family of professional cleaners. We offer flexible schedules, competitive pay, and a supportive work environment. Build a rewarding career with Queren.
-                            </p>
-                            <ul className="join-team-benefits">
-                                <li><Icon name="check" size="sm" /> Flexible working hours</li>
-                                <li><Icon name="check" size="sm" /> Competitive compensation</li>
-                                <li><Icon name="check" size="sm" /> Professional training provided</li>
-                                <li><Icon name="check" size="sm" /> Supportive team culture</li>
-                            </ul>
-                            <Link to="/careers">
-                                <Button size="lg">View Career Opportunities</Button>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* CTA */}
             <section className="section cta">
