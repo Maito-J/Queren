@@ -58,17 +58,72 @@ export function ClientProfile() {
                 </CardBody>
             </Card>
 
-            <Card>
+            <Card style={{ position: 'relative' }}>
+                <span style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: '#F59E0B',
+                    color: 'white',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: '9999px',
+                    fontSize: '0.75rem',
+                    fontWeight: 600
+                }}>Example</span>
                 <CardBody>
                     <h2 style={{ fontSize: '1.25rem', marginBottom: '1.5rem' }}>
                         <Icon name="home" size="md" /> Saved Addresses
                     </h2>
 
-                    <div className="empty-state" style={{ padding: '2rem', textAlign: 'center' }}>
-                        <div style={{ fontSize: '2rem', marginBottom: '1rem' }}><Icon name="mapPin" size="xl" /></div>
-                        <p style={{ marginBottom: '1rem' }}>No saved addresses yet</p>
-                        <Button variant="secondary">Add Address</Button>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        {/* Address 1 - My House */}
+                        <div style={{
+                            padding: '1rem 1.5rem',
+                            background: 'var(--color-bg)',
+                            borderRadius: 'var(--radius-md)',
+                            border: '1px solid var(--color-border)',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            flexWrap: 'wrap',
+                            gap: '1rem'
+                        }}>
+                            <div>
+                                <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>My House</div>
+                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
+                                    456 Columbia Street, New Westminster, BC V3L 1A9
+                                </div>
+                            </div>
+                            <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Edit</Button>
+                            </div>
+                        </div>
+
+                        {/* Address 2 - Parent's House */}
+                        <div style={{
+                            padding: '1rem 1.5rem',
+                            background: 'var(--color-bg)',
+                            borderRadius: 'var(--radius-md)',
+                            border: '1px solid var(--color-border)',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            flexWrap: 'wrap',
+                            gap: '1rem'
+                        }}>
+                            <div>
+                                <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>Parent's House</div>
+                                <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
+                                    789 Royal Avenue, New Westminster, BC V3M 1J5
+                                </div>
+                            </div>
+                            <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Edit</Button>
+                            </div>
+                        </div>
                     </div>
+
+                    <Button variant="secondary" style={{ marginTop: '1.5rem' }}>Add Address</Button>
                 </CardBody>
             </Card>
         </DashboardLayout>
