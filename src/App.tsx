@@ -98,6 +98,10 @@ function AppRoutes() {
 
             {/* Client Dashboard */}
             <Route path="/dashboard-demo" element={<ClientDashboard />} />
+            <Route path="/dashboard-demo/profile" element={<ClientProfile />} />
+            <Route path="/dashboard-demo/billing" element={<ClientBilling />} />
+            <Route path="/dashboard-demo/history" element={<ClientHistory />} />
+            <Route path="/dashboard-demo/preferences" element={<ClientPreferences />} />
             <Route path="/dashboard" element={<ProtectedRoute allowedRoles={['client']}><ClientDashboard /></ProtectedRoute>} />
             <Route path="/dashboard/profile" element={<ProtectedRoute allowedRoles={['client']}><ClientProfile /></ProtectedRoute>} />
             <Route path="/dashboard/billing" element={<ProtectedRoute allowedRoles={['client']}><ClientBilling /></ProtectedRoute>} />
