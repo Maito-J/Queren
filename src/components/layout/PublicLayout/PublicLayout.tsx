@@ -29,6 +29,10 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                             <NavLink to="/careers" className="nav-link">Careers</NavLink>
                             <NavLink to="/faq" className="nav-link">FAQ</NavLink>
                             <NavLink to="/contact" className="nav-link">Contact</NavLink>
+                            {/* Mobile-only login link */}
+                            {!isLoading && !user && (
+                                <NavLink to="/login" className="nav-link mobile-login-link">Log In / Register</NavLink>
+                            )}
                         </nav>
 
                         <div className="header-actions">
@@ -46,7 +50,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                 </>
                             ) : (
                                 <>
-                                    <Link to="/login" className="btn btn-ghost">
+                                    <Link to="/login" className="btn btn-ghost hide-mobile">
                                         Log In / Register
                                     </Link>
                                     <Link to="/booking" className="btn btn-primary">
