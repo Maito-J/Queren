@@ -86,7 +86,7 @@ export function ClientHistory() {
                                 <span style={{ fontWeight: 600, minWidth: '140px' }}>January 15, 2026</span>
                                 <span style={{ color: 'var(--color-text)', minWidth: '120px' }}>Deep Cleaning</span>
                                 <span style={{ color: 'var(--color-text-muted)', minWidth: '80px' }}>3 hours</span>
-                                <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$180</span>
+                                <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$192.10</span>
                             </div>
                             <Link to="/booking">
                                 <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Book Again</Button>
@@ -109,7 +109,7 @@ export function ClientHistory() {
                                 <span style={{ fontWeight: 600, minWidth: '140px' }}>January 8, 2026</span>
                                 <span style={{ color: 'var(--color-text)', minWidth: '120px' }}>Regular Cleaning</span>
                                 <span style={{ color: 'var(--color-text-muted)', minWidth: '80px' }}>2 hours</span>
-                                <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$120</span>
+                                <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$124.30</span>
                             </div>
                             <Link to="/booking">
                                 <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Book Again</Button>
