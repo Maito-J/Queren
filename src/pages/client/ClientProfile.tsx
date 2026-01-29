@@ -2,17 +2,24 @@ import { DashboardLayout } from '@/components/layout'
 import { Card, CardBody, Button } from '@/components/ui'
 import { Icon, IconName } from '@/components/Icon'
 import { useAuth } from '@/hooks'
+import { useLocation } from 'react-router-dom'
 
-const clientLinks: { to: string; label: string; icon: IconName }[] = [
-    { to: '/dashboard', label: 'Overview', icon: 'home' },
-    { to: '/dashboard/profile', label: 'Profile', icon: 'user' },
-    { to: '/dashboard/billing', label: 'Billing', icon: 'creditCard' },
-    { to: '/dashboard/history', label: 'History', icon: 'clipboard' },
-    { to: '/dashboard/preferences', label: 'Preferences', icon: 'settings' },
-]
+function getClientLinks(isDemo: boolean): { to: string; label: string; icon: IconName }[] {
+    const base = isDemo ? '/dashboard-demo' : '/dashboard'
+    return [
+        { to: base, label: 'Overview', icon: 'home' },
+        { to: `${base}/profile`, label: 'Profile', icon: 'user' },
+        { to: `${base}/billing`, label: 'Billing', icon: 'creditCard' },
+        { to: `${base}/history`, label: 'History', icon: 'clipboard' },
+        { to: `${base}/preferences`, label: 'Preferences', icon: 'settings' },
+    ]
+}
 
 export function ClientProfile() {
     const { profile } = useAuth()
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/dashboard-demo')
+    const clientLinks = getClientLinks(isDemo)
 
     return (
         <DashboardLayout title="Profile" links={clientLinks}>
