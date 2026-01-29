@@ -72,31 +72,27 @@ export function LoginPage() {
                                 Sign In
                             </Button>
 
-                            {isWorkerLogin && (
-                                <>
-                                    <Button
-                                        type="button"
-                                        variant="ghost"
-                                        fullWidth
-                                        onClick={() => {
-                                            setEmail('demo.cleaner@queren.com')
-                                            setPassword('demo123')
-                                        }}
-                                    >
-                                        <Icon name="user" size="sm" />
-                                        Fill Demo Credentials
-                                    </Button>
-                                    <Button
-                                        type="button"
-                                        variant="outline"
-                                        fullWidth
-                                        onClick={() => navigate('/worker')}
-                                    >
-                                        <Icon name="sparkle" size="sm" />
-                                        Try Demo Login
-                                    </Button>
-                                </>
-                            )}
+                            <Button
+                                type="button"
+                                variant="ghost"
+                                fullWidth
+                                onClick={() => {
+                                    setEmail(isWorkerLogin ? 'demo.cleaner@queren.com' : 'demo@queren.com')
+                                    setPassword('demo123')
+                                }}
+                            >
+                                <Icon name="user" size="sm" />
+                                Fill Demo Credentials
+                            </Button>
+                            <Button
+                                type="button"
+                                variant="outline"
+                                fullWidth
+                                onClick={() => navigate(isWorkerLogin ? '/worker' : '/dashboard')}
+                            >
+                                <Icon name="sparkle" size="sm" />
+                                Try Demo Login
+                            </Button>
                         </form>
 
                         <div className="auth-footer">

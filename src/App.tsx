@@ -94,7 +94,7 @@ function AppRoutes() {
 
             {/* Auth Routes */}
             <Route path="/login" element={<PublicLayout><LoginPage /></PublicLayout>} />
-            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/signup" element={<PublicLayout><SignupPage /></PublicLayout>} />
 
             {/* Client Dashboard */}
             <Route path="/dashboard" element={<ProtectedRoute allowedRoles={['client']}><ClientDashboard /></ProtectedRoute>} />
