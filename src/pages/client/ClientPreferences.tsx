@@ -54,6 +54,89 @@ export function ClientPreferences() {
                 </CardBody>
             </Card>
 
+            <Card className="mb-6" style={{ position: 'relative' }}>
+                <span style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: '#F59E0B',
+                    color: 'white',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: '9999px',
+                    fontSize: '0.75rem',
+                    fontWeight: 600
+                }}>Example</span>
+                <CardBody>
+                    <h2 style={{ fontSize: '1.25rem', marginBottom: '1.5rem' }}>
+                        <Icon name="calendar" size="md" /> Cleaning Schedule
+                    </h2>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        <div>
+                            <label style={{ display: 'block', fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>Booking Frequency</label>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                                <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
+                                    <input type="radio" name="frequency" value="weekly" defaultChecked style={{ width: '18px', height: '18px' }} />
+                                    <div>
+                                        <div style={{ fontWeight: 500 }}>Once a Week</div>
+                                        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Best for busy households - 10% discount</div>
+                                    </div>
+                                </label>
+                                <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
+                                    <input type="radio" name="frequency" value="biweekly" style={{ width: '18px', height: '18px' }} />
+                                    <div>
+                                        <div style={{ fontWeight: 500 }}>Every Two Weeks</div>
+                                        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Most popular choice - 5% discount</div>
+                                    </div>
+                                </label>
+                                <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
+                                    <input type="radio" name="frequency" value="monthly" style={{ width: '18px', height: '18px' }} />
+                                    <div>
+                                        <div style={{ fontWeight: 500 }}>Once a Month</div>
+                                        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Great for light maintenance</div>
+                                    </div>
+                                </label>
+                                <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
+                                    <input type="radio" name="frequency" value="onetime" style={{ width: '18px', height: '18px' }} />
+                                    <div>
+                                        <div style={{ fontWeight: 500 }}>One-Time Cleaning</div>
+                                        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>No recurring schedule</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>Preferred Day</label>
+                                <select style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option selected>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
+                                    <option>Saturday</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style={{ display: 'block', fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>Preferred Time</label>
+                                <select style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
+                                    <option>8:00 AM - 10:00 AM</option>
+                                    <option selected>10:00 AM - 12:00 PM</option>
+                                    <option>12:00 PM - 2:00 PM</option>
+                                    <option>2:00 PM - 4:00 PM</option>
+                                    <option>4:00 PM - 6:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <Button variant="secondary" style={{ marginTop: '1.5rem' }}>
+                        Update Schedule
+                    </Button>
+                </CardBody>
+            </Card>
+
             <Card className="mb-6">
                 <CardBody>
                     <h2 style={{ fontSize: '1.25rem', marginBottom: '1.5rem' }}>
