@@ -66,7 +66,6 @@ export function ServicesPage() {
                     <div className="pricing-grid">
                         <div className="pricing-content">
                             <div className="pricing-badge">
-                                <Icon name="dollar" size="md" />
                                 <span>Simple, Transparent Pricing</span>
                             </div>
                             <h2 className="pricing-rate">$40<span>/hour</span></h2>
@@ -76,7 +75,6 @@ export function ServicesPage() {
                             <div className="pricing-features">
                                 <span><Icon name="check" size="sm" /> No hidden fees</span>
                                 <span><Icon name="check" size="sm" /> Same rate for all services</span>
-                                <span><Icon name="check" size="sm" /> Pay only for time worked</span>
                             </div>
                         </div>
                         <div className="pricing-image-container">
