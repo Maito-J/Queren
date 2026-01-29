@@ -27,7 +27,7 @@ export function ClientDashboard() {
             <Card className="mb-6" style={{ background: 'linear-gradient(135deg, var(--color-primary-50), var(--color-bg))' }}>
                 <CardBody>
                     <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>
-                        Hi, {profile?.full_name || 'there'}! <Icon name="wave" size="md" />
+                        Hi, {profile?.full_name || (isDemo ? 'Sarah' : 'there')}! <Icon name="wave" size="md" />
                     </h2>
                     <p style={{ color: 'var(--color-text-muted)' }}>
                         Your home is in good hands. Ready to schedule your next cleaning?
@@ -42,19 +42,19 @@ export function ClientDashboard() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
                 <Card>
                     <CardBody style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>0</div>
+                        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>{isDemo ? '1' : '0'}</div>
                         <div style={{ color: 'var(--color-text-muted)' }}>Upcoming Cleanings</div>
                     </CardBody>
                 </Card>
                 <Card>
                     <CardBody style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>0</div>
+                        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>{isDemo ? '2' : '0'}</div>
                         <div style={{ color: 'var(--color-text-muted)' }}>Past Cleanings</div>
                     </CardBody>
                 </Card>
                 <Card>
                     <CardBody style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>-</div>
+                        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>{isDemo ? '5.0' : '-'}</div>
                         <div style={{ color: 'var(--color-text-muted)' }}>Your Rating</div>
                     </CardBody>
                 </Card>
@@ -68,7 +68,7 @@ export function ClientDashboard() {
                         <div style={{ fontSize: '3rem', marginBottom: '1rem' }}><Icon name="calendar" size="xl" /></div>
                         <p style={{ marginBottom: '1rem' }}>No upcoming cleanings scheduled</p>
                         <Link to="/booking">
-                            <Button variant="secondary">Book Your First Cleaning</Button>
+                            <Button variant="secondary">Book Your Next Cleaning</Button>
                         </Link>
                     </div>
                 </CardBody>

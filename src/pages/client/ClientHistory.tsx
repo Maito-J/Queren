@@ -78,14 +78,14 @@ export function ClientHistory() {
                             border: '1px solid var(--color-border)',
                             display: 'flex',
                             justifyContent: 'space-between',
-                            alignItems: 'center',
+                            alignItems: 'flex-start',
                             flexWrap: 'wrap',
                             gap: '1rem'
                         }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-                                <span style={{ fontWeight: 600, minWidth: '140px' }}>January 15, 2026</span>
-                                <span style={{ color: 'var(--color-text)', minWidth: '120px' }}>Deep Cleaning</span>
-                                <span style={{ color: 'var(--color-text-muted)', minWidth: '80px' }}>3 hours</span>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                                <span style={{ fontWeight: 600 }}>January 15, 2026</span>
+                                <span style={{ color: 'var(--color-text)' }}>Deep Cleaning</span>
+                                <span style={{ color: 'var(--color-text-muted)' }}>3 hours</span>
                                 <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$192.10</span>
                             </div>
                             <Link to="/booking">
@@ -101,14 +101,14 @@ export function ClientHistory() {
                             border: '1px solid var(--color-border)',
                             display: 'flex',
                             justifyContent: 'space-between',
-                            alignItems: 'center',
+                            alignItems: 'flex-start',
                             flexWrap: 'wrap',
                             gap: '1rem'
                         }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-                                <span style={{ fontWeight: 600, minWidth: '140px' }}>January 8, 2026</span>
-                                <span style={{ color: 'var(--color-text)', minWidth: '120px' }}>Regular Cleaning</span>
-                                <span style={{ color: 'var(--color-text-muted)', minWidth: '80px' }}>2 hours</span>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                                <span style={{ fontWeight: 600 }}>January 8, 2026</span>
+                                <span style={{ color: 'var(--color-text)' }}>Regular Cleaning</span>
+                                <span style={{ color: 'var(--color-text-muted)' }}>2 hours</span>
                                 <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$124.30</span>
                             </div>
                             <Link to="/booking">
