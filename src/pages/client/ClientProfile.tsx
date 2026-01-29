@@ -33,21 +33,21 @@ export function ClientProfile() {
                         <div>
                             <label style={{ display: 'block', fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>Full Name</label>
                             <div style={{ padding: '0.75rem', background: 'var(--color-bg)', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-                                {profile?.full_name || 'Not set'}
+                                {profile?.full_name || (isDemo ? 'Sarah Johnson' : 'Not set')}
                             </div>
                         </div>
 
                         <div>
                             <label style={{ display: 'block', fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>Email</label>
                             <div style={{ padding: '0.75rem', background: 'var(--color-bg)', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-                                {profile?.email || 'Not set'}
+                                {profile?.email || (isDemo ? 'sarah.johnson@email.com' : 'Not set')}
                             </div>
                         </div>
 
                         <div>
                             <label style={{ display: 'block', fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>Phone</label>
                             <div style={{ padding: '0.75rem', background: 'var(--color-bg)', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
-                                {profile?.phone || 'Not set'}
+                                {profile?.phone || (isDemo ? '(555) 123-4567' : 'Not set')}
                             </div>
                         </div>
 
