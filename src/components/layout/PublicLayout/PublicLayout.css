@@ -159,6 +159,17 @@
     }
 }
 
+/* Hide mobile login link on desktop */
+.mobile-login-link {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .mobile-login-link {
+        display: block;
+    }
+}
+
 /* Extra narrow mobile screens (360px and below) */
 @media (max-width: 400px) {
     .header-content {
