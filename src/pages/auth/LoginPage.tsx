@@ -69,51 +69,55 @@ export function LoginPage() {
                             </Button>
 
                             <div className="demo-buttons">
-                                <Button
-                                    type="button"
-                                    variant="ghost"
-                                    fullWidth
-                                    onClick={() => {
-                                        setEmail('demo@queren.com')
-                                        setPassword('demo123')
-                                    }}
-                                >
-                                    <Icon name="user" size="sm" />
-                                    Fill Client Demo
-                                </Button>
-                                <Button
-                                    type="button"
-                                    variant="outline"
-                                    fullWidth
-                                    onClick={() => navigate('/dashboard')}
-                                >
-                                    <Icon name="sparkle" size="sm" />
-                                    Try Client Demo
-                                </Button>
-                            </div>
-
-                            <div className="demo-buttons">
-                                <Button
-                                    type="button"
-                                    variant="ghost"
-                                    fullWidth
-                                    onClick={() => {
-                                        setEmail('demo.cleaner@queren.com')
-                                        setPassword('demo123')
-                                    }}
-                                >
-                                    <Icon name="user" size="sm" />
-                                    Fill Staff Demo
-                                </Button>
-                                <Button
-                                    type="button"
-                                    variant="outline"
-                                    fullWidth
-                                    onClick={() => navigate('/worker')}
-                                >
-                                    <Icon name="sparkle" size="sm" />
-                                    Try Staff Demo
-                                </Button>
+                                {isWorkerLogin ? (
+                                    <>
+                                        <Button
+                                            type="button"
+                                            variant="ghost"
+                                            fullWidth
+                                            onClick={() => {
+                                                setEmail('demo.cleaner@queren.com')
+                                                setPassword('demo123')
+                                            }}
+                                        >
+                                            <Icon name="user" size="sm" />
+                                            Fill Staff Demo
+                                        </Button>
+                                        <Button
+                                            type="button"
+                                            variant="outline"
+                                            fullWidth
+                                            onClick={() => navigate('/worker-demo')}
+                                        >
+                                            <Icon name="sparkle" size="sm" />
+                                            Try Staff Demo
+                                        </Button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Button
+                                            type="button"
+                                            variant="ghost"
+                                            fullWidth
+                                            onClick={() => {
+                                                setEmail('demo@queren.com')
+                                                setPassword('demo123')
+                                            }}
+                                        >
+                                            <Icon name="user" size="sm" />
+                                            Fill Client Demo
+                                        </Button>
+                                        <Button
+                                            type="button"
+                                            variant="outline"
+                                            fullWidth
+                                            onClick={() => navigate('/dashboard-demo')}
+                                        >
+                                            <Icon name="sparkle" size="sm" />
+                                            Try Client Demo
+                                        </Button>
+                                    </>
+                                )}
                             </div>
                         </form>
 

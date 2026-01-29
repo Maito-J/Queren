@@ -97,11 +97,13 @@ function AppRoutes() {
             <Route path="/signup" element={<PublicLayout><SignupPage /></PublicLayout>} />
 
             {/* Client Dashboard */}
+            <Route path="/dashboard-demo" element={<ClientDashboard />} />
             <Route path="/dashboard" element={<ProtectedRoute allowedRoles={['client']}><ClientDashboard /></ProtectedRoute>} />
             <Route path="/dashboard/*" element={<ProtectedRoute allowedRoles={['client']}><ClientDashboard /></ProtectedRoute>} />
 
             {/* Worker Portal - accessible via /cleaner-login */}
             <Route path="/cleaner-login" element={<Navigate to="/login?role=worker" replace />} />
+            <Route path="/worker-demo" element={<WorkerDashboard />} />
             <Route path="/worker" element={<ProtectedRoute allowedRoles={['worker']}><WorkerDashboard /></ProtectedRoute>} />
             <Route path="/worker/onboarding" element={<ProtectedRoute allowedRoles={['worker']}><WorkerOnboarding /></ProtectedRoute>} />
             <Route path="/worker/jobs" element={<ProtectedRoute allowedRoles={['worker']}><WorkerJobs /></ProtectedRoute>} />
