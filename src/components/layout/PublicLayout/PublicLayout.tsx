@@ -95,7 +95,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                             <Link to="/about">About</Link>
                             <Link to="/careers">Careers</Link>
                             <Link to="/contact">Contact</Link>
-                            <Link to="/cleaner-login" className="cleaner-link">Login as Cleaner</Link>
+                            <Link to="/cleaner-login" className="cleaner-link">Staff Login</Link>
                         </div>
 
                         <div className="footer-links">
