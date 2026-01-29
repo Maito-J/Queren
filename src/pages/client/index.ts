@@ -1,1 +1,5 @@
 export { ClientDashboard } from './ClientDashboard'
+export { ClientProfile } from './ClientProfile'
+export { ClientBilling } from './ClientBilling'
+export { ClientHistory } from './ClientHistory'
+export { ClientPreferences } from './ClientPreferences'

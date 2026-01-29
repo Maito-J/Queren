@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks'
 import { Icon, IconName } from '../../Icon'
+import logo from '@/assets/Logo/transparent-logo.svg'
 import './DashboardLayout.css'
 
 interface SidebarLink {
@@ -31,8 +32,7 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
             <aside className={`dashboard-sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="sidebar-header">
                     <Link to="/" className="logo">
-                        <span className="logo-icon"><Icon name="sparkle" size="md" /></span>
-                        <span className="logo-text">Queren</span>
+                        <img src={logo} alt="Queren" className="logo-icon" />
                     </Link>
                 </div>
 

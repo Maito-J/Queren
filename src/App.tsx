@@ -18,7 +18,7 @@ import { CareersPage } from '@/pages/public/CareersPage/CareersPage'
 import { LoginPage, SignupPage } from '@/pages/auth'
 
 // Client Dashboard
-import { ClientDashboard } from '@/pages/client'
+import { ClientDashboard, ClientProfile, ClientBilling, ClientHistory, ClientPreferences } from '@/pages/client'
 
 // Worker Portal
 import {
@@ -99,7 +99,10 @@ function AppRoutes() {
             {/* Client Dashboard */}
             <Route path="/dashboard-demo" element={<ClientDashboard />} />
             <Route path="/dashboard" element={<ProtectedRoute allowedRoles={['client']}><ClientDashboard /></ProtectedRoute>} />
-            <Route path="/dashboard/*" element={<ProtectedRoute allowedRoles={['client']}><ClientDashboard /></ProtectedRoute>} />
+            <Route path="/dashboard/profile" element={<ProtectedRoute allowedRoles={['client']}><ClientProfile /></ProtectedRoute>} />
+            <Route path="/dashboard/billing" element={<ProtectedRoute allowedRoles={['client']}><ClientBilling /></ProtectedRoute>} />
+            <Route path="/dashboard/history" element={<ProtectedRoute allowedRoles={['client']}><ClientHistory /></ProtectedRoute>} />
+            <Route path="/dashboard/preferences" element={<ProtectedRoute allowedRoles={['client']}><ClientPreferences /></ProtectedRoute>} />
 
             {/* Worker Portal - accessible via /cleaner-login */}
             <Route path="/cleaner-login" element={<Navigate to="/login?role=worker" replace />} />
