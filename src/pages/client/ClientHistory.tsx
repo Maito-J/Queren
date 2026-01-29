@@ -72,7 +72,7 @@ export function ClientHistory() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         {/* Cleaning Item 1 */}
                         <div style={{
-                            padding: '1rem',
+                            padding: '1rem 1.5rem',
                             background: 'var(--color-bg)',
                             borderRadius: 'var(--radius-md)',
                             border: '1px solid var(--color-border)',
@@ -82,7 +82,12 @@ export function ClientHistory() {
                             flexWrap: 'wrap',
                             gap: '1rem'
                         }}>
-                            <div style={{ fontWeight: 600 }}>January 15, 2026 - Deep Cleaning - 3 hours - $180</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+                                <span style={{ fontWeight: 600, minWidth: '140px' }}>January 15, 2026</span>
+                                <span style={{ color: 'var(--color-text)', minWidth: '120px' }}>Deep Cleaning</span>
+                                <span style={{ color: 'var(--color-text-muted)', minWidth: '80px' }}>3 hours</span>
+                                <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$180</span>
+                            </div>
                             <Link to="/booking">
                                 <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Book Again</Button>
                             </Link>
@@ -90,7 +95,7 @@ export function ClientHistory() {
 
                         {/* Cleaning Item 2 */}
                         <div style={{
-                            padding: '1rem',
+                            padding: '1rem 1.5rem',
                             background: 'var(--color-bg)',
                             borderRadius: 'var(--radius-md)',
                             border: '1px solid var(--color-border)',
@@ -100,7 +105,12 @@ export function ClientHistory() {
                             flexWrap: 'wrap',
                             gap: '1rem'
                         }}>
-                            <div style={{ fontWeight: 600 }}>January 8, 2026 - Regular Cleaning - 2 hours - $120</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+                                <span style={{ fontWeight: 600, minWidth: '140px' }}>January 8, 2026</span>
+                                <span style={{ color: 'var(--color-text)', minWidth: '120px' }}>Regular Cleaning</span>
+                                <span style={{ color: 'var(--color-text-muted)', minWidth: '80px' }}>2 hours</span>
+                                <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$120</span>
+                            </div>
                             <Link to="/booking">
                                 <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Book Again</Button>
                             </Link>
