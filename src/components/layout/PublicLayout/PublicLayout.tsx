@@ -92,7 +92,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
 
                         <div className="footer-links">
                             <h4>Company</h4>
-                            <Link to="/about">Our Story</Link>
+                            <Link to="/about">About</Link>
                             <Link to="/careers">Careers</Link>
                             <Link to="/contact">Contact</Link>
                             <Link to="/cleaner-login" className="cleaner-link">Login as Cleaner</Link>

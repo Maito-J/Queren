@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AuthProvider, useAuth } from '@/hooks'
 import { PublicLayout } from '@/components/layout'
 import { DEFAULT_IMAGES, getRandomCleaningImage } from '@/lib/defaultImages'
@@ -126,6 +127,16 @@ function AppRoutes() {
     )
 }
 
+function ScrollToTop() {
+    const { pathname } = useLocation()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [pathname])
+
+    return null
+}
+
 function PlaceholderPage({ title, imageType = 'general' }: { title: string; imageType?: 'service' | 'team' | 'general' }) {
     const getImage = () => {
         switch (imageType) {
@@ -164,6 +175,7 @@ function PlaceholderPage({ title, imageType = 'general' }: { title: string; imag
 export default function App() {
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <AuthProvider>
                 <AppRoutes />
             </AuthProvider>
