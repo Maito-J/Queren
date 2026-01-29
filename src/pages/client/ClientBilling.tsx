@@ -59,11 +59,11 @@ export function ClientBilling() {
                             borderRadius: 'var(--radius-md)',
                             border: '1px solid var(--color-border)'
                         }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.5rem' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-                                    <span style={{ fontWeight: 600, minWidth: '140px' }}>January 15, 2026</span>
-                                    <span style={{ color: 'var(--color-text)', minWidth: '120px' }}>Deep Cleaning</span>
-                                    <span style={{ color: 'var(--color-text-muted)', minWidth: '80px' }}>3 hours</span>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: '140px 130px 80px 80px', gap: '1rem', alignItems: 'center' }}>
+                                    <span style={{ fontWeight: 600 }}>January 15, 2026</span>
+                                    <span style={{ color: 'var(--color-text)' }}>Deep Cleaning</span>
+                                    <span style={{ color: 'var(--color-text-muted)' }}>3 hours</span>
                                     <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$192.10</span>
                                 </div>
                                 <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Download</Button>
@@ -80,11 +80,11 @@ export function ClientBilling() {
                             borderRadius: 'var(--radius-md)',
                             border: '1px solid var(--color-border)'
                         }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.5rem' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-                                    <span style={{ fontWeight: 600, minWidth: '140px' }}>January 8, 2026</span>
-                                    <span style={{ color: 'var(--color-text)', minWidth: '120px' }}>Regular Cleaning</span>
-                                    <span style={{ color: 'var(--color-text-muted)', minWidth: '80px' }}>2 hours</span>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: '140px 130px 80px 80px', gap: '1rem', alignItems: 'center' }}>
+                                    <span style={{ fontWeight: 600 }}>January 8, 2026</span>
+                                    <span style={{ color: 'var(--color-text)' }}>Regular Cleaning</span>
+                                    <span style={{ color: 'var(--color-text-muted)' }}>2 hours</span>
                                     <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$124.30</span>
                                 </div>
                                 <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Download</Button>

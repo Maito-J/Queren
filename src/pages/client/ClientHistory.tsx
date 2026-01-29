@@ -78,11 +78,10 @@ export function ClientHistory() {
                             border: '1px solid var(--color-border)',
                             display: 'flex',
                             justifyContent: 'space-between',
-                            alignItems: 'flex-start',
-                            flexWrap: 'wrap',
+                            alignItems: 'center',
                             gap: '1rem'
                         }}>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: '140px 130px 80px 80px', gap: '1rem', alignItems: 'center' }}>
                                 <span style={{ fontWeight: 600 }}>January 15, 2026</span>
                                 <span style={{ color: 'var(--color-text)' }}>Deep Cleaning</span>
                                 <span style={{ color: 'var(--color-text-muted)' }}>3 hours</span>
@@ -101,11 +100,10 @@ export function ClientHistory() {
                             border: '1px solid var(--color-border)',
                             display: 'flex',
                             justifyContent: 'space-between',
-                            alignItems: 'flex-start',
-                            flexWrap: 'wrap',
+                            alignItems: 'center',
                             gap: '1rem'
                         }}>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: '140px 130px 80px 80px', gap: '1rem', alignItems: 'center' }}>
                                 <span style={{ fontWeight: 600 }}>January 8, 2026</span>
                                 <span style={{ color: 'var(--color-text)' }}>Regular Cleaning</span>
                                 <span style={{ color: 'var(--color-text-muted)' }}>2 hours</span>
