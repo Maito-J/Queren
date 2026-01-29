@@ -27,6 +27,11 @@
     margin-bottom: var(--space-4);
 }
 
+.auth-logo-img {
+    height: 48px;
+    width: auto;
+}
+
 .auth-header h1 {
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);

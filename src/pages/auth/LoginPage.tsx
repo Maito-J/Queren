@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Button, Input, Card, CardBody, Alert } from '@/components/ui'
 import { Icon } from '@/components/Icon'
 import { useAuth } from '@/hooks'
+import logo from '@/assets/Logo/transparent-logo.svg'
 import './AuthPages.css'
 
 export function LoginPage() {
     const { signIn } = useAuth()
     const navigate = useNavigate()
+    const [searchParams] = useSearchParams()
+    const isWorkerLogin = searchParams.get('role') === 'worker'
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState<string | null>(null)
@@ -33,11 +36,10 @@ export function LoginPage() {
             <div className="auth-container">
                 <div className="auth-header">
                     <Link to="/" className="logo">
-                        <span className="logo-icon"><Icon name="sparkle" size="md" /></span>
-                        <span className="logo-text">Queren</span>
+                        <img src={logo} alt="Queren" className="auth-logo-img" />
                     </Link>
-                    <h1>Welcome Back</h1>
-                    <p>Sign in to your account</p>
+                    <h1>{isWorkerLogin ? 'Cleaner Portal' : 'Welcome Back'}</h1>
+                    <p>{isWorkerLogin ? 'Sign in to access your dashboard' : 'Sign in to your account'}</p>
                 </div>
 
                 <Card className="auth-card">
@@ -69,6 +71,21 @@ export function LoginPage() {
                             <Button type="submit" fullWidth isLoading={loading}>
                                 Sign In
                             </Button>
+
+                            {isWorkerLogin && (
+                                <Button
+                                    type="button"
+                                    variant="ghost"
+                                    fullWidth
+                                    onClick={() => {
+                                        setEmail('demo.cleaner@queren.com')
+                                        setPassword('demo123')
+                                    }}
+                                >
+                                    <Icon name="user" size="sm" />
+                                    Use Demo Credentials
+                                </Button>
+                            )}
                         </form>
 
                         <div className="auth-footer">
