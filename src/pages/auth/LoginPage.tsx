@@ -3,7 +3,6 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Button, Input, Card, CardBody, Alert } from '@/components/ui'
 import { Icon } from '@/components/Icon'
 import { useAuth } from '@/hooks'
-import logo from '@/assets/Logo/transparent-logo.svg'
 import './AuthPages.css'
 
 export function LoginPage() {
@@ -35,9 +34,6 @@ export function LoginPage() {
         <div className="auth-page">
             <div className="auth-container">
                 <div className="auth-header">
-                    <Link to="/" className="logo">
-                        <img src={logo} alt="Queren" className="auth-logo-img" />
-                    </Link>
                     <h1>{isWorkerLogin ? 'Cleaner Portal' : 'Welcome Back'}</h1>
                     <p>{isWorkerLogin ? 'Sign in to access your dashboard' : 'Sign in to your account'}</p>
                 </div>
@@ -72,27 +68,53 @@ export function LoginPage() {
                                 Sign In
                             </Button>
 
-                            <Button
-                                type="button"
-                                variant="ghost"
-                                fullWidth
-                                onClick={() => {
-                                    setEmail(isWorkerLogin ? 'demo.cleaner@queren.com' : 'demo@queren.com')
-                                    setPassword('demo123')
-                                }}
-                            >
-                                <Icon name="user" size="sm" />
-                                Fill Demo Credentials
-                            </Button>
-                            <Button
-                                type="button"
-                                variant="outline"
-                                fullWidth
-                                onClick={() => navigate(isWorkerLogin ? '/worker' : '/dashboard')}
-                            >
-                                <Icon name="sparkle" size="sm" />
-                                Try Demo Login
-                            </Button>
+                            <div className="demo-buttons">
+                                <Button
+                                    type="button"
+                                    variant="ghost"
+                                    fullWidth
+                                    onClick={() => {
+                                        setEmail('demo@queren.com')
+                                        setPassword('demo123')
+                                    }}
+                                >
+                                    <Icon name="user" size="sm" />
+                                    Fill Client Demo
+                                </Button>
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    fullWidth
+                                    onClick={() => navigate('/dashboard')}
+                                >
+                                    <Icon name="sparkle" size="sm" />
+                                    Try Client Demo
+                                </Button>
+                            </div>
+
+                            <div className="demo-buttons">
+                                <Button
+                                    type="button"
+                                    variant="ghost"
+                                    fullWidth
+                                    onClick={() => {
+                                        setEmail('demo.cleaner@queren.com')
+                                        setPassword('demo123')
+                                    }}
+                                >
+                                    <Icon name="user" size="sm" />
+                                    Fill Staff Demo
+                                </Button>
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    fullWidth
+                                    onClick={() => navigate('/worker')}
+                                >
+                                    <Icon name="sparkle" size="sm" />
+                                    Try Staff Demo
+                                </Button>
+                            </div>
                         </form>
 
                         <div className="auth-footer">
