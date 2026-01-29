@@ -38,9 +38,9 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
         <div className="dashboard-layout">
             <aside className={`dashboard-sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="sidebar-header">
-                    <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <img src={logoIcon} alt="Queren" style={{ height: '40px', width: 'auto' }} />
-                        <img src={logoText} alt="Queren Cleaning" style={{ height: '30px', width: 'auto' }} />
+                    <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.5rem 0' }}>
+                        <img src={logoIcon} alt="Queren" style={{ height: '36px', width: 'auto' }} />
+                        <img src={logoText} alt="Queren Cleaning" style={{ height: '28px', width: 'auto' }} />
                     </Link>
                 </div>
 
