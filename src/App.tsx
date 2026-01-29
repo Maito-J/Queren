@@ -93,7 +93,7 @@ function AppRoutes() {
             <Route path="/contact" element={<PublicLayout><ContactPage /></PublicLayout>} />
 
             {/* Auth Routes */}
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<PublicLayout><LoginPage /></PublicLayout>} />
             <Route path="/signup" element={<SignupPage />} />
 
             {/* Client Dashboard */}

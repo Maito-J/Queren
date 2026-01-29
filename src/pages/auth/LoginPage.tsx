@@ -90,18 +90,7 @@ export function LoginPage() {
                                         type="button"
                                         variant="outline"
                                         fullWidth
-                                        isLoading={loading}
-                                        onClick={async () => {
-                                            setError(null)
-                                            setLoading(true)
-                                            const { error: signInError } = await signIn('demo.cleaner@queren.com', 'demo123')
-                                            if (signInError) {
-                                                setError(signInError.message)
-                                                setLoading(false)
-                                            } else {
-                                                navigate('/worker')
-                                            }
-                                        }}
+                                        onClick={() => navigate('/worker')}
                                     >
                                         <Icon name="sparkle" size="sm" />
                                         Try Demo Login
