@@ -212,7 +212,7 @@ export function ClientPreferences() {
                                     type="checkbox"
                                     checked={newAddress.isDefault}
                                     onChange={(e) => setNewAddress(prev => ({ ...prev, isDefault: e.target.checked }))}
-                                    style={{ width: '18px', height: '18px' }}
+                                    style={{ width: '18px', height: '18px', accentColor: 'var(--color-primary)' }}
                                 />
                                 <span style={{ fontSize: '0.875rem' }}>Set as default address</span>
                             </label>
@@ -245,7 +245,7 @@ export function ClientPreferences() {
                                         ? '2px solid var(--color-primary)'
                                         : '1px solid var(--color-border)',
                                     background: selectedAddressId === address.id
-                                        ? 'var(--color-primary-subtle)'
+                                        ? 'var(--color-primary-50)'
                                         : 'var(--color-surface)',
                                     cursor: 'pointer',
                                     transition: 'all 0.2s ease'
@@ -256,7 +256,7 @@ export function ClientPreferences() {
                                     name="selectedAddress"
                                     checked={selectedAddressId === address.id}
                                     onChange={() => setSelectedAddressId(address.id)}
-                                    style={{ width: '18px', height: '18px', marginRight: '1rem', marginTop: '0.25rem' }}
+                                    style={{ width: '18px', height: '18px', marginRight: '1rem', marginTop: '0.25rem', accentColor: 'var(--color-primary)' }}
                                 />
                                 <div style={{ flex: 1 }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
@@ -352,28 +352,28 @@ export function ClientPreferences() {
                             <label style={{ display: 'block', fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>Booking Frequency</label>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                 <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
-                                    <input type="radio" name="frequency" value="weekly" defaultChecked style={{ width: '18px', height: '18px' }} />
+                                    <input type="radio" name="frequency" value="weekly" defaultChecked style={{ width: '18px', height: '18px', accentColor: 'var(--color-primary)' }} />
                                     <div>
                                         <div style={{ fontWeight: 500 }}>Once a Week</div>
                                         <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Best for busy households - 10% discount</div>
                                     </div>
                                 </label>
                                 <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
-                                    <input type="radio" name="frequency" value="biweekly" style={{ width: '18px', height: '18px' }} />
+                                    <input type="radio" name="frequency" value="biweekly" style={{ width: '18px', height: '18px', accentColor: 'var(--color-primary)' }} />
                                     <div>
                                         <div style={{ fontWeight: 500 }}>Every Two Weeks</div>
                                         <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Most popular choice - 5% discount</div>
                                     </div>
                                 </label>
                                 <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
-                                    <input type="radio" name="frequency" value="monthly" style={{ width: '18px', height: '18px' }} />
+                                    <input type="radio" name="frequency" value="monthly" style={{ width: '18px', height: '18px', accentColor: 'var(--color-primary)' }} />
                                     <div>
                                         <div style={{ fontWeight: 500 }}>Once a Month</div>
                                         <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Great for light maintenance</div>
                                     </div>
                                 </label>
                                 <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
-                                    <input type="radio" name="frequency" value="onetime" style={{ width: '18px', height: '18px' }} />
+                                    <input type="radio" name="frequency" value="onetime" style={{ width: '18px', height: '18px', accentColor: 'var(--color-primary)' }} />
                                     <div>
                                         <div style={{ fontWeight: 500 }}>One-Time Cleaning</div>
                                         <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>No recurring schedule</div>
@@ -459,7 +459,7 @@ export function ClientPreferences() {
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
-                            <input type="checkbox" defaultChecked style={{ width: '18px', height: '18px' }} />
+                            <input type="checkbox" defaultChecked style={{ width: '18px', height: '18px', accentColor: 'var(--color-primary)' }} />
                             <div>
                                 <div style={{ fontWeight: 500 }}>Email Notifications</div>
                                 <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Receive booking confirmations and updates via email</div>
@@ -467,7 +467,7 @@ export function ClientPreferences() {
                         </label>
 
                         <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
-                            <input type="checkbox" defaultChecked style={{ width: '18px', height: '18px' }} />
+                            <input type="checkbox" defaultChecked style={{ width: '18px', height: '18px', accentColor: 'var(--color-primary)' }} />
                             <div>
                                 <div style={{ fontWeight: 500 }}>SMS Notifications</div>
                                 <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Receive text messages for cleaning reminders</div>
@@ -475,7 +475,7 @@ export function ClientPreferences() {
                         </label>
 
                         <label style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
-                            <input type="checkbox" style={{ width: '18px', height: '18px' }} />
+                            <input type="checkbox" style={{ width: '18px', height: '18px', accentColor: 'var(--color-primary)' }} />
                             <div>
                                 <div style={{ fontWeight: 500 }}>Marketing Emails</div>
                                 <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>Receive special offers and promotions</div>
