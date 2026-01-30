@@ -31,8 +31,8 @@ export function HomePage() {
                 <div className="container">
                     <div className="hero-content">
                         <h1 className="hero-title">
-                            Professional Cleaning,<br />
-                            <span className="text-primary">Worry-Free</span>
+                            Professional Cleaning Services<br />
+                            <span className="text-primary">You Can Trust</span>
                         </h1>
                         <p className="hero-subtitle">
                             Trusted, vetted cleaners at your doorstep. Transparent pricing, easy booking, sparkling results.
@@ -42,7 +42,7 @@ export function HomePage() {
                                 <Button size="lg">Book Now</Button>
                             </Link>
                             <Link to="/services/pricing">
-                                <Button variant="outline" size="lg">See Pricing</Button>
+                                <Button variant="outline" size="lg" style={{ backgroundColor: 'white' }}>View Pricing</Button>
                             </Link>
                         </div>
                         <div className="hero-trust">
