@@ -341,18 +341,7 @@ export function ClientPreferences() {
                 </CardBody>
             </Card>
 
-            <Card className="mb-6" style={{ position: 'relative' }}>
-                <span style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                    background: '#F59E0B',
-                    color: 'white',
-                    padding: '0.25rem 0.75rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.75rem',
-                    fontWeight: 600
-                }}>Example</span>
+            <Card className="mb-6">
                 <CardBody>
                     <h2 style={{ fontSize: '1.25rem', marginBottom: '1.5rem' }}>
                         <Icon name="calendar" size="md" /> Cleaning Schedule
