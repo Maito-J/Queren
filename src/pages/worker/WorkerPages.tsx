@@ -576,7 +576,7 @@ export function WorkerEarnings() {
     return (
         <DashboardLayout title="Earnings & Payments" links={links}>
             <div className="stats-grid">
-                <Card className="highlight-card">
+                <Card>
                     <CardBody className="stat-card">
                         <div className="stat-value">42</div>
                         <div className="stat-label">Work Hours</div>
@@ -628,7 +628,7 @@ export function WorkerEarnings() {
                                 <span style={{ fontWeight: 600 }}>14 hrs</span>
                             </div>
                             <div style={{ height: '8px', background: 'var(--color-bg)', borderRadius: '4px', overflow: 'hidden' }}>
-                                <div style={{ width: '35%', height: '100%', background: 'var(--color-secondary)', borderRadius: '4px' }}></div>
+                                <div style={{ width: '35%', height: '100%', background: '#9681BB', borderRadius: '4px' }}></div>
                             </div>
                         </div>
                     </div>
