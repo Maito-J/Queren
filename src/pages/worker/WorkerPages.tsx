@@ -883,14 +883,77 @@ export function WorkerProfile() {
     const [repeatEndDate, setRepeatEndDate] = useState('')
     const [note, setNote] = useState('')
 
+    // Calendar state - start with current month (January 2026 for demo)
+    const [currentMonth, setCurrentMonth] = useState(0) // 0 = January 2026
+
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December']
+
+    // Calculate days in month and first day of week
+    const getMonthData = (monthOffset: number) => {
+        const baseYear = 2026
+        const baseMonth = 0 // January
+
+        let year = baseYear
+        let month = baseMonth + monthOffset
+
+        while (month > 11) {
+            month -= 12
+            year++
+        }
+        while (month < 0) {
+            month += 12
+            year--
+        }
+
+        const daysInMonth = new Date(year, month + 1, 0).getDate()
+        const firstDayOfWeek = new Date(year, month, 1).getDay()
+        const daysInPrevMonth = new Date(year, month, 0).getDate()
+
+        return { year, month, daysInMonth, firstDayOfWeek, daysInPrevMonth, monthName: monthNames[month] }
+    }
+
+    const monthData = getMonthData(currentMonth)
+
+    // Generate calendar grid
+    const generateCalendarDays = () => {
+        const weeks = []
+        let dayCount = 1
+        let nextMonthDay = 1
+
+        for (let week = 0; week < 6; week++) {
+            const days = []
+            for (let d = 0; d < 7; d++) {
+                if (week === 0 && d < monthData.firstDayOfWeek) {
+                    // Previous month
+                    days.push({
+                        day: monthData.daysInPrevMonth - monthData.firstDayOfWeek + d + 1,
+                        isCurrentMonth: false
+                    })
+                } else if (dayCount > monthData.daysInMonth) {
+                    // Next month
+                    days.push({ day: nextMonthDay++, isCurrentMonth: false })
+                } else {
+                    days.push({ day: dayCount++, isCurrentMonth: true })
+                }
+            }
+            weeks.push({ week: week + 1, days })
+            if (dayCount > monthData.daysInMonth && week >= 3) break
+        }
+        return weeks
+    }
+
+    const calendarDays = generateCalendarDays()
+
+    const handlePrevMonth = () => {
+        if (currentMonth > -3) setCurrentMonth(currentMonth - 1)
+    }
+
+    const handleNextMonth = () => {
+        if (currentMonth < 3) setCurrentMonth(currentMonth + 1)
+    }
+
     const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-    const calendarDays = [
-        { week: 1, days: [28, 29, 30, 31, 1, 2, 3] },
-        { week: 2, days: [4, 5, 6, 7, 8, 9, 10] },
-        { week: 3, days: [11, 12, 13, 14, 15, 16, 17] },
-        { week: 4, days: [18, 19, 20, 21, 22, 23, 24] },
-        { week: 5, days: [25, 26, 27, 28, 29, 30, 31] },
-    ]
 
     const availabilityData = [
         { date: 'Mon, Jan 26, 2026', entries: [{ type: 'unavailable', time: '4:15p-11:45p' }] },
@@ -957,9 +1020,13 @@ export function WorkerProfile() {
                             {/* Calendar View */}
                             <div className="availability-calendar">
                                 <div className="calendar-nav">
-                                    <Button variant="ghost" size="sm"><Icon name="arrowLeft" size="sm" /></Button>
-                                    <span className="calendar-month">January 2026</span>
-                                    <Button variant="ghost" size="sm"><Icon name="arrowRight" size="sm" /></Button>
+                                    <Button variant="ghost" size="sm" onClick={handlePrevMonth} disabled={currentMonth <= -3}>
+                                        <Icon name="arrowLeft" size="sm" />
+                                    </Button>
+                                    <span className="calendar-month">{monthData.monthName} {monthData.year}</span>
+                                    <Button variant="ghost" size="sm" onClick={handleNextMonth} disabled={currentMonth >= 3}>
+                                        <Icon name="arrowRight" size="sm" />
+                                    </Button>
                                 </div>
 
                                 <div className="calendar-grid">
@@ -970,16 +1037,15 @@ export function WorkerProfile() {
                                     </div>
                                     {calendarDays.map((week) => (
                                         <div key={week.week} className="calendar-row">
-                                            {week.days.map((day, i) => {
-                                                const isCurrentMonth = (week.week === 1 && day > 7) ? false : (week.week === 5 && day < 7) ? false : true
-                                                const hasAvailability = [26, 27, 28, 29, 30].includes(day) && isCurrentMonth
+                                            {week.days.map((dayData, i) => {
+                                                const hasAvailability = [26, 27, 28, 29, 30].includes(dayData.day) && dayData.isCurrentMonth && currentMonth === 0
                                                 return (
                                                     <div
                                                         key={i}
-                                                        className={`calendar-day ${!isCurrentMonth ? 'other-month' : ''} ${day === selectedDate && isCurrentMonth ? 'selected' : ''} ${hasAvailability ? 'has-entry' : ''}`}
-                                                        onClick={() => isCurrentMonth && setSelectedDate(day)}
+                                                        className={`calendar-day ${!dayData.isCurrentMonth ? 'other-month' : ''} ${dayData.day === selectedDate && dayData.isCurrentMonth ? 'selected' : ''} ${hasAvailability ? 'has-entry' : ''}`}
+                                                        onClick={() => dayData.isCurrentMonth && setSelectedDate(dayData.day)}
                                                     >
-                                                        <span>{day}</span>
+                                                        <span>{dayData.day}</span>
                                                         {hasAvailability && <span className="day-dot"></span>}
                                                     </div>
                                                 )
@@ -1006,8 +1072,28 @@ export function WorkerProfile() {
                                             {item.entries.map((entry, i) => (
                                                 <div key={i} className="availability-entry">
                                                     <Icon name="minus" size="sm" />
-                                                    <span>Unavailable {entry.time}</span>
-                                                    <Icon name="refresh" size="sm" />
+                                                    <span
+                                                        className="availability-entry-text"
+                                                        onClick={() => setShowAddModal(true)}
+                                                    >
+                                                        Unavailable {entry.time}
+                                                    </span>
+                                                    <div className="availability-entry-actions">
+                                                        <button
+                                                            className="entry-action-btn edit"
+                                                            onClick={() => setShowAddModal(true)}
+                                                            title="Edit"
+                                                        >
+                                                            <Icon name="edit" size="sm" />
+                                                        </button>
+                                                        <button
+                                                            className="entry-action-btn delete"
+                                                            onClick={() => {/* Delete handler */ }}
+                                                            title="Delete"
+                                                        >
+                                                            <Icon name="trash" size="sm" />
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             ))}
                                         </div>

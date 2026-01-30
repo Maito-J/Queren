@@ -1156,8 +1156,46 @@
     color: var(--color-text-muted);
 }
 
-.availability-entry span {
+.availability-entry-text {
     flex: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.availability-entry-text:hover {
+    color: var(--color-primary);
+}
+
+.availability-entry-actions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.entry-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.entry-action-btn:hover {
+    background: var(--color-bg-subtle);
+}
+
+.entry-action-btn.edit:hover {
+    color: var(--color-primary);
+}
+
+.entry-action-btn.delete:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
 }
 
 .availability-note {
