@@ -962,6 +962,7 @@ export function WorkerProfile() {
     const [repeatFrequency, setRepeatFrequency] = useState<'day' | 'week' | '2weeks'>('week')
     const [repeatDays, setRepeatDays] = useState<string[]>(['Mon', 'Wed', 'Fri'])
     const [repeatEndDate, setRepeatEndDate] = useState('')
+    const [preferenceDate, setPreferenceDate] = useState('2026-02-24')
     const [note, setNote] = useState('')
 
     // Calendar state - start with current month (January 2026 for demo)
@@ -1050,7 +1051,12 @@ export function WorkerProfile() {
                 <Card className="profile-card">
                     <CardBody>
                         <div className="profile-header">
-                            <div className="profile-avatar">MG</div>
+                            <div className="profile-avatar" style={{
+                                backgroundImage: `url(https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face)`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                color: 'transparent'
+                            }}>MG</div>
                             <div className="profile-info">
                                 <h2>Maria Garcia</h2>
                                 <p>Member since January 2026</p>
@@ -1198,13 +1204,18 @@ export function WorkerProfile() {
                                     <div className="modal-header">
                                         <Button variant="ghost" size="sm" onClick={() => setShowAddModal(false)}>Cancel</Button>
                                         <h3>Add Preference</h3>
-                                        <Button variant="ghost" size="sm">Save</Button>
+                                        <Button variant="ghost" size="sm" onClick={() => setShowAddModal(false)}>Save</Button>
                                     </div>
 
                                     <div className="preference-form">
                                         <div className="preference-row">
                                             <span>Date</span>
-                                            <span className="preference-value">Tue, Feb 24, 2026</span>
+                                            <input
+                                                type="date"
+                                                className="date-input"
+                                                value={preferenceDate}
+                                                onChange={(e) => setPreferenceDate(e.target.value)}
+                                            />
                                         </div>
 
                                         <div className="preference-options">
