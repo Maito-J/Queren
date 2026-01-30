@@ -59,14 +59,14 @@ export function ClientBilling() {
                             borderRadius: 'var(--radius-md)',
                             border: '1px solid var(--color-border)'
                         }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
-                                <div style={{ display: 'grid', gridTemplateColumns: '140px 130px 80px 80px', gap: '1rem', alignItems: 'center' }}>
-                                    <span style={{ fontWeight: 600 }}>January 15, 2026</span>
-                                    <span style={{ color: 'var(--color-text)' }}>Deep Cleaning</span>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.5rem', alignItems: 'center', flex: 1, minWidth: '200px' }}>
+                                    <span style={{ fontWeight: 600, minWidth: '120px' }}>January 15, 2026</span>
+                                    <span style={{ color: 'var(--color-text)', minWidth: '110px' }}>Deep Cleaning</span>
                                     <span style={{ color: 'var(--color-text-muted)' }}>3 hours</span>
                                     <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$192.10</span>
                                 </div>
-                                <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Download</Button>
+                                <Button variant="secondary" size="sm">Download</Button>
                             </div>
                             <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
                                 456 Columbia Street, New Westminster, BC V3L 1A9
@@ -80,14 +80,14 @@ export function ClientBilling() {
                             borderRadius: 'var(--radius-md)',
                             border: '1px solid var(--color-border)'
                         }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
-                                <div style={{ display: 'grid', gridTemplateColumns: '140px 130px 80px 80px', gap: '1rem', alignItems: 'center' }}>
-                                    <span style={{ fontWeight: 600 }}>January 8, 2026</span>
-                                    <span style={{ color: 'var(--color-text)' }}>Regular Cleaning</span>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1.5rem', alignItems: 'center', flex: 1, minWidth: '200px' }}>
+                                    <span style={{ fontWeight: 600, minWidth: '120px' }}>January 8, 2026</span>
+                                    <span style={{ color: 'var(--color-text)', minWidth: '110px' }}>Regular Cleaning</span>
                                     <span style={{ color: 'var(--color-text-muted)' }}>2 hours</span>
                                     <span style={{ fontWeight: 600, color: 'var(--color-primary)' }}>$124.30</span>
                                 </div>
-                                <Button variant="secondary" style={{ fontSize: '0.875rem' }}>Download</Button>
+                                <Button variant="secondary" size="sm">Download</Button>
                             </div>
                             <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
                                 456 Columbia Street, New Westminster, BC V3L 1A9
