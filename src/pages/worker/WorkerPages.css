@@ -419,6 +419,23 @@
     opacity: 0.8;
 }
 
+/* Responsive calendar events */
+@media (max-width: 768px) {
+    .calendar-event {
+        font-size: 0.6rem;
+        padding: 4px;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-event {
+        font-size: 0.5rem;
+        padding: 2px;
+        line-height: 1.1;
+    }
+}
+
 /* Agenda */
 .agenda-list {
     display: flex;
