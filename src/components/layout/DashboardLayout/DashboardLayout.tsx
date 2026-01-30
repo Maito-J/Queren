@@ -23,16 +23,38 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
     const navigate = useNavigate()
     const location = useLocation()
     const [sidebarOpen, setSidebarOpen] = React.useState(false)
-    const isDemo = location.pathname.startsWith('/dashboard-demo') || location.pathname.startsWith('/worker-demo')
+    const isClientDemo = location.pathname.startsWith('/dashboard-demo')
+    const isWorkerDemo = location.pathname.startsWith('/worker-demo')
+    const isDemo = isClientDemo || isWorkerDemo
 
     const handleSignOut = async () => {
         await signOut()
         navigate('/')
     }
 
-    // Demo profile data
-    const displayName = profile?.full_name || (isDemo ? 'Sarah Johnson' : 'User')
-    const displayRole = profile?.role || (isDemo ? 'Client' : 'Guest')
+    // Demo profile data - different for client vs worker
+    const getDemoData = () => {
+        if (isWorkerDemo) {
+            return {
+                name: 'Maria Garcia',
+                role: 'Staff',
+                avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face'
+            }
+        }
+        if (isClientDemo) {
+            return {
+                name: 'Sarah Johnson',
+                role: 'Client',
+                avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face'
+            }
+        }
+        return null
+    }
+
+    const demoData = getDemoData()
+    const displayName = profile?.full_name || (demoData?.name ?? 'User')
+    const displayRole = profile?.role || (demoData?.role ?? 'Guest')
+    const avatarUrl = demoData?.avatarUrl
 
     return (
         <div className="dashboard-layout">
@@ -60,8 +82,8 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
 
                 <div className="sidebar-footer">
                     <div className="sidebar-user">
-                        <div className="user-avatar" style={isDemo ? {
-                            backgroundImage: 'url(https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face)',
+                        <div className="user-avatar" style={isDemo && avatarUrl ? {
+                            backgroundImage: `url(${avatarUrl})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center'
                         } : {}}>

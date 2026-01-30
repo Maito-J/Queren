@@ -1,29 +1,38 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { DashboardLayout } from '@/components/layout'
 import { Card, CardBody, Button, Input, Alert, Badge } from '@/components/ui'
 import { Icon, IconName } from '@/components/Icon'
 import { DEFAULT_IMAGES } from '@/lib/defaultImages'
 import './WorkerPages.css'
 
-const workerLinks: { to: string; label: string; icon: IconName }[] = [
-    { to: '/worker', label: 'Dashboard', icon: 'home' },
-    { to: '/worker/onboarding', label: 'Onboarding', icon: 'clipboard' },
-    { to: '/worker/jobs', label: 'Available Jobs', icon: 'sparkle' },
-    { to: '/worker/schedule', label: 'My Schedule', icon: 'calendar' },
-    { to: '/worker/tracking', label: 'Time Tracking', icon: 'clock' },
-    { to: '/worker/earnings', label: 'Earnings', icon: 'dollar' },
-    { to: '/worker/training', label: 'Training Hub', icon: 'book' },
-    { to: '/worker/profile', label: 'Profile', icon: 'user' },
+// Function to get worker links with correct base path
+const getWorkerLinks = (basePath: string): { to: string; label: string; icon: IconName }[] => [
+    { to: basePath, label: 'Dashboard', icon: 'home' },
+    { to: `${basePath}/onboarding`, label: 'Onboarding', icon: 'clipboard' },
+    { to: `${basePath}/jobs`, label: 'Available Jobs', icon: 'sparkle' },
+    { to: `${basePath}/schedule`, label: 'My Schedule', icon: 'calendar' },
+    { to: `${basePath}/tracking`, label: 'Time Tracking', icon: 'clock' },
+    { to: `${basePath}/earnings`, label: 'Earnings', icon: 'dollar' },
+    { to: `${basePath}/training`, label: 'Training Hub', icon: 'book' },
+    { to: `${basePath}/profile`, label: 'Profile', icon: 'user' },
 ]
 
-export { workerLinks }
+// Keep backward compatibility
+const workerLinks = getWorkerLinks('/worker')
+
+export { workerLinks, getWorkerLinks }
 
 // ============================================
 // WORKER DASHBOARD
 // ============================================
 export function WorkerDashboard() {
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/worker-demo')
+    const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
+
     return (
-        <DashboardLayout title="Worker Dashboard" links={workerLinks}>
+        <DashboardLayout title="Worker Dashboard" links={links}>
             <Card className="mb-6 welcome-banner">
                 <CardBody>
                     <h2>Welcome back! <Icon name="wave" size="md" /></h2>
@@ -101,6 +110,9 @@ export function WorkerDashboard() {
 // WORKER ONBOARDING
 // ============================================
 export function WorkerOnboarding() {
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/worker-demo')
+    const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
 
     const steps = [
         { num: 1, title: 'Personal Info', status: 'complete' },
@@ -110,7 +122,7 @@ export function WorkerOnboarding() {
     ]
 
     return (
-        <DashboardLayout title="Onboarding & Verification" links={workerLinks}>
+        <DashboardLayout title="Onboarding & Verification" links={links}>
             <Card className="mb-6">
                 <CardBody>
                     <div className="progress-tracker">
@@ -170,6 +182,10 @@ export function WorkerOnboarding() {
 // AVAILABLE JOBS
 // ============================================
 export function WorkerJobs() {
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/worker-demo')
+    const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
+
     const jobs = [
         { id: 1, type: 'Regular Cleaning', location: 'Downtown', date: 'Tomorrow, 9 AM', distance: '3.2 km', pay: 89, status: 'new' },
         { id: 2, type: 'Deep Cleaning', location: 'Kitsilano', date: 'Jan 15, 2 PM', distance: '5.8 km', pay: 149, status: 'new' },
@@ -177,7 +193,7 @@ export function WorkerJobs() {
     ]
 
     return (
-        <DashboardLayout title="Available Jobs" links={workerLinks}>
+        <DashboardLayout title="Available Jobs" links={links}>
             <div className="filter-bar">
                 <Input placeholder="Search by location..." />
                 <select className="form-select" style={{ maxWidth: 200 }}>
@@ -231,6 +247,10 @@ export function WorkerJobs() {
 // MY SCHEDULE
 // ============================================
 export function WorkerSchedule() {
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/worker-demo')
+    const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
+
     const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     const dates = [13, 14, 15, 16, 17, 18, 19]
 
@@ -242,7 +262,7 @@ export function WorkerSchedule() {
     ]
 
     return (
-        <DashboardLayout title="My Schedule" links={workerLinks}>
+        <DashboardLayout title="My Schedule" links={links}>
             <Card>
                 <CardBody>
                     <div className="schedule-header">
@@ -304,10 +324,13 @@ export function WorkerSchedule() {
 // TIME TRACKING
 // ============================================
 export function WorkerTracking() {
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/worker-demo')
+    const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
     const [checkedIn, setCheckedIn] = useState(false)
 
     return (
-        <DashboardLayout title="Time Tracking" links={workerLinks}>
+        <DashboardLayout title="Time Tracking" links={links}>
             {checkedIn ? (
                 <Card className="active-job-card">
                     <CardBody>
@@ -382,6 +405,10 @@ export function WorkerTracking() {
 // EARNINGS
 // ============================================
 export function WorkerEarnings() {
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/worker-demo')
+    const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
+
     const earnings = [
         { date: 'Jan 12', job: 'Regular Cleaning - Downtown', hours: 2, amount: 89, status: 'paid' },
         { date: 'Jan 11', job: 'Deep Cleaning - Kitsilano', hours: 3.5, amount: 149, status: 'paid' },
@@ -390,7 +417,7 @@ export function WorkerEarnings() {
     ]
 
     return (
-        <DashboardLayout title="Earnings & Payments" links={workerLinks}>
+        <DashboardLayout title="Earnings & Payments" links={links}>
             <div className="stats-grid">
                 <Card className="highlight-card">
                     <CardBody className="stat-card">
@@ -537,6 +564,10 @@ const workerTrainingModules: (TrainingModuleData & { completed: boolean; quizSco
 ]
 
 export function WorkerTraining() {
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/worker-demo')
+    const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
+
     const [modules, setModules] = useState(workerTrainingModules)
     const [selectedModule, setSelectedModule] = useState<(TrainingModuleData & { completed: boolean }) | null>(null)
     const [view, setView] = useState<'list' | 'content' | 'quiz' | 'result'>('list')
@@ -598,7 +629,7 @@ export function WorkerTraining() {
     }
 
     return (
-        <DashboardLayout title="Training Hub" links={workerLinks}>
+        <DashboardLayout title="Training Hub" links={links}>
             {view === 'list' && (
                 <>
                     <Card className="mb-6">
@@ -836,8 +867,12 @@ export function WorkerTraining() {
 // WORKER PROFILE
 // ============================================
 export function WorkerProfile() {
+    const location = useLocation()
+    const isDemo = location.pathname.startsWith('/worker-demo')
+    const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
+
     return (
-        <DashboardLayout title="Profile & Settings" links={workerLinks}>
+        <DashboardLayout title="Profile & Settings" links={links}>
             <div className="profile-layout">
                 <Card className="profile-card">
                     <CardBody>

@@ -110,7 +110,16 @@ function AppRoutes() {
 
             {/* Worker Portal - accessible via /cleaner-login */}
             <Route path="/cleaner-login" element={<Navigate to="/login?role=worker" replace />} />
+            {/* Worker Demo Routes (no login required) */}
             <Route path="/worker-demo" element={<WorkerDashboard />} />
+            <Route path="/worker-demo/onboarding" element={<WorkerOnboarding />} />
+            <Route path="/worker-demo/jobs" element={<WorkerJobs />} />
+            <Route path="/worker-demo/schedule" element={<WorkerSchedule />} />
+            <Route path="/worker-demo/tracking" element={<WorkerTracking />} />
+            <Route path="/worker-demo/earnings" element={<WorkerEarnings />} />
+            <Route path="/worker-demo/training" element={<WorkerTraining />} />
+            <Route path="/worker-demo/profile" element={<WorkerProfile />} />
+            {/* Worker Protected Routes (login required) */}
             <Route path="/worker" element={<ProtectedRoute allowedRoles={['worker']}><WorkerDashboard /></ProtectedRoute>} />
             <Route path="/worker/onboarding" element={<ProtectedRoute allowedRoles={['worker']}><WorkerOnboarding /></ProtectedRoute>} />
             <Route path="/worker/jobs" element={<ProtectedRoute allowedRoles={['worker']}><WorkerJobs /></ProtectedRoute>} />
