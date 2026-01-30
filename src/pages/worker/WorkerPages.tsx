@@ -320,17 +320,31 @@ export function WorkerSchedule() {
                                                     top: `${(parseInt(job.time) - 8) * 40}px`,
                                                     height: `${job.duration * 40}px`,
                                                     border: '2px dashed var(--color-primary)',
-                                                    backgroundColor: 'var(--color-bg)',
-                                                    opacity: 0.9,
-                                                    cursor: 'pointer'
+                                                    backgroundColor: 'transparent',
+                                                    cursor: 'pointer',
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    justifyContent: 'center',
+                                                    padding: '4px 8px'
                                                 }}
                                                 onClick={() => handleJobClick(job)}
                                             >
-                                                <span className="event-time">{job.time}</span>
-                                                <span className="event-title">{job.type}</span>
-                                                <span className="event-location">{job.reservationNumber}</span>
-                                                <div className="job-action-overlay">
-                                                    <span style={{ fontSize: '0.7rem', color: 'var(--color-primary)', fontWeight: 600 }}>Click for details</span>
+                                                <span className="event-time" style={{ color: 'white', fontWeight: 'bold' }}>{job.time}</span>
+                                                <span className="event-title" style={{ color: 'white' }}>{job.type}</span>
+                                                <span className="event-location" style={{ color: 'white' }}>{job.reservationNumber}</span>
+                                                <div style={{
+                                                    marginTop: 'auto',
+                                                    fontSize: '0.75rem',
+                                                    color: 'var(--color-primary)',
+                                                    fontWeight: 600,
+                                                    background: 'white',
+                                                    borderRadius: '4px',
+                                                    padding: '2px 6px',
+                                                    textAlign: 'center',
+                                                    width: 'fit-content',
+                                                    alignSelf: 'center'
+                                                }}>
+                                                    Click for details
                                                 </div>
                                             </div>
                                         ))}
