@@ -253,16 +253,16 @@ export function WorkerSchedule() {
     const dates = [13, 14, 15, 16, 17, 18, 19]
 
     const events = [
-        { day: 0, time: '9:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'DOC-8894', specialRequests: 'Please use eco-friendly products', status: 'confirmed' },
-        { day: 0, time: '14:00', duration: 3, title: 'Deep Cleaning', reservationNumber: 'DOC-9921', specialRequests: 'Focus on kitchen grease', status: 'confirmed' },
-        { day: 2, time: '10:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'DOC-8855', specialRequests: 'None', status: 'confirmed' },
-        { day: 4, time: '11:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'DOC-9102', specialRequests: 'Key under the mat', status: 'confirmed' },
+        { day: 0, time: '9:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'R-8894', specialRequests: 'Please use eco-friendly products', status: 'confirmed' },
+        { day: 0, time: '14:00', duration: 3, title: 'Deep Cleaning', reservationNumber: 'D-9921', specialRequests: 'Focus on kitchen grease', status: 'confirmed' },
+        { day: 2, time: '10:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'R-8855', specialRequests: 'None', status: 'confirmed' },
+        { day: 4, time: '11:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'R-9102', specialRequests: 'Key under the mat', status: 'confirmed' },
     ]
 
     const availableJobs = [
-        { id: 1, type: 'Regular Cleaning', reservationNumber: 'DOC-1024', date: 'Tomorrow, 9 AM', distance: '3.2 km', status: 'new', day: 1, time: '9:00', duration: 2, specialRequests: 'Dog is friendly' },
-        { id: 2, type: 'Deep Cleaning', reservationNumber: 'DOC-1089', date: 'Jan 15, 2 PM', distance: '5.8 km', status: 'new', day: 2, time: '14:00', duration: 3, specialRequests: 'Allergic to bleach' },
-        { id: 3, type: 'Regular Cleaning', reservationNumber: 'DOC-1056', date: 'Jan 16, 10 AM', distance: '8.1 km', status: 'viewed', day: 3, time: '10:00', duration: 2, specialRequests: 'None' },
+        { id: 1, type: 'Regular Cleaning', reservationNumber: 'R-1024', date: 'Tomorrow, 9 AM', distance: '3.2 km', status: 'new', day: 1, time: '9:00', duration: 2, specialRequests: 'Dog is friendly' },
+        { id: 2, type: 'Deep Cleaning', reservationNumber: 'D-1089', date: 'Jan 15, 2 PM', distance: '5.8 km', status: 'new', day: 2, time: '14:00', duration: 3, specialRequests: 'Allergic to bleach' },
+        { id: 3, type: 'Regular Cleaning', reservationNumber: 'R-1056', date: 'Jan 16, 10 AM', distance: '8.1 km', status: 'viewed', day: 3, time: '10:00', duration: 2, specialRequests: 'None' },
     ]
 
     const handleJobClick = (job: any) => {
