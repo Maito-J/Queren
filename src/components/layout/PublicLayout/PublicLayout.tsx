@@ -104,8 +104,8 @@ export function PublicLayout({ children }: PublicLayoutProps) {
 
                         <div className="footer-links">
                             <h4>Legal</h4>
-                            <Link to="/policies">Privacy Policy</Link>
-                            <Link to="/policies">Terms of Service</Link>
+                            <Link to="/policies#privacy">Privacy Policy</Link>
+                            <Link to="/policies#terms">Terms of Service</Link>
                             <Link to="/faq">FAQ</Link>
                         </div>
                     </div>
