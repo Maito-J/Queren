@@ -65,8 +65,13 @@ export function ServicesPage() {
                 <div className="container">
                     <div className="pricing-grid">
                         <div className="pricing-content">
-                            <div className="pricing-badge">
-                                <span>Premium Quality</span>
+                            <div className="pricing-badge" style={{ background: 'transparent', padding: 0, gap: 'var(--space-3)' }}>
+                                <span className="supply-badge" style={{ margin: 0 }}>
+                                    <Icon name="check" size="sm" /> Safe for Pets
+                                </span>
+                                <span className="supply-badge" style={{ margin: 0 }}>
+                                    <Icon name="check" size="sm" /> Eco-Friendly
+                                </span>
                             </div>
                             <h2 className="service-detail-title" style={{ marginBottom: '1.5rem', fontSize: '2.5rem' }}>
                                 Professional-Grade<br />Supplies Included
@@ -74,10 +79,6 @@ export function ServicesPage() {
                             <p className="pricing-explanation">
                                 We bring our own professional-grade cleaning products at <strong>no extra charge</strong>. Our carefully selected supplies ensure the highest quality results while being safe for your home and family.
                             </p>
-                            <div className="pricing-features">
-                                <span><Icon name="check" size="sm" /> Safe for Pets</span>
-                                <span><Icon name="check" size="sm" /> Eco-Friendly</span>
-                            </div>
                         </div>
                         <div className="pricing-image-container">
                             <div className="pricing-image-wrapper">
@@ -93,8 +94,25 @@ export function ServicesPage() {
             <section className="section service-detail">
                 <div className="container">
                     <div className="service-detail-grid">
-                        <div className="service-detail-image">
-                            <img src={DEFAULT_IMAGES.services.regular} alt="Professional regular cleaning service" />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
+                            <div className="service-detail-image">
+                                <img src={DEFAULT_IMAGES.services.regular} alt="Professional regular cleaning service" />
+                            </div>
+                            <div className="impeccable-extras">
+                                <h3>
+                                    <Icon name="starFilled" size="sm" />
+                                    Our Signature "Impeccable Extras"
+                                </h3>
+                                <p className="extras-intro">What sets us apart from other cleaning services:</p>
+                                <ul className="extras-list">
+                                    {impeccableExtras.map((item, i) => (
+                                        <li key={i}>
+                                            <Icon name="check" size="sm" />
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                         <div className="service-detail-content">
                             <h2 className="service-detail-title">Regular Cleaning</h2>
@@ -115,21 +133,7 @@ export function ServicesPage() {
                                 </ul>
                             </div>
 
-                            <div className="impeccable-extras">
-                                <h3>
-                                    <Icon name="starFilled" size="sm" />
-                                    Our Signature "Impeccable Extras"
-                                </h3>
-                                <p className="extras-intro">What sets us apart from other cleaning services:</p>
-                                <ul className="extras-list">
-                                    {impeccableExtras.map((item, i) => (
-                                        <li key={i}>
-                                            <Icon name="check" size="sm" />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+
 
                             <div className="time-estimates">
                                 <h3>Estimated Time Guide</h3>
@@ -193,8 +197,8 @@ export function ServicesPage() {
                                 </p>
                             </div>
 
-                            <Link to="/contact">
-                                <Button size="lg">Request Deep Cleaning</Button>
+                            <Link to="/booking">
+                                <Button size="lg">Book Deep Cleaning</Button>
                             </Link>
                         </div>
                     </div>
