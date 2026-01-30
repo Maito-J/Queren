@@ -182,6 +182,76 @@
     line-height: 1.6;
 }
 
+/* Mission Section */
+.mission-section {
+    background: var(--color-bg-subtle);
+    padding: var(--space-16) 0;
+}
+
+.mission-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .mission-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+.mission-statement {
+    font-size: var(--font-size-2xl);
+    font-weight: 300;
+    color: var(--color-text);
+    margin-bottom: var(--space-8);
+    line-height: 1.4;
+}
+
+.brand-values {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+@media (max-width: 900px) {
+    .brand-values {
+        justify-content: center;
+    }
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+}
+
+.value-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: hue-rotate(150deg) saturate(1.2);
+}
+
+.mission-image {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.mission-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 /* How It Works */
 .how-it-works {
     background: var(--color-bg-subtle);

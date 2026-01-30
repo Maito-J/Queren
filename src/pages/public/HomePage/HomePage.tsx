@@ -10,15 +10,17 @@ const testimonials = [
     { name: 'Linda P.', rating: 5, text: 'The booking process was so easy, and the cleaning exceeded expectations.', city: 'Calgary' },
 ]
 
+import checkMark from '@/assets/images/check-mark.png'
+
 const features: { icon: IconName; title: string; description: string }[] = [
     { icon: 'check', title: 'Vetted Cleaners', description: 'Every cleaner is background-checked and professionally trained.' },
-    { icon: 'dollar', title: 'Transparent Pricing', description: 'No hidden fees. Know your exact price before you book.' },
+    { icon: 'dollar', title: 'Transparent Pricing', description: 'Flat rate $40/hour. No hidden fees. Same rate for all services.' },
     { icon: 'sparkle', title: 'Premium Supplies', description: 'We bring professional-grade products at no extra cost. Have your own? We can use those too.' },
 ]
 
 const services = [
     { title: 'Regular Cleaning', price: 89, description: 'Weekly or bi-weekly maintenance cleaning to keep your home fresh.', link: '/services', image: DEFAULT_IMAGES.services.regular },
-    { title: 'Deep Cleaning', price: 149, description: 'Thorough top-to-bottom cleaning for a complete refresh.', link: '/services', image: DEFAULT_IMAGES.kitchen[0] },
+    { title: 'Deep Cleaning', price: 149, description: 'Thorough top-to-bottom cleaning for a complete refresh.', link: '/booking', image: DEFAULT_IMAGES.kitchen[0] },
     { title: 'Custom Clean', price: null, description: 'Special requests? Moving? We can customize to your needs.', link: '/services', image: DEFAULT_IMAGES.services.professional },
 ]
 
@@ -74,6 +76,30 @@ export function HomePage() {
                                 <p className="feature-text">{feature.description}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Mission & Brand Values */}
+            <section className="section mission-section">
+                <div className="container">
+                    <div className="mission-content">
+                        <div className="mission-text">
+                            <h2 className="section-title">Our Mission</h2>
+                            <p className="mission-statement">
+                                To create homes that are safe, clean, healthy, and happy.
+                            </p>
+                            <div className="brand-values">
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Trust</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Reliability</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Detail</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Care</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Happiness</div>
+                            </div>
+                        </div>
+                        <div className="mission-image">
+                            <img src={DEFAULT_IMAGES.general[5]} alt="Clean and happy home" />
+                        </div>
                     </div>
                 </div>
             </section>
