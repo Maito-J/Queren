@@ -871,15 +871,37 @@ export function WorkerProfile() {
     const isDemo = location.pathname.startsWith('/worker-demo')
     const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
 
+    const [selectedDate, setSelectedDate] = useState(29)
+    const [showAddModal, setShowAddModal] = useState(false)
+    const [preferenceType, setPreferenceType] = useState<'unavailable' | 'prefer'>('unavailable')
+    const [allDay, setAllDay] = useState(false)
+
+    const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+    const calendarDays = [
+        { week: 1, days: [28, 29, 30, 31, 1, 2, 3] },
+        { week: 2, days: [4, 5, 6, 7, 8, 9, 10] },
+        { week: 3, days: [11, 12, 13, 14, 15, 16, 17] },
+        { week: 4, days: [18, 19, 20, 21, 22, 23, 24] },
+        { week: 5, days: [25, 26, 27, 28, 29, 30, 31] },
+    ]
+
+    const availabilityData = [
+        { date: 'Mon, Jan 26, 2026', entries: [{ type: 'unavailable', time: '4:15p-11:45p' }] },
+        { date: 'Tue, Jan 27, 2026', entries: [{ type: 'unavailable', time: '4:15p-11:45p' }] },
+        { date: 'Wed, Jan 28, 2026', entries: [{ type: 'unavailable', time: '4:15p-11:45p' }] },
+        { date: 'Thu, Jan 29, 2026', entries: [{ type: 'unavailable', time: '4:15p-11:45p' }] },
+        { date: 'Fri, Jan 30, 2026', entries: [{ type: 'unavailable', time: '4:15p-11:45p' }] },
+    ]
+
     return (
         <DashboardLayout title="Profile & Settings" links={links}>
             <div className="profile-layout">
                 <Card className="profile-card">
                     <CardBody>
                         <div className="profile-header">
-                            <div className="profile-avatar">JD</div>
+                            <div className="profile-avatar">MG</div>
                             <div className="profile-info">
-                                <h2>Jane Doe</h2>
+                                <h2>Maria Garcia</h2>
                                 <p>Member since January 2026</p>
                                 <Badge variant="success">Verified</Badge>
                             </div>
@@ -906,8 +928,8 @@ export function WorkerProfile() {
                     <CardBody>
                         <h3 className="card-title">Personal Information</h3>
                         <div className="form-grid">
-                            <Input label="Full Name" defaultValue="Jane Doe" />
-                            <Input label="Email" type="email" defaultValue="jane@example.com" disabled />
+                            <Input label="Full Name" defaultValue="Maria Garcia" />
+                            <Input label="Email" type="email" defaultValue="maria@example.com" disabled />
                             <Input label="Phone" type="tel" defaultValue="(604) 555-1234" />
                         </div>
                         <Button className="mt-4">Save Changes</Button>
@@ -916,32 +938,149 @@ export function WorkerProfile() {
 
                 <Card className="mt-6">
                     <CardBody>
-                        <h3 className="card-title">Work Preferences</h3>
-                        <div className="form-grid">
-                            <div className="form-group">
-                                <label className="form-label">Service Radius</label>
-                                <select className="form-select">
-                                    <option>5 km</option>
-                                    <option>10 km</option>
-                                    <option selected>15 km</option>
-                                    <option>25 km</option>
-                                </select>
+                        <div className="availability-header">
+                            <h3 className="card-title">Availability</h3>
+                            <Button variant="secondary" size="sm" onClick={() => setShowAddModal(true)}>
+                                <Icon name="plus" size="sm" /> Add Preference
+                            </Button>
+                        </div>
+
+                        {/* Calendar View */}
+                        <div className="availability-calendar">
+                            <div className="calendar-nav">
+                                <Button variant="ghost" size="sm"><Icon name="arrowLeft" size="sm" /></Button>
+                                <span className="calendar-month">January 2026</span>
+                                <Button variant="ghost" size="sm"><Icon name="arrowRight" size="sm" /></Button>
                             </div>
-                            <div className="form-group">
-                                <label className="form-label">Available Days</label>
-                                <div className="checkbox-group">
-                                    {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
-                                        <label key={day} className="form-check">
-                                            <input type="checkbox" defaultChecked={day !== 'Sun'} />
-                                            <span className="form-check-label">{day}</span>
-                                        </label>
+
+                            <div className="calendar-grid">
+                                <div className="calendar-weekdays">
+                                    {days.map((day, i) => (
+                                        <div key={i} className="weekday">{day}</div>
                                     ))}
                                 </div>
+                                {calendarDays.map((week) => (
+                                    <div key={week.week} className="calendar-row">
+                                        {week.days.map((day, i) => {
+                                            const isCurrentMonth = (week.week === 1 && day > 7) ? false : (week.week === 5 && day < 7) ? false : true
+                                            const hasAvailability = [26, 27, 28, 29, 30].includes(day) && isCurrentMonth
+                                            return (
+                                                <div
+                                                    key={i}
+                                                    className={`calendar-day ${!isCurrentMonth ? 'other-month' : ''} ${day === selectedDate && isCurrentMonth ? 'selected' : ''} ${hasAvailability ? 'has-entry' : ''}`}
+                                                    onClick={() => isCurrentMonth && setSelectedDate(day)}
+                                                >
+                                                    <span>{day}</span>
+                                                    {hasAvailability && <span className="day-dot"></span>}
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                        <Button className="mt-4">Save Preferences</Button>
+
+                        {/* Availability List */}
+                        <div className="availability-list">
+                            {availabilityData.map((item, index) => (
+                                <div key={index} className="availability-day">
+                                    <div className="availability-day-header">
+                                        <span className="day-label">{item.date.toUpperCase()}</span>
+                                        <Button variant="ghost" size="sm" onClick={() => setShowAddModal(true)}>
+                                            <Icon name="plus" size="sm" />
+                                        </Button>
+                                    </div>
+                                    {item.entries.map((entry, i) => (
+                                        <div key={i} className="availability-entry">
+                                            <Icon name="minus" size="sm" />
+                                            <span>Unavailable {entry.time}</span>
+                                            <Icon name="refresh" size="sm" />
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="availability-note mt-4">
+                            <Icon name="info" size="sm" />
+                            <span>Unavailable because of vacation, illness, etc? <a href="#" style={{ color: 'var(--color-primary)' }}>Request time off</a> instead.</span>
+                        </div>
                     </CardBody>
                 </Card>
+
+                {showAddModal && (
+                    <div className="modal-overlay" onClick={() => setShowAddModal(false)}>
+                        <div className="modal-card" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+                            <Card>
+                                <CardBody>
+                                    <div className="modal-header">
+                                        <Button variant="ghost" size="sm" onClick={() => setShowAddModal(false)}>Cancel</Button>
+                                        <h3>Add Preference</h3>
+                                        <Button variant="ghost" size="sm">Save</Button>
+                                    </div>
+
+                                    <div className="preference-form">
+                                        <div className="preference-row">
+                                            <span>Date</span>
+                                            <span className="preference-value">Tue, Feb 24, 2026</span>
+                                        </div>
+
+                                        <div className="preference-options">
+                                            <label className={`preference-option ${preferenceType === 'unavailable' ? 'selected' : ''}`}>
+                                                <input
+                                                    type="radio"
+                                                    name="pref-type"
+                                                    checked={preferenceType === 'unavailable'}
+                                                    onChange={() => setPreferenceType('unavailable')}
+                                                />
+                                                <span className="radio-circle"></span>
+                                                <span>I'm unavailable to work</span>
+                                            </label>
+                                            <label className={`preference-option ${preferenceType === 'prefer' ? 'selected' : ''}`}>
+                                                <input
+                                                    type="radio"
+                                                    name="pref-type"
+                                                    checked={preferenceType === 'prefer'}
+                                                    onChange={() => setPreferenceType('prefer')}
+                                                />
+                                                <span className="radio-circle"></span>
+                                                <span>I prefer to work</span>
+                                            </label>
+                                        </div>
+
+                                        <div className="preference-row">
+                                            <span>All Day</span>
+                                            <label className="toggle-switch">
+                                                <input type="checkbox" checked={allDay} onChange={() => setAllDay(!allDay)} />
+                                                <span className="toggle-slider"></span>
+                                            </label>
+                                        </div>
+
+                                        {!allDay && (
+                                            <div className="preference-row">
+                                                <span>Time</span>
+                                                <span className="preference-value">9:00a-5:00p</span>
+                                            </div>
+                                        )}
+
+                                        <div className="preference-row">
+                                            <span>Repeats</span>
+                                            <label className="toggle-switch">
+                                                <input type="checkbox" />
+                                                <span className="toggle-slider"></span>
+                                            </label>
+                                        </div>
+
+                                        <div className="preference-row note-row">
+                                            <Icon name="document" size="sm" />
+                                            <span>Add note</span>
+                                        </div>
+                                    </div>
+                                </CardBody>
+                            </Card>
+                        </div>
+                    </div>
+                )}
             </div>
         </DashboardLayout>
     )

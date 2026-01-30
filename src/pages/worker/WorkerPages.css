@@ -232,11 +232,26 @@
     gap: 1rem;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
+    align-items: stretch;
 }
 
-.filter-bar .form-input {
+.filter-bar .form-input,
+.filter-bar .form-group {
     flex: 1;
     min-width: 200px;
+}
+
+.filter-bar .form-group {
+    margin-bottom: 0;
+}
+
+.filter-bar .form-group input {
+    height: 100%;
+}
+
+.filter-bar .form-select {
+    height: 44px;
+    min-width: 150px;
 }
 
 /* Jobs List */
@@ -942,4 +957,307 @@
 
 .mb-4 {
     margin-bottom: 1rem;
+}
+
+/* =========================================
+   AVAILABILITY SECTION
+   ========================================= */
+
+.availability-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.availability-header .card-title {
+    margin-bottom: 0;
+}
+
+/* Calendar */
+.availability-calendar {
+    margin-bottom: 1.5rem;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-month {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.calendar-grid {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: var(--color-bg-subtle);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.weekday {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.calendar-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.calendar-row:last-child {
+    border-bottom: none;
+}
+
+.calendar-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    min-height: 50px;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background: var(--color-bg-subtle);
+}
+
+.calendar-day.other-month {
+    color: var(--color-text-muted);
+    opacity: 0.5;
+}
+
+.calendar-day.selected {
+    background: var(--color-text);
+    color: white;
+    border-radius: 50%;
+}
+
+.calendar-day.has-entry .day-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    margin-top: 2px;
+}
+
+/* Availability List */
+.availability-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.availability-day {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem 0;
+}
+
+.availability-day:last-child {
+    border-bottom: none;
+}
+
+.availability-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.day-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+}
+
+.availability-entry {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: var(--color-text-muted);
+}
+
+.availability-entry span {
+    flex: 1;
+}
+
+.availability-note {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--color-primary-50);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+/* Preference Form */
+.preference-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.preference-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.preference-row:last-child {
+    border-bottom: none;
+}
+
+.preference-value {
+    color: var(--color-text-muted);
+}
+
+.preference-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.preference-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: background 0.2s ease;
+}
+
+.preference-option:hover {
+    background: var(--color-bg-subtle);
+}
+
+.preference-option input {
+    display: none;
+}
+
+.radio-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.preference-option.selected .radio-circle {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+
+.preference-option.selected .radio-circle::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.note-row {
+    justify-content: flex-start;
+    gap: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: var(--color-border);
+    border-radius: 28px;
+    transition: 0.3s;
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.toggle-switch input:checked+.toggle-slider {
+    background-color: var(--color-primary);
+}
+
+.toggle-switch input:checked+.toggle-slider::before {
+    transform: translateX(20px);
 }
