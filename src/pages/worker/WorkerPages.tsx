@@ -69,7 +69,7 @@ export function WorkerDashboard() {
                                 <div className="schedule-time">9:00 AM</div>
                                 <div className="schedule-details">
                                     <div className="schedule-type">Regular Cleaning</div>
-                                    <div className="schedule-location">Downtown Vancouver</div>
+                                    <div className="schedule-location">New Westminster</div>
                                 </div>
                                 <Badge variant="primary">Upcoming</Badge>
                             </div>
@@ -77,7 +77,7 @@ export function WorkerDashboard() {
                                 <div className="schedule-time">2:00 PM</div>
                                 <div className="schedule-details">
                                     <div className="schedule-type">Deep Cleaning</div>
-                                    <div className="schedule-location">North Vancouver</div>
+                                    <div className="schedule-location">New Westminster</div>
                                 </div>
                                 <Badge variant="warning">Pending</Badge>
                             </div>
@@ -186,9 +186,9 @@ export function WorkerJobs() {
     const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
 
     const jobs = [
-        { id: 1, type: 'Regular Cleaning', location: 'Downtown', date: 'Tomorrow, 9 AM', distance: '3.2 km', pay: 89, status: 'new' },
-        { id: 2, type: 'Deep Cleaning', location: 'Kitsilano', date: 'Jan 15, 2 PM', distance: '5.8 km', pay: 149, status: 'new' },
-        { id: 3, type: 'Regular Cleaning', location: 'Burnaby', date: 'Jan 16, 10 AM', distance: '8.1 km', pay: 95, status: 'viewed' },
+        { id: 1, type: 'Regular Cleaning', location: 'New Westminster', date: 'Tomorrow, 9 AM', distance: '3.2 km', status: 'new' },
+        { id: 2, type: 'Deep Cleaning', location: 'New Westminster', date: 'Jan 15, 2 PM', distance: '5.8 km', status: 'new' },
+        { id: 3, type: 'Regular Cleaning', location: 'New Westminster', date: 'Jan 16, 10 AM', distance: '8.1 km', status: 'viewed' },
     ]
 
     return (
@@ -224,10 +224,6 @@ export function WorkerJobs() {
                                     <span className="detail-label">Date & Time</span>
                                     <span className="detail-value">{job.date}</span>
                                 </div>
-                                <div className="job-detail">
-                                    <span className="detail-label">Estimated Pay</span>
-                                    <span className="detail-value pay">${job.pay}</span>
-                                </div>
                             </div>
                             <div className="job-actions">
                                 <Button variant="ghost">View Details</Button>
@@ -254,16 +250,16 @@ export function WorkerSchedule() {
     const dates = [13, 14, 15, 16, 17, 18, 19]
 
     const events = [
-        { day: 0, time: '9:00', duration: 2, title: 'Regular Cleaning', location: 'Downtown' },
-        { day: 0, time: '14:00', duration: 3, title: 'Deep Cleaning', location: 'North Van' },
-        { day: 2, time: '10:00', duration: 2, title: 'Regular Cleaning', location: 'Burnaby' },
-        { day: 4, time: '11:00', duration: 2, title: 'Regular Cleaning', location: 'Kitsilano' },
+        { day: 0, time: '9:00', duration: 2, title: 'Regular Cleaning', location: 'New Westminster' },
+        { day: 0, time: '14:00', duration: 3, title: 'Deep Cleaning', location: 'New Westminster' },
+        { day: 2, time: '10:00', duration: 2, title: 'Regular Cleaning', location: 'New Westminster' },
+        { day: 4, time: '11:00', duration: 2, title: 'Regular Cleaning', location: 'New Westminster' },
     ]
 
     const availableJobs = [
-        { id: 1, type: 'Regular Cleaning', location: 'Downtown', date: 'Tomorrow, 9 AM', distance: '3.2 km', pay: 89, status: 'new' },
-        { id: 2, type: 'Deep Cleaning', location: 'Kitsilano', date: 'Jan 15, 2 PM', distance: '5.8 km', pay: 149, status: 'new' },
-        { id: 3, type: 'Regular Cleaning', location: 'Burnaby', date: 'Jan 16, 10 AM', distance: '8.1 km', pay: 95, status: 'viewed' },
+        { id: 1, type: 'Regular Cleaning', location: 'New Westminster', date: 'Tomorrow, 9 AM', distance: '3.2 km', status: 'new', day: 1, time: '9:00', duration: 2 },
+        { id: 2, type: 'Deep Cleaning', location: 'New Westminster', date: 'Jan 15, 2 PM', distance: '5.8 km', status: 'new', day: 2, time: '14:00', duration: 3 },
+        { id: 3, type: 'Regular Cleaning', location: 'New Westminster', date: 'Jan 16, 10 AM', distance: '8.1 km', status: 'viewed', day: 3, time: '10:00', duration: 2 },
     ]
 
     return (
@@ -291,10 +287,29 @@ export function WorkerSchedule() {
                                     {events
                                         .filter(e => e.day === dayIndex)
                                         .map((event, i) => (
-                                            <div key={i} className="calendar-event" style={{ top: `${(parseInt(event.time) - 8) * 40}px`, height: `${event.duration * 40}px` }}>
+                                            <div key={`evt-${i}`} className="calendar-event" style={{ top: `${(parseInt(event.time) - 8) * 40}px`, height: `${event.duration * 40}px` }}>
                                                 <span className="event-time">{event.time}</span>
                                                 <span className="event-title">{event.title}</span>
                                                 <span className="event-location">{event.location}</span>
+                                            </div>
+                                        ))}
+                                    {availableJobs
+                                        .filter(j => j.day === dayIndex)
+                                        .map((job, i) => (
+                                            <div
+                                                key={`job-${i}`}
+                                                className="calendar-event available-job"
+                                                style={{
+                                                    top: `${(parseInt(job.time) - 8) * 40}px`,
+                                                    height: `${job.duration * 40}px`,
+                                                    border: '2px dashed var(--color-primary)',
+                                                    backgroundColor: 'var(--color-bg)',
+                                                    opacity: 0.8
+                                                }}
+                                            >
+                                                <span className="event-time">{job.time}</span>
+                                                <span className="event-title">{job.type} (Available)</span>
+                                                <span className="event-location">{job.location}</span>
                                             </div>
                                         ))}
                                 </div>
@@ -356,10 +371,6 @@ export function WorkerSchedule() {
                                             <span className="detail-label">Date & Time</span>
                                             <span className="detail-value">{job.date}</span>
                                         </div>
-                                        <div className="job-detail">
-                                            <span className="detail-label">Estimated Pay</span>
-                                            <span className="detail-value pay">${job.pay}</span>
-                                        </div>
                                     </div>
                                     <div className="job-actions">
                                         <Button variant="ghost">View Details</Button>
@@ -395,7 +406,7 @@ export function WorkerTracking() {
                             <span className="timer">01:23:45</span>
                         </div>
                         <h2>Regular Cleaning</h2>
-                        <p className="job-address">123 Main St, Downtown Vancouver</p>
+                        <p className="job-address">123 Main St, New Westminster</p>
                         <p className="job-client">Client: Sarah M.</p>
 
                         <div className="tracking-actions">
@@ -424,7 +435,7 @@ export function WorkerTracking() {
                         <div className="tracking-job">
                             <div className="tracking-job-info">
                                 <h4>Regular Cleaning</h4>
-                                <p>Downtown Vancouver • 9:00 AM</p>
+                                <p>New Westminster • 9:00 AM</p>
                             </div>
                             {!checkedIn && (
                                 <Button onClick={() => setCheckedIn(true)}>Check In</Button>
@@ -437,7 +448,7 @@ export function WorkerTracking() {
                         <div className="tracking-job">
                             <div className="tracking-job-info">
                                 <h4>Deep Cleaning</h4>
-                                <p>North Vancouver • 2:00 PM</p>
+                                <p>New Westminster • 2:00 PM</p>
                             </div>
                             <Badge>Later</Badge>
                         </div>
@@ -466,10 +477,10 @@ export function WorkerEarnings() {
     const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
 
     const earnings = [
-        { date: 'Jan 12', job: 'Regular Cleaning - Downtown', hours: 2, amount: 89, status: 'paid' },
-        { date: 'Jan 11', job: 'Deep Cleaning - Kitsilano', hours: 3.5, amount: 149, status: 'paid' },
-        { date: 'Jan 10', job: 'Regular Cleaning - Burnaby', hours: 2, amount: 95, status: 'paid' },
-        { date: 'Jan 9', job: 'Regular Cleaning - North Van', hours: 2.5, amount: 99, status: 'paid' },
+        { date: 'Jan 12', job: 'Regular Cleaning - New Westminster', hours: 2, amount: 89, status: 'paid' },
+        { date: 'Jan 11', job: 'Deep Cleaning - New Westminster', hours: 3.5, amount: 149, status: 'paid' },
+        { date: 'Jan 10', job: 'Regular Cleaning - New Westminster', hours: 2, amount: 95, status: 'paid' },
+        { date: 'Jan 9', job: 'Regular Cleaning - New Westminster', hours: 2.5, amount: 99, status: 'paid' },
     ]
 
     return (
