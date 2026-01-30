@@ -10,7 +10,6 @@ import './WorkerPages.css'
 const getWorkerLinks = (basePath: string): { to: string; label: string; icon: IconName }[] => [
     { to: basePath, label: 'Dashboard', icon: 'home' },
     { to: `${basePath}/onboarding`, label: 'Onboarding', icon: 'clipboard' },
-    { to: `${basePath}/jobs`, label: 'Available Jobs', icon: 'sparkle' },
     { to: `${basePath}/schedule`, label: 'My Schedule', icon: 'calendar' },
     { to: `${basePath}/tracking`, label: 'Time Tracking', icon: 'clock' },
     { to: `${basePath}/earnings`, label: 'Earnings', icon: 'dollar' },
@@ -261,6 +260,12 @@ export function WorkerSchedule() {
         { day: 4, time: '11:00', duration: 2, title: 'Regular Cleaning', location: 'Kitsilano' },
     ]
 
+    const availableJobs = [
+        { id: 1, type: 'Regular Cleaning', location: 'Downtown', date: 'Tomorrow, 9 AM', distance: '3.2 km', pay: 89, status: 'new' },
+        { id: 2, type: 'Deep Cleaning', location: 'Kitsilano', date: 'Jan 15, 2 PM', distance: '5.8 km', pay: 149, status: 'new' },
+        { id: 3, type: 'Regular Cleaning', location: 'Burnaby', date: 'Jan 16, 10 AM', distance: '8.1 km', pay: 95, status: 'viewed' },
+    ]
+
     return (
         <DashboardLayout title="My Schedule" links={links}>
             <Card>
@@ -312,6 +317,57 @@ export function WorkerSchedule() {
                                 </div>
                                 <Button variant="secondary" size="sm">Details</Button>
                             </div>
+                        ))}
+                    </div>
+                </CardBody>
+            </Card>
+
+            <Card className="mt-6">
+                <CardBody>
+                    <h3 className="card-title">Available Jobs</h3>
+                    <div className="filter-bar mb-4">
+                        <Input placeholder="Search by location..." />
+                        <select className="form-select" style={{ maxWidth: 200 }}>
+                            <option>All Types</option>
+                            <option>Regular Cleaning</option>
+                            <option>Deep Cleaning</option>
+                        </select>
+                        <select className="form-select" style={{ maxWidth: 200 }}>
+                            <option>Any Distance</option>
+                            <option>Within 5 km</option>
+                            <option>Within 10 km</option>
+                            <option>Within 25 km</option>
+                        </select>
+                    </div>
+
+                    <div className="jobs-list">
+                        {availableJobs.map(job => (
+                            <Card key={job.id} className="job-card">
+                                <CardBody>
+                                    <div className="job-header">
+                                        <div>
+                                            <h3 className="job-type">{job.type}</h3>
+                                            <p className="job-location"><Icon name="mapPin" size="sm" /> {job.location} • {job.distance} away</p>
+                                        </div>
+                                        {job.status === 'new' && <Badge variant="primary">New</Badge>}
+                                    </div>
+                                    <div className="job-details">
+                                        <div className="job-detail">
+                                            <span className="detail-label">Date & Time</span>
+                                            <span className="detail-value">{job.date}</span>
+                                        </div>
+                                        <div className="job-detail">
+                                            <span className="detail-label">Estimated Pay</span>
+                                            <span className="detail-value pay">${job.pay}</span>
+                                        </div>
+                                    </div>
+                                    <div className="job-actions">
+                                        <Button variant="ghost">View Details</Button>
+                                        <Button variant="secondary">Decline</Button>
+                                        <Button>Accept Job</Button>
+                                    </div>
+                                </CardBody>
+                            </Card>
                         ))}
                     </div>
                 </CardBody>
