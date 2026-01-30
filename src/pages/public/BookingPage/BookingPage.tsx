@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { Button, Input, Select, Stepper, Card, CardBody, Alert } from '@/components/ui'
 import { Icon } from '@/components/Icon'
 import { computeQuote, formatMoney } from '@/lib/pricing'
@@ -204,7 +204,7 @@ export function BookingPage() {
                                     <span className="service-type-name">Custom Cleaning</span>
                                     <span className="service-type-price">Custom Quote</span>
                                     <span className="service-type-desc">Contact us to know more details</span>
-                                    <a href="/contact" className="btn btn-outline btn-sm service-contact-btn">Contact Us</a>
+                                    <Link to="/contact" className="btn btn-outline btn-sm service-contact-btn">Contact Us</Link>
                                 </div>
                                 <div className="service-type-card service-type-coming-soon">
                                     <span className="coming-soon-badge">Coming Soon</span>
