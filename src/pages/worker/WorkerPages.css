@@ -724,18 +724,28 @@
 
 .profile-stats {
     display: flex;
-    gap: 2rem;
-    padding: 1rem;
+    justify-content: space-around;
+    padding: 1.25rem 1rem;
     background: var(--color-bg-subtle);
     border-radius: var(--radius-md);
+    margin-top: 1rem;
 }
 
 .profile-stat {
     text-align: center;
+    flex: 1;
 }
 
 .profile-stat .stat-value {
     font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    display: block;
+}
+
+.profile-stat .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
 }
 
 .form-grid {
