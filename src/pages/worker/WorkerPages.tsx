@@ -1185,6 +1185,7 @@ export function WorkerProfile() {
                     <CardBody>
                         <h3 className="card-title">Personal Information</h3>
                         <div className="form-grid">
+                            <Input label="Employee Number" defaultValue="20260042" disabled />
                             <Input label="Full Name" defaultValue="Maria Garcia" />
                             <Input label="Email" type="email" defaultValue="maria@example.com" disabled />
                             <Input label="Phone" type="tel" defaultValue="(604) 555-1234" />

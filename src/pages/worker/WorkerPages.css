@@ -523,15 +523,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+}
+
+.tracking-job-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .tracking-job-info h4 {
-    margin-bottom: 0.25rem;
+    margin: 0;
+    min-width: 140px;
 }
 
 .tracking-job-info p {
     color: var(--color-text-muted);
     font-size: 0.875rem;
+    margin: 0;
 }
 
 /* Earnings */
