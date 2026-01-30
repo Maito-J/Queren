@@ -13,7 +13,7 @@ const testimonials = [
 const features: { icon: IconName; title: string; description: string }[] = [
     { icon: 'check', title: 'Vetted Cleaners', description: 'Every cleaner is background-checked and professionally trained.' },
     { icon: 'dollar', title: 'Transparent Pricing', description: 'No hidden fees. Know your exact price before you book.' },
-    { icon: 'calendar', title: 'Flexible Scheduling', description: 'Book online 24/7. Cancel or reschedule anytime.' },
+    { icon: 'sparkle', title: 'Premium Supplies', description: 'We bring professional-grade products at no extra cost. Have your own? We can use those too.' },
 ]
 
 const services = [
@@ -35,7 +35,7 @@ export function HomePage() {
                             <span className="text-primary">You Can Trust</span>
                         </h1>
                         <p className="hero-subtitle">
-                            Trusted, vetted cleaners at your doorstep. Transparent pricing, easy booking, sparkling results.
+                            Trusted, vetted cleaners at your doorstep. Professional supplies included. Sparkling results.
                         </p>
                         <div className="hero-actions">
                             <Link to="/booking">
