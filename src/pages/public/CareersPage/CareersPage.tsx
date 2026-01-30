@@ -182,6 +182,35 @@ export function CareersPage() {
                                             </div>
                                         </div>
 
+                                        {/* Background Check Consent */}
+                                        <div className="background-check-consent">
+                                            <h4>Background Check Disclosure</h4>
+                                            <p>
+                                                By submitting this application, I acknowledge and agree that Queren Cleaning may conduct a background check as part of the hiring process, where permitted by law.
+                                            </p>
+                                            <p>This may include verification of:</p>
+                                            <ul>
+                                                <li>Criminal record</li>
+                                                <li>Employment history</li>
+                                                <li>Education</li>
+                                                <li>Professional licenses</li>
+                                                <li>References</li>
+                                                <li>Driving record (if job-related)</li>
+                                            </ul>
+                                            <p>
+                                                I understand that a background check may be required before an offer of employment is finalized. I may be asked to provide additional information or written authorization if needed.
+                                            </p>
+                                            <p>
+                                                I certify that the information I have provided in this application is true and complete.
+                                            </p>
+                                            <div className="form-check consent-checkbox">
+                                                <input type="checkbox" id="backgroundCheckConsent" required />
+                                                <label htmlFor="backgroundCheckConsent" className="form-check-label">
+                                                    I consent to a background check as part of the hiring process
+                                                </label>
+                                            </div>
+                                        </div>
+
                                         <Button fullWidth size="lg">Submit Application</Button>
                                     </form>
                                 </CardBody>
