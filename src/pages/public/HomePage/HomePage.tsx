@@ -41,8 +41,8 @@ export function HomePage() {
                             <Link to="/booking">
                                 <Button size="lg">Book Now</Button>
                             </Link>
-                            <Link to="/services/pricing">
-                                <Button variant="outline" size="lg" style={{ backgroundColor: 'white' }}>View Pricing</Button>
+                            <Link to="/services">
+                                <Button variant="outline" size="lg" className="hero-pricing-btn">View Pricing</Button>
                             </Link>
                         </div>
                         <div className="hero-trust">

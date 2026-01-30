@@ -67,6 +67,19 @@
     }
 }
 
+/* Hero Pricing Button - custom hover effect */
+.hero-pricing-btn {
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.hero-pricing-btn:hover {
+    background-color: var(--color-primary-dark) !important;
+    color: white !important;
+    border-color: var(--color-primary-dark) !important;
+    transform: scale(1.05);
+}
+
 .hero-trust {
     display: flex;
     align-items: center;
