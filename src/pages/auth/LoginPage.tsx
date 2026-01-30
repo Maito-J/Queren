@@ -15,6 +15,27 @@ export function LoginPage() {
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(false)
 
+    // Forgot Password State
+    const [showForgotModal, setShowForgotModal] = useState(false)
+    const [resetEmail, setResetEmail] = useState('')
+    const [resetSent, setResetSent] = useState(false)
+    const [resetLoading, setResetLoading] = useState(false)
+
+    const handleResetPassword = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setResetLoading(true)
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500))
+        setResetSent(true)
+        setResetLoading(false)
+    }
+
+    const closeForgotModal = () => {
+        setShowForgotModal(false)
+        setResetSent(false)
+        setResetEmail('')
+    }
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setError(null)
@@ -61,7 +82,21 @@ export function LoginPage() {
                             />
 
                             <div className="auth-forgot">
-                                <Link to="/forgot-password">Forgot password?</Link>
+                                <button
+                                    type="button"
+                                    onClick={() => setShowForgotModal(true)}
+                                    style={{
+                                        background: 'none',
+                                        border: 'none',
+                                        padding: 0,
+                                        color: 'var(--color-primary)',
+                                        cursor: 'pointer',
+                                        fontSize: 'var(--font-size-sm)',
+                                        textDecoration: 'underline'
+                                    }}
+                                >
+                                    Forgot password?
+                                </button>
                             </div>
 
                             <Button type="submit" fullWidth isLoading={loading}>
@@ -129,6 +164,58 @@ export function LoginPage() {
                     </CardBody>
                 </Card>
             </div>
+
+            {/* Forgot Password Modal */}
+            {showForgotModal && (
+                <div className="modal-overlay" onClick={closeForgotModal}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <Card>
+                            <CardBody>
+                                <div className="modal-header">
+                                    <h3>Reset Password</h3>
+                                    <button
+                                        onClick={closeForgotModal}
+                                        style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--color-text-muted)' }}
+                                    >
+                                        <Icon name="x" size="md" />
+                                    </button>
+                                </div>
+
+                                {resetSent ? (
+                                    <div style={{ textAlign: 'center', padding: '1rem 0' }}>
+                                        <div style={{ color: 'var(--color-success)', marginBottom: '1rem' }}>
+                                            <Icon name="check" size="lg" />
+                                        </div>
+                                        <h4 style={{ marginBottom: '0.5rem' }}>Check your email</h4>
+                                        <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
+                                            We've sent password reset instructions to <strong>{resetEmail}</strong>
+                                        </p>
+                                        <Button fullWidth onClick={closeForgotModal}>Back to Login</Button>
+                                    </div>
+                                ) : (
+                                    <form onSubmit={handleResetPassword}>
+                                        <p style={{ marginBottom: '1.5rem', color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
+                                            Enter your email address and we'll send you a link to reset your password.
+                                        </p>
+                                        <Input
+                                            label="Email Address"
+                                            type="email"
+                                            value={resetEmail}
+                                            onChange={e => setResetEmail(e.target.value)}
+                                            required
+                                            placeholder="Enter your email"
+                                        />
+                                        <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+                                            <Button type="button" variant="ghost" fullWidth onClick={closeForgotModal}>Cancel</Button>
+                                            <Button type="submit" fullWidth isLoading={resetLoading}>Send Link</Button>
+                                        </div>
+                                    </form>
+                                )}
+                            </CardBody>
+                        </Card>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
