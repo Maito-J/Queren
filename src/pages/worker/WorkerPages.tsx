@@ -192,7 +192,7 @@ export function WorkerJobs() {
     ]
 
     return (
-        <DashboardLayout title="Available Jobs" links={links}>
+        <DashboardLayout title="Open Shifts" links={links}>
             <div className="filter-bar">
                 <Input placeholder="Search by location..." />
                 <select className="form-select" style={{ maxWidth: 200 }}>
@@ -246,21 +246,29 @@ export function WorkerSchedule() {
     const isDemo = location.pathname.startsWith('/worker-demo')
     const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
 
+    const [showJobModal, setShowJobModal] = useState(false)
+    const [selectedJob, setSelectedJob] = useState<any>(null)
+
     const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     const dates = [13, 14, 15, 16, 17, 18, 19]
 
     const events = [
-        { day: 0, time: '9:00', duration: 2, title: 'Regular Cleaning', location: 'New Westminster' },
-        { day: 0, time: '14:00', duration: 3, title: 'Deep Cleaning', location: 'New Westminster' },
-        { day: 2, time: '10:00', duration: 2, title: 'Regular Cleaning', location: 'New Westminster' },
-        { day: 4, time: '11:00', duration: 2, title: 'Regular Cleaning', location: 'New Westminster' },
+        { day: 0, time: '9:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'DOC-8894', specialRequests: 'Please use eco-friendly products', status: 'confirmed' },
+        { day: 0, time: '14:00', duration: 3, title: 'Deep Cleaning', reservationNumber: 'DOC-9921', specialRequests: 'Focus on kitchen grease', status: 'confirmed' },
+        { day: 2, time: '10:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'DOC-8855', specialRequests: 'None', status: 'confirmed' },
+        { day: 4, time: '11:00', duration: 2, title: 'Regular Cleaning', reservationNumber: 'DOC-9102', specialRequests: 'Key under the mat', status: 'confirmed' },
     ]
 
     const availableJobs = [
-        { id: 1, type: 'Regular Cleaning', location: 'New Westminster', date: 'Tomorrow, 9 AM', distance: '3.2 km', status: 'new', day: 1, time: '9:00', duration: 2 },
-        { id: 2, type: 'Deep Cleaning', location: 'New Westminster', date: 'Jan 15, 2 PM', distance: '5.8 km', status: 'new', day: 2, time: '14:00', duration: 3 },
-        { id: 3, type: 'Regular Cleaning', location: 'New Westminster', date: 'Jan 16, 10 AM', distance: '8.1 km', status: 'viewed', day: 3, time: '10:00', duration: 2 },
+        { id: 1, type: 'Regular Cleaning', reservationNumber: 'DOC-1024', date: 'Tomorrow, 9 AM', distance: '3.2 km', status: 'new', day: 1, time: '9:00', duration: 2, specialRequests: 'Dog is friendly' },
+        { id: 2, type: 'Deep Cleaning', reservationNumber: 'DOC-1089', date: 'Jan 15, 2 PM', distance: '5.8 km', status: 'new', day: 2, time: '14:00', duration: 3, specialRequests: 'Allergic to bleach' },
+        { id: 3, type: 'Regular Cleaning', reservationNumber: 'DOC-1056', date: 'Jan 16, 10 AM', distance: '8.1 km', status: 'viewed', day: 3, time: '10:00', duration: 2, specialRequests: 'None' },
     ]
+
+    const handleJobClick = (job: any) => {
+        setSelectedJob(job)
+        setShowJobModal(true)
+    }
 
     return (
         <DashboardLayout title="My Schedule" links={links}>
@@ -287,10 +295,19 @@ export function WorkerSchedule() {
                                     {events
                                         .filter(e => e.day === dayIndex)
                                         .map((event, i) => (
-                                            <div key={`evt-${i}`} className="calendar-event" style={{ top: `${(parseInt(event.time) - 8) * 40}px`, height: `${event.duration * 40}px` }}>
+                                            <div
+                                                key={`evt-${i}`}
+                                                className="calendar-event"
+                                                style={{
+                                                    top: `${(parseInt(event.time) - 8) * 40}px`,
+                                                    height: `${event.duration * 40}px`,
+                                                    cursor: 'pointer'
+                                                }}
+                                                onClick={() => handleJobClick(event)}
+                                            >
                                                 <span className="event-time">{event.time}</span>
                                                 <span className="event-title">{event.title}</span>
-                                                <span className="event-location">{event.location}</span>
+                                                <span className="event-location">{event.reservationNumber}</span>
                                             </div>
                                         ))}
                                     {availableJobs
@@ -304,12 +321,17 @@ export function WorkerSchedule() {
                                                     height: `${job.duration * 40}px`,
                                                     border: '2px dashed var(--color-primary)',
                                                     backgroundColor: 'var(--color-bg)',
-                                                    opacity: 0.8
+                                                    opacity: 0.9,
+                                                    cursor: 'pointer'
                                                 }}
+                                                onClick={() => handleJobClick(job)}
                                             >
                                                 <span className="event-time">{job.time}</span>
-                                                <span className="event-title">{job.type} (Available)</span>
-                                                <span className="event-location">{job.location}</span>
+                                                <span className="event-title">{job.type}</span>
+                                                <span className="event-location">{job.reservationNumber}</span>
+                                                <div className="job-action-overlay">
+                                                    <span style={{ fontSize: '0.7rem', color: 'var(--color-primary)', fontWeight: 600 }}>Click for details</span>
+                                                </div>
                                             </div>
                                         ))}
                                 </div>
@@ -328,7 +350,7 @@ export function WorkerSchedule() {
                                 <div className="agenda-date">{days[event.day]} {dates[event.day]}</div>
                                 <div className="agenda-details">
                                     <strong>{event.title}</strong>
-                                    <span>{event.time} • {event.location}</span>
+                                    <span>{event.time} • {event.reservationNumber}</span>
                                 </div>
                                 <Button variant="secondary" size="sm">Details</Button>
                             </div>
@@ -339,7 +361,7 @@ export function WorkerSchedule() {
 
             <Card className="mt-6">
                 <CardBody>
-                    <h3 className="card-title">Available Jobs</h3>
+                    <h3 className="card-title">Open Shifts</h3>
                     <div className="filter-bar mb-4">
                         <Input placeholder="Search by location..." />
                         <select className="form-select" style={{ maxWidth: 200 }}>
@@ -362,7 +384,7 @@ export function WorkerSchedule() {
                                     <div className="job-header">
                                         <div>
                                             <h3 className="job-type">{job.type}</h3>
-                                            <p className="job-location"><Icon name="mapPin" size="sm" /> {job.location} • {job.distance} away</p>
+                                            <p className="job-location"><Icon name="clock" size="sm" /> Reservation: {job.reservationNumber} • {job.distance} away</p>
                                         </div>
                                         {job.status === 'new' && <Badge variant="primary">New</Badge>}
                                     </div>
@@ -373,7 +395,7 @@ export function WorkerSchedule() {
                                         </div>
                                     </div>
                                     <div className="job-actions">
-                                        <Button variant="ghost">View Details</Button>
+                                        <Button variant="ghost" onClick={() => handleJobClick(job)}>View Details</Button>
                                         <Button variant="secondary">Decline</Button>
                                         <Button>Accept Job</Button>
                                     </div>
@@ -383,6 +405,60 @@ export function WorkerSchedule() {
                     </div>
                 </CardBody>
             </Card>
+
+            {showJobModal && selectedJob && (
+                <div className="modal-overlay" onClick={() => setShowJobModal(false)}>
+                    <div className="modal-card" onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+                        <Card>
+                            <CardBody>
+                                <div className="modal-header">
+                                    <Button variant="ghost" size="sm" onClick={() => setShowJobModal(false)}>Close</Button>
+                                    <h3>Job Details</h3>
+                                    <div style={{ width: 20 }}></div>
+                                </div>
+
+                                <div className="job-details-modal">
+                                    <div className="detail-row" style={{ marginBottom: '1rem' }}>
+                                        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>Reservation Number</div>
+                                        <div style={{ fontSize: '1.1rem', fontWeight: 600 }}>{selectedJob.reservationNumber || selectedJob.id}</div>
+                                    </div>
+
+                                    <div className="detail-row" style={{ marginBottom: '1rem' }}>
+                                        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>Cleaning Type</div>
+                                        <div style={{ fontSize: '1rem' }}>{selectedJob.title || selectedJob.type}</div>
+                                    </div>
+
+                                    <div className="detail-row" style={{ marginBottom: '1rem' }}>
+                                        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>Time</div>
+                                        <div style={{ fontSize: '1rem' }}>{selectedJob.time} ({selectedJob.duration} hours)</div>
+                                    </div>
+
+                                    <div className="detail-row" style={{ marginBottom: '1rem' }}>
+                                        <div style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', marginBottom: '0.25rem' }}>Special Requests</div>
+                                        <div style={{ fontSize: '1rem', padding: '0.5rem', background: 'var(--color-bg)', borderRadius: 'var(--radius-sm)' }}>
+                                            {selectedJob.specialRequests || 'No special requests'}
+                                        </div>
+                                    </div>
+
+                                    <div className="modal-actions" style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+                                        {selectedJob.status === 'confirmed' ? (
+                                            <>
+                                                <Button variant="secondary" onClick={() => setShowJobModal(false)}>Close</Button>
+                                                <Button variant="secondary" style={{ color: '#ef4444', borderColor: '#ef4444' }} onClick={() => setShowJobModal(false)}>Drop Off</Button>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Button variant="secondary" onClick={() => setShowJobModal(false)}>Decline</Button>
+                                                <Button onClick={() => setShowJobModal(false)}>Confirm</Button>
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
+                            </CardBody>
+                        </Card>
+                    </div>
+                </div>
+            )}
         </DashboardLayout>
     )
 }
