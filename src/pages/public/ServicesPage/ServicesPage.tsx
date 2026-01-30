@@ -91,7 +91,7 @@ export function ServicesPage() {
             </section>
 
             {/* Regular Cleaning */}
-            <section className="section service-detail">
+            <section id="regular" className="section service-detail">
                 <div className="container">
                     <div className="service-detail-grid">
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
@@ -179,7 +179,7 @@ export function ServicesPage() {
             </section>
 
             {/* Deep Cleaning */}
-            <section className="section service-detail alt-bg">
+            <section id="deep" className="section service-detail alt-bg">
                 <div className="container">
                     <div className="service-detail-grid reverse">
                         <div className="service-detail-image">
