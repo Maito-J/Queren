@@ -320,32 +320,14 @@ export function WorkerSchedule() {
                                                     top: `${(parseInt(job.time) - 8) * 40}px`,
                                                     height: `${job.duration * 40}px`,
                                                     border: '2px dashed var(--color-primary)',
-                                                    backgroundColor: 'transparent',
-                                                    cursor: 'pointer',
-                                                    display: 'flex',
-                                                    flexDirection: 'column',
-                                                    justifyContent: 'center',
-                                                    padding: '4px 8px'
+                                                    background: 'transparent',
+                                                    cursor: 'pointer'
                                                 }}
                                                 onClick={() => handleJobClick(job)}
                                             >
-                                                <span className="event-time" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>{job.time}</span>
+                                                <span className="event-time" style={{ color: 'var(--color-primary)' }}>{job.time}</span>
                                                 <span className="event-title" style={{ color: 'var(--color-primary)' }}>{job.type}</span>
                                                 <span className="event-location" style={{ color: 'var(--color-primary)' }}>{job.reservationNumber}</span>
-                                                <div style={{
-                                                    marginTop: 'auto',
-                                                    fontSize: '0.75rem',
-                                                    color: 'var(--color-primary)',
-                                                    fontWeight: 600,
-                                                    background: 'white',
-                                                    borderRadius: '4px',
-                                                    padding: '2px 6px',
-                                                    textAlign: 'center',
-                                                    width: 'fit-content',
-                                                    alignSelf: 'center'
-                                                }}>
-                                                    Details
-                                                </div>
                                             </div>
                                         ))}
                                 </div>
@@ -458,7 +440,7 @@ export function WorkerSchedule() {
                                         {selectedJob.status === 'confirmed' ? (
                                             <>
                                                 <Button variant="secondary" onClick={() => setShowJobModal(false)}>Close</Button>
-                                                <Button variant="secondary" style={{ color: '#ef4444', borderColor: '#ef4444' }} onClick={() => setShowJobModal(false)}>Drop Off</Button>
+                                                <Button variant="secondary" style={{ color: 'var(--color-primary)', borderColor: 'var(--color-primary)' }} onClick={() => setShowJobModal(false)}>Drop Off</Button>
                                             </>
                                         ) : (
                                             <>

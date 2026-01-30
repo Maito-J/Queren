@@ -389,11 +389,15 @@
     background: var(--color-primary);
     color: white;
     border-radius: var(--radius-sm);
-    padding: 4px;
+    padding: 8px;
     font-size: 0.75rem;
-    line-height: 1.2;
+    line-height: 1.3;
     overflow: hidden;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .calendar-event:hover {
@@ -1209,8 +1213,8 @@
 }
 
 .entry-action-btn.delete:hover {
-    color: #ef4444;
-    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-primary);
+    background: rgba(150, 129, 187, 0.1);
 }
 
 .availability-note {
