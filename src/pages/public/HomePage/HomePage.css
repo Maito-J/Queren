@@ -218,8 +218,11 @@
     color: var(--color-text);
 }
 
-.value-item svg {
-    color: var(--color-primary);
+.value-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: hue-rotate(150deg) saturate(1.2);
 }
 
 .mission-image {

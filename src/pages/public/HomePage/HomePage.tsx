@@ -10,6 +10,8 @@ const testimonials = [
     { name: 'Linda P.', rating: 5, text: 'The booking process was so easy, and the cleaning exceeded expectations.', city: 'Calgary' },
 ]
 
+import checkMark from '@/assets/images/check-mark.png'
+
 const features: { icon: IconName; title: string; description: string }[] = [
     { icon: 'check', title: 'Vetted Cleaners', description: 'Every cleaner is background-checked and professionally trained.' },
     { icon: 'dollar', title: 'Transparent Pricing', description: 'Flat rate $40/hour. No hidden fees. Same rate for all services.' },
@@ -88,11 +90,11 @@ export function HomePage() {
                                 To create homes that are safe, clean, healthy, and happy.
                             </p>
                             <div className="brand-values">
-                                <div className="value-item"><Icon name="check" size="sm" /> Trust</div>
-                                <div className="value-item"><Icon name="check" size="sm" /> Reliability</div>
-                                <div className="value-item"><Icon name="check" size="sm" /> Detail</div>
-                                <div className="value-item"><Icon name="check" size="sm" /> Care</div>
-                                <div className="value-item"><Icon name="check" size="sm" /> Happiness</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Trust</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Reliability</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Detail</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Care</div>
+                                <div className="value-item"><img src={checkMark} alt="check" className="value-icon" /> Happiness</div>
                             </div>
                         </div>
                         <div className="mission-image">
