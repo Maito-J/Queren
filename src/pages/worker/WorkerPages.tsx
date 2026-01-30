@@ -344,7 +344,7 @@ export function WorkerSchedule() {
                                                     width: 'fit-content',
                                                     alignSelf: 'center'
                                                 }}>
-                                                    Click for details
+                                                    Details
                                                 </div>
                                             </div>
                                         ))}
