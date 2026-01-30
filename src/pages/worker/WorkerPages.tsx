@@ -69,7 +69,7 @@ export function WorkerDashboard() {
                                 <div className="schedule-time">9:00 AM</div>
                                 <div className="schedule-details">
                                     <div className="schedule-type">Regular Cleaning</div>
-                                    <div className="schedule-location">New Westminster</div>
+                                    <div className="schedule-location">R-8894</div>
                                 </div>
                                 <Badge variant="primary">Upcoming</Badge>
                             </div>
@@ -77,7 +77,7 @@ export function WorkerDashboard() {
                                 <div className="schedule-time">2:00 PM</div>
                                 <div className="schedule-details">
                                     <div className="schedule-type">Deep Cleaning</div>
-                                    <div className="schedule-location">New Westminster</div>
+                                    <div className="schedule-location">D-9921</div>
                                 </div>
                                 <Badge variant="warning">Pending</Badge>
                             </div>
