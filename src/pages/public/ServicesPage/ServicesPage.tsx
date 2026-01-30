@@ -60,26 +60,28 @@ export function ServicesPage() {
                 </div>
             </section>
 
-            {/* Pricing Logic */}
+            {/* Supplies Section */}
             <section className="section pricing-logic">
                 <div className="container">
                     <div className="pricing-grid">
                         <div className="pricing-content">
                             <div className="pricing-badge">
-                                <span>Simple, Transparent Pricing</span>
+                                <span>Premium Quality</span>
                             </div>
-                            <h2 className="pricing-rate">$40<span>/hour</span></h2>
+                            <h2 className="service-detail-title" style={{ marginBottom: '1.5rem', fontSize: '2.5rem' }}>
+                                Professional-Grade<br />Supplies Included
+                            </h2>
                             <p className="pricing-explanation">
-                                Our flat hourly rate applies to <strong>all services</strong>. Deep Cleaning costs more simply because achieving perfection takes more time—not because of hidden fees or premium charges.
+                                We bring our own professional-grade cleaning products at <strong>no extra charge</strong>. Our carefully selected supplies ensure the highest quality results while being safe for your home and family.
                             </p>
                             <div className="pricing-features">
-                                <span><Icon name="check" size="sm" /> No hidden fees</span>
-                                <span><Icon name="check" size="sm" /> Same rate for all services</span>
+                                <span><Icon name="check" size="sm" /> Safe for Pets</span>
+                                <span><Icon name="check" size="sm" /> Eco-Friendly</span>
                             </div>
                         </div>
                         <div className="pricing-image-container">
                             <div className="pricing-image-wrapper">
-                                <img src={pricingImage} alt="Modern clean home" className="pricing-image" />
+                                <img src={pricingImage} alt="Professional cleaning supplies" className="pricing-image" />
                                 <div className="pricing-image-decoration"></div>
                             </div>
                         </div>
@@ -199,37 +201,7 @@ export function ServicesPage() {
                 </div>
             </section>
 
-            {/* Professional Supplies */}
-            <section className="section supplies-section">
-                <div className="container">
-                    <div className="supplies-card">
-                        <div className="supplies-visual">
-                            <div className="supplies-icon-glow"></div>
-                            <div className="supplies-icon">
-                                <Icon name="sparkle" size="lg" />
-                            </div>
-                        </div>
-                        <div className="supplies-content">
-                            <div className="supplies-header">
-                                <h2>Professional-Grade Supplies Included</h2>
-                                <div className="supplies-badges">
-                                    <span className="supply-badge">
-                                        <Icon name="check" size="md" />
-                                        Safe for Pets
-                                    </span>
-                                    <span className="supply-badge">
-                                        <Icon name="check" size="md" />
-                                        Eco-Friendly
-                                    </span>
-                                </div>
-                            </div>
-                            <p>
-                                We bring our own professional-grade cleaning products at <strong>no extra charge</strong>. Our carefully selected supplies ensure the highest quality results while being safe for your home and family.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Client Stories */}
             <section className="section client-stories">
