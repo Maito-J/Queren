@@ -55,7 +55,7 @@ export function ServicesPage() {
                 <div className="container">
                     <h1 className="page-title">Our Cleaning Services</h1>
                     <p className="page-subtitle">
-                        Transparency, quality, and attention to detail—experience the Queren-Hapuque difference
+                        Transparency, quality, and attention to detail—Discover the Queren distinction
                     </p>
                 </div>
             </section>
@@ -98,7 +98,9 @@ export function ServicesPage() {
                             <div className="service-detail-image">
                                 <img src={DEFAULT_IMAGES.services.regular} alt="Professional regular cleaning service" />
                             </div>
-                            <div className="impeccable-extras">
+
+                            {/* Desktop only: Impeccable Extras appears in left column */}
+                            <div className="impeccable-extras desktop-only">
                                 <h3>
                                     <Icon name="starFilled" size="sm" />
                                     Our Signature "Impeccable Extras"
@@ -133,7 +135,22 @@ export function ServicesPage() {
                                 </ul>
                             </div>
 
-
+                            {/* Mobile only: Impeccable Extras appears before Time Guide */}
+                            <div className="impeccable-extras mobile-only">
+                                <h3>
+                                    <Icon name="starFilled" size="sm" />
+                                    Our Signature "Impeccable Extras"
+                                </h3>
+                                <p className="extras-intro">What sets us apart from other cleaning services:</p>
+                                <ul className="extras-list">
+                                    {impeccableExtras.map((item, i) => (
+                                        <li key={i}>
+                                            <Icon name="check" size="sm" />
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
 
                             <div className="time-estimates">
                                 <h3>Estimated Time Guide</h3>

@@ -11,6 +11,25 @@
     position: relative;
 }
 
+/* Responsive Utilities */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+}
+
 .services-hero::after {
     content: '';
     position: absolute;
@@ -111,7 +130,7 @@
 }
 
 .pricing-features svg {
-    color: #4ADE80;
+    color: var(--color-primary);
 }
 
 /* Pricing Image */
@@ -330,7 +349,7 @@
 }
 
 .includes-checklist svg {
-    color: #4ADE80;
+    color: var(--color-primary);
     flex-shrink: 0;
 }
 
@@ -598,7 +617,7 @@
 }
 
 .supply-badge svg {
-    color: #4ADE80;
+    color: var(--color-primary);
 }
 
 .supplies-content p {
@@ -806,7 +825,8 @@
 }
 
 .services-cta .cta-features svg {
-    color: #4ADE80;
+    color: var(--color-primary);
+    flex-shrink: 0;
 }
 
 /* Responsive */
