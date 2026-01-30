@@ -974,9 +974,22 @@
     margin-bottom: 0;
 }
 
+/* Desktop: Two column layout */
+.availability-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .availability-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 /* Calendar */
 .availability-calendar {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .calendar-nav {
@@ -1012,6 +1025,13 @@
     color: var(--color-text-muted);
 }
 
+@media (min-width: 768px) {
+    .weekday {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+}
+
 .calendar-row {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -1032,6 +1052,14 @@
     transition: background 0.2s ease;
     min-height: 50px;
     position: relative;
+}
+
+@media (min-width: 768px) {
+    .calendar-day {
+        min-height: 60px;
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+    }
 }
 
 .calendar-day:hover {
@@ -1057,10 +1085,45 @@
     margin-top: 2px;
 }
 
+@media (min-width: 768px) {
+    .calendar-day.has-entry .day-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
 /* Availability List */
+.availability-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.availability-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.availability-list-header h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
 .availability-list {
     display: flex;
     flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+    .availability-list {
+        max-height: 320px;
+    }
 }
 
 .availability-day {
@@ -1106,6 +1169,7 @@
     border-radius: var(--radius-md);
     color: var(--color-text-muted);
     font-size: 0.875rem;
+    margin-top: 1.5rem;
 }
 
 /* Modal */
@@ -1260,4 +1324,115 @@
 
 .toggle-switch input:checked+.toggle-slider::before {
     transform: translateX(20px);
+}
+
+/* Time Picker */
+.time-picker-row {
+    flex-wrap: wrap;
+}
+
+.time-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.time-input {
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    width: 110px;
+}
+
+.time-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.time-separator {
+    color: var(--color-text-muted);
+}
+
+/* Day Picker */
+.repeats-on-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.day-picker {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.day-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-btn:hover {
+    border-color: var(--color-primary);
+}
+
+.day-btn.selected {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* Date Input */
+.date-input {
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-width: 150px;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* Preference Select */
+.preference-select {
+    max-width: 150px;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Note Input */
+.note-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    font-size: 0.875rem;
+    color: var(--color-text);
+}
+
+.note-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.note-input:focus {
+    outline: none;
 }

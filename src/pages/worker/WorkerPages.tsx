@@ -875,6 +875,13 @@ export function WorkerProfile() {
     const [showAddModal, setShowAddModal] = useState(false)
     const [preferenceType, setPreferenceType] = useState<'unavailable' | 'prefer'>('unavailable')
     const [allDay, setAllDay] = useState(false)
+    const [startTime, setStartTime] = useState('09:00')
+    const [endTime, setEndTime] = useState('17:00')
+    const [repeats, setRepeats] = useState(false)
+    const [repeatFrequency, setRepeatFrequency] = useState<'day' | 'week' | '2weeks'>('week')
+    const [repeatDays, setRepeatDays] = useState<string[]>(['Mon', 'Wed', 'Fri'])
+    const [repeatEndDate, setRepeatEndDate] = useState('')
+    const [note, setNote] = useState('')
 
     const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
     const calendarDays = [
@@ -945,60 +952,68 @@ export function WorkerProfile() {
                             </Button>
                         </div>
 
-                        {/* Calendar View */}
-                        <div className="availability-calendar">
-                            <div className="calendar-nav">
-                                <Button variant="ghost" size="sm"><Icon name="arrowLeft" size="sm" /></Button>
-                                <span className="calendar-month">January 2026</span>
-                                <Button variant="ghost" size="sm"><Icon name="arrowRight" size="sm" /></Button>
-                            </div>
-
-                            <div className="calendar-grid">
-                                <div className="calendar-weekdays">
-                                    {days.map((day, i) => (
-                                        <div key={i} className="weekday">{day}</div>
-                                    ))}
+                        {/* Desktop Two-Column Layout */}
+                        <div className="availability-content">
+                            {/* Calendar View */}
+                            <div className="availability-calendar">
+                                <div className="calendar-nav">
+                                    <Button variant="ghost" size="sm"><Icon name="arrowLeft" size="sm" /></Button>
+                                    <span className="calendar-month">January 2026</span>
+                                    <Button variant="ghost" size="sm"><Icon name="arrowRight" size="sm" /></Button>
                                 </div>
-                                {calendarDays.map((week) => (
-                                    <div key={week.week} className="calendar-row">
-                                        {week.days.map((day, i) => {
-                                            const isCurrentMonth = (week.week === 1 && day > 7) ? false : (week.week === 5 && day < 7) ? false : true
-                                            const hasAvailability = [26, 27, 28, 29, 30].includes(day) && isCurrentMonth
-                                            return (
-                                                <div
-                                                    key={i}
-                                                    className={`calendar-day ${!isCurrentMonth ? 'other-month' : ''} ${day === selectedDate && isCurrentMonth ? 'selected' : ''} ${hasAvailability ? 'has-entry' : ''}`}
-                                                    onClick={() => isCurrentMonth && setSelectedDate(day)}
-                                                >
-                                                    <span>{day}</span>
-                                                    {hasAvailability && <span className="day-dot"></span>}
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
 
-                        {/* Availability List */}
-                        <div className="availability-list">
-                            {availabilityData.map((item, index) => (
-                                <div key={index} className="availability-day">
-                                    <div className="availability-day-header">
-                                        <span className="day-label">{item.date.toUpperCase()}</span>
-                                        <Button variant="ghost" size="sm" onClick={() => setShowAddModal(true)}>
-                                            <Icon name="plus" size="sm" />
-                                        </Button>
+                                <div className="calendar-grid">
+                                    <div className="calendar-weekdays">
+                                        {days.map((day, i) => (
+                                            <div key={i} className="weekday">{day}</div>
+                                        ))}
                                     </div>
-                                    {item.entries.map((entry, i) => (
-                                        <div key={i} className="availability-entry">
-                                            <Icon name="minus" size="sm" />
-                                            <span>Unavailable {entry.time}</span>
-                                            <Icon name="refresh" size="sm" />
+                                    {calendarDays.map((week) => (
+                                        <div key={week.week} className="calendar-row">
+                                            {week.days.map((day, i) => {
+                                                const isCurrentMonth = (week.week === 1 && day > 7) ? false : (week.week === 5 && day < 7) ? false : true
+                                                const hasAvailability = [26, 27, 28, 29, 30].includes(day) && isCurrentMonth
+                                                return (
+                                                    <div
+                                                        key={i}
+                                                        className={`calendar-day ${!isCurrentMonth ? 'other-month' : ''} ${day === selectedDate && isCurrentMonth ? 'selected' : ''} ${hasAvailability ? 'has-entry' : ''}`}
+                                                        onClick={() => isCurrentMonth && setSelectedDate(day)}
+                                                    >
+                                                        <span>{day}</span>
+                                                        {hasAvailability && <span className="day-dot"></span>}
+                                                    </div>
+                                                )
+                                            })}
                                         </div>
                                     ))}
                                 </div>
-                            ))}
+                            </div>
+
+                            {/* Availability List */}
+                            <div className="availability-list-container">
+                                <div className="availability-list-header">
+                                    <h4>Scheduled Availability</h4>
+                                </div>
+                                <div className="availability-list">
+                                    {availabilityData.map((item, index) => (
+                                        <div key={index} className="availability-day">
+                                            <div className="availability-day-header">
+                                                <span className="day-label">{item.date.toUpperCase()}</span>
+                                                <Button variant="ghost" size="sm" onClick={() => setShowAddModal(true)}>
+                                                    <Icon name="plus" size="sm" />
+                                                </Button>
+                                            </div>
+                                            {item.entries.map((entry, i) => (
+                                                <div key={i} className="availability-entry">
+                                                    <Icon name="minus" size="sm" />
+                                                    <span>Unavailable {entry.time}</span>
+                                                    <Icon name="refresh" size="sm" />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
 
                         <div className="availability-note mt-4">
@@ -1057,23 +1072,94 @@ export function WorkerProfile() {
                                         </div>
 
                                         {!allDay && (
-                                            <div className="preference-row">
+                                            <div className="preference-row time-picker-row">
                                                 <span>Time</span>
-                                                <span className="preference-value">9:00a-5:00p</span>
+                                                <div className="time-inputs">
+                                                    <input
+                                                        type="time"
+                                                        className="time-input"
+                                                        value={startTime}
+                                                        onChange={(e) => setStartTime(e.target.value)}
+                                                    />
+                                                    <span className="time-separator">–</span>
+                                                    <input
+                                                        type="time"
+                                                        className="time-input"
+                                                        value={endTime}
+                                                        onChange={(e) => setEndTime(e.target.value)}
+                                                    />
+                                                </div>
                                             </div>
                                         )}
 
                                         <div className="preference-row">
                                             <span>Repeats</span>
                                             <label className="toggle-switch">
-                                                <input type="checkbox" />
+                                                <input type="checkbox" checked={repeats} onChange={() => setRepeats(!repeats)} />
                                                 <span className="toggle-slider"></span>
                                             </label>
                                         </div>
 
+                                        {repeats && (
+                                            <>
+                                                <div className="preference-row">
+                                                    <span>Frequency</span>
+                                                    <select
+                                                        className="form-select preference-select"
+                                                        value={repeatFrequency}
+                                                        onChange={(e) => setRepeatFrequency(e.target.value as 'day' | 'week' | '2weeks')}
+                                                    >
+                                                        <option value="day">Every Day</option>
+                                                        <option value="week">Every Week</option>
+                                                        <option value="2weeks">Every 2 Weeks</option>
+                                                    </select>
+                                                </div>
+
+                                                {repeatFrequency !== 'day' && (
+                                                    <div className="preference-row repeats-on-row">
+                                                        <span>Repeats On</span>
+                                                        <div className="day-picker">
+                                                            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+                                                                <button
+                                                                    key={day}
+                                                                    type="button"
+                                                                    className={`day-btn ${repeatDays.includes(day) ? 'selected' : ''}`}
+                                                                    onClick={() => {
+                                                                        if (repeatDays.includes(day)) {
+                                                                            setRepeatDays(repeatDays.filter(d => d !== day))
+                                                                        } else {
+                                                                            setRepeatDays([...repeatDays, day])
+                                                                        }
+                                                                    }}
+                                                                >
+                                                                    {day.charAt(0)}
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                <div className="preference-row">
+                                                    <span>Ends</span>
+                                                    <input
+                                                        type="date"
+                                                        className="date-input"
+                                                        value={repeatEndDate}
+                                                        onChange={(e) => setRepeatEndDate(e.target.value)}
+                                                    />
+                                                </div>
+                                            </>
+                                        )}
+
                                         <div className="preference-row note-row">
                                             <Icon name="document" size="sm" />
-                                            <span>Add note</span>
+                                            <input
+                                                type="text"
+                                                className="note-input"
+                                                placeholder="Add note (e.g., vacation, appointment)"
+                                                value={note}
+                                                onChange={(e) => setNote(e.target.value)}
+                                            />
                                         </div>
                                     </div>
                                 </CardBody>
