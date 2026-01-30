@@ -82,7 +82,7 @@
 /* Service Type Cards */
 .service-type-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-4);
 }
 
@@ -135,6 +135,46 @@
 .service-type-desc {
     color: var(--color-text-muted);
     font-size: var(--font-size-sm);
+}
+
+/* Info card - with contact button */
+.service-type-info {
+    cursor: default;
+}
+
+.service-type-info .service-type-price {
+    color: var(--color-primary);
+}
+
+.service-contact-btn {
+    margin-top: var(--space-3);
+}
+
+/* Coming Soon card */
+.service-type-coming-soon {
+    position: relative;
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: var(--color-bg-subtle);
+}
+
+.service-type-coming-soon:hover {
+    border-color: var(--color-border);
+    background: var(--color-bg-subtle);
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    background: var(--color-warning);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* Addons */

@@ -199,6 +199,20 @@ export function BookingPage() {
                                     <span className="service-type-price">From $149</span>
                                     <span className="service-type-desc">Thorough top-to-bottom clean</span>
                                 </button>
+                                <div className="service-type-card service-type-info">
+                                    <span className="service-type-icon"><Icon name="tool" size="lg" /></span>
+                                    <span className="service-type-name">Custom Cleaning</span>
+                                    <span className="service-type-price">Custom Quote</span>
+                                    <span className="service-type-desc">Contact us to know more details</span>
+                                    <a href="/contact" className="btn btn-outline btn-sm service-contact-btn">Contact Us</a>
+                                </div>
+                                <div className="service-type-card service-type-coming-soon">
+                                    <span className="coming-soon-badge">Coming Soon</span>
+                                    <span className="service-type-icon"><Icon name="home" size="lg" /></span>
+                                    <span className="service-type-name">AirBnb Cleaning</span>
+                                    <span className="service-type-price">TBD</span>
+                                    <span className="service-type-desc">Professional turnover cleaning</span>
+                                </div>
                             </div>
                             <p className="reassurance"><Icon name="check" size="sm" /> Great choice! Our cleaners love this service.</p>
                         </section>
