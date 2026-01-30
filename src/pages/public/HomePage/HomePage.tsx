@@ -5,8 +5,8 @@ import { DEFAULT_IMAGES } from '@/lib/defaultImages'
 import './HomePage.css'
 
 const testimonials = [
-    { name: 'Sarah M.', rating: 5, text: 'Amazing service! My home has never been this clean. Highly recommend.', city: 'Toronto' },
-    { name: 'James K.', rating: 5, text: 'Professional, thorough, and friendly. Will definitely book again!', city: 'Vancouver' },
+    { name: 'Déssia', rating: 5, text: 'Today and every day you come here are the best days of my life.', city: '4-year Client' },
+    { name: 'Happy Client', rating: 5, text: "My house is impeccable and all the other cleaning companies I called didn't clean the baseboards — and you did. You're incredible.", city: 'Recent Review' },
     { name: 'Linda P.', rating: 5, text: 'The booking process was so easy, and the cleaning exceeded expectations.', city: 'Calgary' },
 ]
 
