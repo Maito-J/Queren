@@ -43,6 +43,7 @@ import {
     Play,
     Circle,
     type LucideIcon,
+    Shield,
 } from 'lucide-react';
 
 // Map our semantic icon names to Lucide components
@@ -104,6 +105,7 @@ const iconMap: Record<string, LucideIcon> = {
     wave: Hand,
     play: Play,
     dot: Circle,
+    shield: Shield,
 };
 
 export type IconName = keyof typeof iconMap;
