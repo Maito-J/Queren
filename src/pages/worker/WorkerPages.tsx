@@ -9,12 +9,12 @@ import './WorkerPages.css'
 // Function to get worker links with correct base path
 const getWorkerLinks = (basePath: string): { to: string; label: string; icon: IconName }[] => [
     { to: basePath, label: 'Dashboard', icon: 'home' },
-    { to: `${basePath}/onboarding`, label: 'Onboarding', icon: 'clipboard' },
+    { to: `${basePath}/profile`, label: 'Profile', icon: 'user' },
     { to: `${basePath}/schedule`, label: 'My Schedule', icon: 'calendar' },
     { to: `${basePath}/tracking`, label: 'Time Tracking', icon: 'clock' },
     { to: `${basePath}/earnings`, label: 'Earnings', icon: 'dollar' },
     { to: `${basePath}/training`, label: 'Training Hub', icon: 'book' },
-    { to: `${basePath}/profile`, label: 'Profile', icon: 'user' },
+    { to: `${basePath}/onboarding`, label: 'Onboarding', icon: 'clipboard' },
 ]
 
 // Keep backward compatibility
@@ -158,7 +158,7 @@ export function WorkerOnboarding() {
                             <div className="upload-icon"><Icon name="check" size="lg" /></div>
                             <h4>Proof of Address</h4>
                             <p>Utility bill or bank statement</p>
-                            <Badge variant="success">Uploaded</Badge>
+                            <Badge variant="primary">Uploaded</Badge>
                         </div>
                     </div>
 
@@ -402,7 +402,7 @@ export function WorkerTracking() {
                 <Card className="active-job-card">
                     <CardBody>
                         <div className="active-job-header">
-                            <Badge variant="success">Currently Working</Badge>
+                            <Badge variant="primary">Currently Working</Badge>
                             <span className="timer">01:23:45</span>
                         </div>
                         <h2>Regular Cleaning</h2>
@@ -488,8 +488,8 @@ export function WorkerEarnings() {
             <div className="stats-grid">
                 <Card className="highlight-card">
                     <CardBody className="stat-card">
-                        <div className="stat-value">$847</div>
-                        <div className="stat-label">This Week</div>
+                        <div className="stat-value">42</div>
+                        <div className="stat-label">Hours</div>
                     </CardBody>
                 </Card>
                 <Card>
@@ -536,7 +536,7 @@ export function WorkerEarnings() {
                                 <span>{e.job}</span>
                                 <span>{e.hours}h</span>
                                 <span className="amount">${e.amount}</span>
-                                <Badge variant="success">Paid</Badge>
+                                <Badge variant="primary">Paid</Badge>
                             </div>
                         ))}
                     </div>
@@ -626,6 +626,18 @@ const workerTrainingModules: (TrainingModuleData & { completed: boolean; quizSco
             { id: 'q1', question: 'Should you mix bleach with ammonia?', options: ['Yes', 'No', 'Sometimes', 'Only outdoors'], correctIndex: 1 },
         ],
         passingScore: 100,
+        completed: false,
+    },
+    {
+        id: '5',
+        title: 'Monthly Team Notice',
+        description: 'Important updates about holiday schedules and new efficient cleaning techniques.',
+        type: 'document',
+        contentUrl: '#',
+        duration: '3 min',
+        isRequired: false,
+        quiz: [],
+        passingScore: 0,
         completed: false,
     },
 ]
