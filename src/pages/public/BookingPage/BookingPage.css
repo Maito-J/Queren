@@ -36,13 +36,13 @@
 .booking-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    gap: var(--space-6);
 }
 
 .form-section {
     background: white;
     border-radius: var(--radius-lg);
-    padding: var(--space-6);
+    padding: var(--space-4);
     border: 1px solid var(--color-border);
 }
 
@@ -118,7 +118,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--space-6);
+    padding: var(--space-3);
     background: var(--color-bg-subtle);
     border: 2px solid var(--color-border);
     border-radius: var(--radius-lg);
@@ -138,13 +138,13 @@
 }
 
 .service-type-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-3);
+    font-size: 1.75rem;
+    margin-bottom: var(--space-2);
 }
 
 .service-type-name {
     font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
     margin-bottom: var(--space-1);
 }
 
@@ -169,7 +169,7 @@
 }
 
 .service-contact-btn {
-    margin-top: var(--space-3);
+    margin-top: var(--space-2);
 }
 
 /* Coming Soon card */
