@@ -645,6 +645,7 @@
 /* Profile */
 .profile-layout {
     max-width: 800px;
+    margin: 0 auto;
 }
 
 .profile-card {
@@ -1072,9 +1073,10 @@
 }
 
 .calendar-day.selected {
-    background: var(--color-text);
+    background: var(--color-primary);
     color: white;
-    border-radius: 50%;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
 }
 
 .calendar-day.has-entry .day-dot {
