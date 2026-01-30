@@ -17,9 +17,9 @@ const features: { icon: IconName; title: string; description: string }[] = [
 ]
 
 const services = [
-    { title: 'Regular Cleaning', price: 89, description: 'Weekly or bi-weekly maintenance cleaning to keep your home fresh.', link: '/services' },
-    { title: 'Deep Cleaning', price: 149, description: 'Thorough top-to-bottom cleaning for a complete refresh.', link: '/services' },
-    { title: 'Custom Clean', price: null, description: 'Special requests? Moving? We can customize to your needs.', link: '/services' },
+    { title: 'Regular Cleaning', price: 89, description: 'Weekly or bi-weekly maintenance cleaning to keep your home fresh.', link: '/services', image: DEFAULT_IMAGES.services.regular },
+    { title: 'Deep Cleaning', price: 149, description: 'Thorough top-to-bottom cleaning for a complete refresh.', link: '/services', image: DEFAULT_IMAGES.kitchen[0] },
+    { title: 'Custom Clean', price: null, description: 'Special requests? Moving? We can customize to your needs.', link: '/services', image: DEFAULT_IMAGES.services.professional },
 ]
 
 export function HomePage() {
@@ -112,6 +112,7 @@ export function HomePage() {
                     <div className="services-grid">
                         {services.map((service, i) => (
                             <Card key={i} hover className="service-card">
+                                <img src={service.image} alt={service.title} className="service-card-img" />
                                 <CardBody>
                                     <h3 className="service-title">{service.title}</h3>
                                     <p className="service-price">
