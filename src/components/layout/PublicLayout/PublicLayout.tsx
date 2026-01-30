@@ -23,15 +23,15 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                         </Link>
 
                         <nav className={`nav-main ${mobileMenuOpen ? 'open' : ''}`}>
-                            <NavLink to="/" className="nav-link" end>Home</NavLink>
-                            <NavLink to="/services" className="nav-link">Services</NavLink>
-                            <NavLink to="/about" className="nav-link">About</NavLink>
-                            <NavLink to="/careers" className="nav-link">Careers</NavLink>
-                            <NavLink to="/faq" className="nav-link">FAQ</NavLink>
-                            <NavLink to="/contact" className="nav-link">Contact</NavLink>
+                            <NavLink to="/" className="nav-link" end onClick={() => setMobileMenuOpen(false)}>Home</NavLink>
+                            <NavLink to="/services" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Services</NavLink>
+                            <NavLink to="/about" className="nav-link" onClick={() => setMobileMenuOpen(false)}>About</NavLink>
+                            <NavLink to="/careers" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Careers</NavLink>
+                            <NavLink to="/faq" className="nav-link" onClick={() => setMobileMenuOpen(false)}>FAQ</NavLink>
+                            <NavLink to="/contact" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
                             {/* Mobile-only login link */}
                             {!isLoading && !user && (
-                                <NavLink to="/login" className="nav-link mobile-login-link">Log In / Register</NavLink>
+                                <NavLink to="/login" className="nav-link mobile-login-link" onClick={() => setMobileMenuOpen(false)}>Log In / Register</NavLink>
                             )}
                         </nav>
 
