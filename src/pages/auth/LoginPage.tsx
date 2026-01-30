@@ -46,8 +46,8 @@ export function LoginPage() {
 
                         <form onSubmit={handleSubmit} className="auth-form">
                             <Input
-                                label="Email"
-                                type="email"
+                                label={isWorkerLogin ? "Email / Employee Number" : "Email"}
+                                type={isWorkerLogin ? "text" : "email"}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
