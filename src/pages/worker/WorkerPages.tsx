@@ -345,10 +345,12 @@ export function WorkerSchedule() {
                             <div key={i} className="agenda-item">
                                 <div className="agenda-date">{days[event.day]} {dates[event.day]}</div>
                                 <div className="agenda-details">
-                                    <strong>{event.title}</strong>
-                                    <span>{event.time} • {event.reservationNumber}</span>
+                                    <div className="agenda-row">
+                                        <strong>{event.title}</strong>
+                                        <span className="agenda-meta">{event.time} • {event.reservationNumber}</span>
+                                    </div>
                                 </div>
-                                <Button variant="secondary" size="sm">Details</Button>
+                                <Button variant="secondary" size="sm" onClick={() => handleJobClick(event)}>View More</Button>
                             </div>
                         ))}
                     </div>
