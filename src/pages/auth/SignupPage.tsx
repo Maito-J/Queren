@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, Input, Card, CardBody, Alert } from '@/components/ui'
-import { Icon } from '@/components/Icon'
 import { useAuth } from '@/hooks'
 import './AuthPages.css'
 
@@ -53,10 +52,7 @@ export function SignupPage() {
         <div className="auth-page">
             <div className="auth-container">
                 <div className="auth-header">
-                    <Link to="/" className="logo">
-                        <span className="logo-icon"><Icon name="sparkle" size="md" /></span>
-                        <span className="logo-text">Queren</span>
-                    </Link>
+
                     <h1>Create Your Account</h1>
                     <p>Join thousands of happy homeowners</p>
                 </div>

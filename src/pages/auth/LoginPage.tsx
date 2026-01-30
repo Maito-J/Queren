@@ -121,9 +121,11 @@ export function LoginPage() {
                             </div>
                         </form>
 
-                        <div className="auth-footer">
-                            <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
-                        </div>
+                        {!isWorkerLogin && (
+                            <div className="auth-footer">
+                                <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+                            </div>
+                        )}
                     </CardBody>
                 </Card>
             </div>
