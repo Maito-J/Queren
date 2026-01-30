@@ -477,10 +477,10 @@ export function WorkerEarnings() {
     const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
 
     const earnings = [
-        { date: 'Jan 12', job: 'Regular Cleaning - New Westminster', hours: 2, amount: 89, status: 'paid' },
-        { date: 'Jan 11', job: 'Deep Cleaning - New Westminster', hours: 3.5, amount: 149, status: 'paid' },
-        { date: 'Jan 10', job: 'Regular Cleaning - New Westminster', hours: 2, amount: 95, status: 'paid' },
-        { date: 'Jan 9', job: 'Regular Cleaning - New Westminster', hours: 2.5, amount: 99, status: 'paid' },
+        { date: 'Jan 12', job: 'Regular Cleaning', customerNumber: 'C-1024', hours: 2, amount: 89, status: 'paid' },
+        { date: 'Jan 11', job: 'Deep Cleaning', customerNumber: 'C-1089', hours: 3.5, amount: 149, status: 'paid' },
+        { date: 'Jan 10', job: 'Regular Cleaning', customerNumber: 'C-1056', hours: 2, amount: 95, status: 'paid' },
+        { date: 'Jan 9', job: 'Regular Cleaning', customerNumber: 'C-1012', hours: 2.5, amount: 99, status: 'paid' },
     ]
 
     return (
@@ -489,7 +489,7 @@ export function WorkerEarnings() {
                 <Card className="highlight-card">
                     <CardBody className="stat-card">
                         <div className="stat-value">42</div>
-                        <div className="stat-label">Hours</div>
+                        <div className="stat-label">Work Hours</div>
                     </CardBody>
                 </Card>
                 <Card>
@@ -523,17 +523,19 @@ export function WorkerEarnings() {
                 <CardBody>
                     <h3 className="card-title">Earnings History</h3>
                     <div className="earnings-table">
-                        <div className="table-header">
+                        <div className="table-header" style={{ gridTemplateColumns: '1fr 2fr 1.5fr 1fr 1fr 1fr' }}>
                             <span>Date</span>
                             <span>Job</span>
+                            <span>Customer #</span>
                             <span>Hours</span>
                             <span>Amount</span>
                             <span>Status</span>
                         </div>
                         {earnings.map((e, i) => (
-                            <div key={i} className="table-row">
+                            <div key={i} className="table-row" style={{ gridTemplateColumns: '1fr 2fr 1.5fr 1fr 1fr 1fr' }}>
                                 <span>{e.date}</span>
                                 <span>{e.job}</span>
+                                <span>{e.customerNumber}</span>
                                 <span>{e.hours}h</span>
                                 <span className="amount">${e.amount}</span>
                                 <Badge variant="primary">Paid</Badge>
