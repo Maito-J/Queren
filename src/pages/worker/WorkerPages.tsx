@@ -329,9 +329,9 @@ export function WorkerSchedule() {
                                                 }}
                                                 onClick={() => handleJobClick(job)}
                                             >
-                                                <span className="event-time" style={{ color: 'white', fontWeight: 'bold' }}>{job.time}</span>
-                                                <span className="event-title" style={{ color: 'white' }}>{job.type}</span>
-                                                <span className="event-location" style={{ color: 'white' }}>{job.reservationNumber}</span>
+                                                <span className="event-time" style={{ color: 'var(--color-primary)', fontWeight: 'bold' }}>{job.time}</span>
+                                                <span className="event-title" style={{ color: 'var(--color-primary)' }}>{job.type}</span>
+                                                <span className="event-location" style={{ color: 'var(--color-primary)' }}>{job.reservationNumber}</span>
                                                 <div style={{
                                                     marginTop: 'auto',
                                                     fontSize: '0.75rem',
@@ -567,10 +567,10 @@ export function WorkerEarnings() {
     const links = getWorkerLinks(isDemo ? '/worker-demo' : '/worker')
 
     const earnings = [
-        { date: 'Jan 12', job: 'Regular Cleaning', customerNumber: 'C-1024', hours: 2, amount: 89, status: 'paid' },
-        { date: 'Jan 11', job: 'Deep Cleaning', customerNumber: 'C-1089', hours: 3.5, amount: 149, status: 'paid' },
-        { date: 'Jan 10', job: 'Regular Cleaning', customerNumber: 'C-1056', hours: 2, amount: 95, status: 'paid' },
-        { date: 'Jan 9', job: 'Regular Cleaning', customerNumber: 'C-1012', hours: 2.5, amount: 99, status: 'paid' },
+        { date: 'Jan 12', job: 'Regular Cleaning', customerNumber: 'R-1024', hours: 2, amount: 89, status: 'paid' },
+        { date: 'Jan 11', job: 'Deep Cleaning', customerNumber: 'D-1089', hours: 3.5, amount: 149, status: 'paid' },
+        { date: 'Jan 10', job: 'Regular Cleaning', customerNumber: 'R-1056', hours: 2, amount: 95, status: 'paid' },
+        { date: 'Jan 9', job: 'Regular Cleaning', customerNumber: 'R-1012', hours: 2.5, amount: 99, status: 'paid' },
     ]
 
     return (
@@ -605,6 +605,32 @@ export function WorkerEarnings() {
                     <div className="payout-preview">
                         <div className="payout-amount">$432.00</div>
                         <p>5 jobs completed since last payout</p>
+                    </div>
+                </CardBody>
+            </Card>
+
+            <Card className="mt-6">
+                <CardBody>
+                    <h3 className="card-title">Working Hours Breakdown</h3>
+                    <div style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
+                                <span>Regular Cleaning</span>
+                                <span style={{ fontWeight: 600 }}>28 hrs</span>
+                            </div>
+                            <div style={{ height: '8px', background: 'var(--color-bg)', borderRadius: '4px', overflow: 'hidden' }}>
+                                <div style={{ width: '65%', height: '100%', background: 'var(--color-primary)', borderRadius: '4px' }}></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
+                                <span>Deep Cleaning</span>
+                                <span style={{ fontWeight: 600 }}>14 hrs</span>
+                            </div>
+                            <div style={{ height: '8px', background: 'var(--color-bg)', borderRadius: '4px', overflow: 'hidden' }}>
+                                <div style={{ width: '35%', height: '100%', background: 'var(--color-secondary)', borderRadius: '4px' }}></div>
+                            </div>
+                        </div>
                     </div>
                 </CardBody>
             </Card>
