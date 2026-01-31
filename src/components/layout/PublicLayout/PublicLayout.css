@@ -161,40 +161,26 @@
         display: none;
     }
 
-    /* Styling for the mobile book button inside menu - matching login link */
-    .mobile-only-nav-btn {
-        display: block;
-        margin-top: var(--space-2);
-        padding-top: var(--space-3);
+    /* Mobile menu actions */
+    .mobile-nav-actions {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        margin-top: var(--space-6);
+        padding-top: var(--space-6);
         border-top: 1px solid var(--color-border);
-        color: var(--color-primary) !important;
-        font-weight: var(--font-weight-semibold) !important;
-        margin-bottom: 0;
-        /* No bottom margin to sit tight with next item if needed, but login has top margin */
-    }
-
-    .header-actions .btn-ghost.hide-mobile {
-        display: none;
-    }
-
-    .mobile-login-link {
-        margin-top: var(--space-2);
-        padding-top: var(--space-3);
-        border-top: 1px solid var(--color-border);
-        color: var(--color-primary) !important;
-        font-weight: var(--font-weight-semibold) !important;
-        margin-bottom: var(--space-2);
+        width: 100%;
     }
 }
 
-/* Hide mobile login link on desktop */
-.mobile-login-link {
+/* Hide mobile actions on desktop */
+.mobile-nav-actions {
     display: none;
 }
 
 @media (max-width: 900px) {
-    .mobile-login-link {
-        display: block;
+    .mobile-nav-actions {
+        display: flex;
     }
 }
 

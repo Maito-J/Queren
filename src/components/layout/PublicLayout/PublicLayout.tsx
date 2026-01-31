@@ -29,13 +29,18 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                             <NavLink to="/careers" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Careers</NavLink>
                             <NavLink to="/faq" className="nav-link" onClick={() => setMobileMenuOpen(false)}>FAQ</NavLink>
                             <NavLink to="/contact" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
-                            {/* Mobile-only menu items */}
-                            <Link to="/booking" className="nav-link mobile-only-nav-btn" onClick={() => setMobileMenuOpen(false)}>
-                                Book Now
-                            </Link>
-                            {!isLoading && !user && (
-                                <NavLink to="/login" className="nav-link mobile-login-link" onClick={() => setMobileMenuOpen(false)}>Log In / Register</NavLink>
-                            )}
+
+                            {/* Mobile-only menu actions */}
+                            <div className="mobile-nav-actions mobile-only">
+                                <Link to="/booking" className="btn btn-primary btn-block" onClick={() => setMobileMenuOpen(false)}>
+                                    Book Now
+                                </Link>
+                                {!isLoading && !user && (
+                                    <Link to="/login" className="btn btn-outline btn-block" onClick={() => setMobileMenuOpen(false)}>
+                                        Log In / Register
+                                    </Link>
+                                )}
+                            </div>
                         </nav>
 
                         <div className="header-actions">
