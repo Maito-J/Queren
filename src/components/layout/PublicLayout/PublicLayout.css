@@ -154,6 +154,11 @@
         display: flex;
     }
 
+    /* Reduce logo size on mobile for more header space */
+    .logo-icon {
+        height: 48px;
+    }
+
     .header-actions {
         display: flex !important;
         align-items: center;
@@ -208,8 +213,8 @@
     }
 }
 
-/* Extra narrow mobile screens (400px and below) */
-@media (max-width: 400px) {
+/* Narrow mobile screens - Galaxy A53 (412px), iPhone Plus (~428px), etc */
+@media (max-width: 480px) {
 
     /* Reduce container padding for more space */
     .public-header .container {
