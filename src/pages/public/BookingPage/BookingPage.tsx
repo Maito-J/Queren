@@ -214,7 +214,7 @@ export function BookingPage() {
                                     <div className="service-content-wrapper">
                                         <span className="service-type-name">Custom Cleaning</span>
                                         <span className="service-type-desc">Contact us to know more details</span>
-                                        <Link to="/contact" className="btn btn-outline btn-sm service-contact-btn">Contact Us</Link>
+                                        <Link to="/contact" className="service-contact-link">Contact Us &gt;</Link>
                                     </div>
                                 </div>
                                 <div className="service-type-card service-type-coming-soon">

@@ -214,17 +214,23 @@
     line-height: 1.4;
 }
 
-/* Info card - with contact button */
+/* Info card - with contact link */
 .service-type-info {
     cursor: default;
 }
 
-.service-type-info .service-type-price {
+.service-contact-link {
     color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+    margin-top: var(--space-2);
+    align-self: flex-end;
 }
 
-.service-contact-btn {
-    margin-top: var(--space-2);
+.service-contact-link:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
 }
 
 /* Coming Soon card */
@@ -242,16 +248,18 @@
 
 .coming-soon-badge {
     position: absolute;
-    top: var(--space-2);
-    right: var(--space-2);
+    top: 6px;
+    right: 6px;
     background: var(--color-warning);
     color: white;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    padding: var(--space-1) var(--space-2);
+    font-size: 0.65rem;
+    font-weight: var(--font-weight-bold);
+    padding: 2px 6px;
     border-radius: var(--radius-full);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    z-index: 2;
+    line-height: 1;
 }
 
 /* Addons */
