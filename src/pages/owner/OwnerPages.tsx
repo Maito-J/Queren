@@ -34,6 +34,9 @@ export function OwnerDashboard() {
             <Card className="welcome-banner-owner mb-6">
                 <CardBody>
                     <div className="welcome-content">
+                        <div className="owner-avatar-welcome">
+                            <img src={querenOwner} alt="Queren" />
+                        </div>
                         <div className="welcome-text">
                             <h2>Good afternoon, Queren! <Icon name="wave" size="md" /></h2>
                             <p>{currentDate}</p>
@@ -834,65 +837,67 @@ export function OwnerSupport() {
 
     return (
         <DashboardLayout title="Support Queue" links={ownerLinks}>
-            <div className="kpi-grid small">
+            <div className="owner-support-page">
+                <div className="kpi-grid small">
+                    <Card>
+                        <CardBody className="kpi-card-small">
+                            <span className="kpi-label">Open Tickets</span>
+                            <span className="kpi-value warning">2</span>
+                        </CardBody>
+                    </Card>
+                    <Card>
+                        <CardBody className="kpi-card-small">
+                            <span className="kpi-label">Avg. Response Time</span>
+                            <span className="kpi-value">2.5 hours</span>
+                        </CardBody>
+                    </Card>
+                    <Card>
+                        <CardBody className="kpi-card-small">
+                            <span className="kpi-label">Resolved This Week</span>
+                            <span className="kpi-value success">8</span>
+                        </CardBody>
+                    </Card>
+                </div>
+
                 <Card>
-                    <CardBody className="kpi-card-small">
-                        <span className="kpi-label">Open Tickets</span>
-                        <span className="kpi-value warning">2</span>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody className="kpi-card-small">
-                        <span className="kpi-label">Avg. Response Time</span>
-                        <span className="kpi-value">2.5 hours</span>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody className="kpi-card-small">
-                        <span className="kpi-label">Resolved This Week</span>
-                        <span className="kpi-value success">8</span>
+                    <CardBody className="table-card">
+                        <div className="data-table">
+                            <div className="table-header">
+                                <span>Ticket</span>
+                                <span>Subject</span>
+                                <span>Client</span>
+                                <span>Priority</span>
+                                <span>Status</span>
+                                <span>Created</span>
+                                <span>Actions</span>
+                            </div>
+                            {tickets.map(ticket => (
+                                <div key={ticket.id} className="table-row">
+                                    <span className="ticket-id">{ticket.id}</span>
+                                    <span>{ticket.subject}</span>
+                                    <span>{ticket.client}</span>
+                                    <Badge variant={
+                                        ticket.priority === 'high' ? 'error' :
+                                            ticket.priority === 'medium' ? 'warning' : 'default'
+                                    }>
+                                        {ticket.priority}
+                                    </Badge>
+                                    <Badge variant={
+                                        ticket.status === 'resolved' ? 'success' :
+                                            ticket.status === 'in_progress' ? 'warning' : 'primary'
+                                    }>
+                                        {ticket.status.replace('_', ' ')}
+                                    </Badge>
+                                    <span className="text-muted">{ticket.created}</span>
+                                    <div className="row-actions">
+                                        <Button variant="secondary" size="sm">View</Button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </CardBody>
                 </Card>
             </div>
-
-            <Card>
-                <CardBody className="table-card">
-                    <div className="data-table">
-                        <div className="table-header">
-                            <span>Ticket</span>
-                            <span>Subject</span>
-                            <span>Client</span>
-                            <span>Priority</span>
-                            <span>Status</span>
-                            <span>Created</span>
-                            <span>Actions</span>
-                        </div>
-                        {tickets.map(ticket => (
-                            <div key={ticket.id} className="table-row">
-                                <span className="ticket-id">{ticket.id}</span>
-                                <span>{ticket.subject}</span>
-                                <span>{ticket.client}</span>
-                                <Badge variant={
-                                    ticket.priority === 'high' ? 'error' :
-                                        ticket.priority === 'medium' ? 'warning' : 'default'
-                                }>
-                                    {ticket.priority}
-                                </Badge>
-                                <Badge variant={
-                                    ticket.status === 'resolved' ? 'success' :
-                                        ticket.status === 'in_progress' ? 'warning' : 'primary'
-                                }>
-                                    {ticket.status.replace('_', ' ')}
-                                </Badge>
-                                <span className="text-muted">{ticket.created}</span>
-                                <div className="row-actions">
-                                    <Button variant="secondary" size="sm">View</Button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </CardBody>
-            </Card>
         </DashboardLayout>
     )
 }
@@ -1090,241 +1095,243 @@ export function OwnerTraining() {
 
     return (
         <DashboardLayout title="Training Management" links={ownerLinks}>
-            {/* Header */}
-            <div className="flex justify-between items-center mb-6">
-                <div>
-                    <p className="text-muted">Create and manage training materials for your cleaners</p>
-                </div>
-                <Button onClick={openCreateModal}>+ New Module</Button>
-            </div>
-
-            {/* Stats */}
-            <div className="stats-grid mb-6">
-                <Card>
-                    <CardBody className="stat-card">
-                        <div className="stat-value">{modules.length}</div>
-                        <div className="stat-label">Total Modules</div>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody className="stat-card">
-                        <div className="stat-value">{modules.filter(m => m.isActive).length}</div>
-                        <div className="stat-label">Active</div>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody className="stat-card">
-                        <div className="stat-value">{modules.filter(m => m.quiz.length > 0).length}</div>
-                        <div className="stat-label">With Quizzes</div>
-                    </CardBody>
-                </Card>
-            </div>
-
-            {/* Module List */}
-            <Card>
-                <CardBody>
-                    <div className="table-header">
-                        <h3>Training Modules</h3>
+            <div className="owner-training-page">
+                {/* Header */}
+                <div className="flex justify-between items-center mb-6">
+                    <div>
+                        <p className="text-muted">Create and manage training materials for your cleaners</p>
                     </div>
-                    <div className="data-table">
-                        <div className="table-row table-header-row">
-                            <span>Module</span>
-                            <span>Type</span>
-                            <span>Duration</span>
-                            <span>Quiz</span>
-                            <span>Completed By</span>
-                            <span>Status</span>
-                            <span>Actions</span>
+                    <Button onClick={openCreateModal}>+ New Module</Button>
+                </div>
+
+                {/* Stats */}
+                <div className="stats-grid mb-6">
+                    <Card>
+                        <CardBody className="stat-card">
+                            <div className="stat-value">{modules.length}</div>
+                            <div className="stat-label">Total Modules</div>
+                        </CardBody>
+                    </Card>
+                    <Card>
+                        <CardBody className="stat-card">
+                            <div className="stat-value">{modules.filter(m => m.isActive).length}</div>
+                            <div className="stat-label">Active</div>
+                        </CardBody>
+                    </Card>
+                    <Card>
+                        <CardBody className="stat-card">
+                            <div className="stat-value">{modules.filter(m => m.quiz.length > 0).length}</div>
+                            <div className="stat-label">With Quizzes</div>
+                        </CardBody>
+                    </Card>
+                </div>
+
+                {/* Module List */}
+                <Card>
+                    <CardBody>
+                        <div className="table-header">
+                            <h3>Training Modules</h3>
                         </div>
-                        {modules.map(module => (
-                            <div key={module.id} className="table-row">
-                                <div className="module-info">
-                                    <strong>{module.title}</strong>
-                                    <small className="text-muted">{module.description}</small>
-                                </div>
-                                <span>
-                                    {module.type === 'video' ? '🎬' : module.type === 'pdf' ? '📄' : '📝'} {module.type}
-                                </span>
-                                <span>{module.duration}</span>
-                                <span>
-                                    {module.quiz.length > 0 ? (
-                                        <Badge variant="primary">{module.quiz.length} questions</Badge>
-                                    ) : (
-                                        <span className="text-muted">None</span>
-                                    )}
-                                </span>
-                                <span>{module.completedBy} cleaners</span>
-                                <Badge variant={module.isActive ? 'success' : 'warning'}>
-                                    {module.isActive ? 'Active' : 'Draft'}
-                                </Badge>
-                                <div className="row-actions">
-                                    <Button variant="secondary" size="sm" onClick={() => openEditModal(module)}>Edit</Button>
-                                    <Button variant="ghost" size="sm" onClick={() => toggleModuleActive(module.id)}>
-                                        {module.isActive ? 'Deactivate' : 'Activate'}
-                                    </Button>
-                                    <Button variant="ghost" size="sm" onClick={() => deleteModule(module.id)}>🗑️</Button>
-                                </div>
+                        <div className="data-table">
+                            <div className="table-row table-header-row">
+                                <span>Module</span>
+                                <span>Type</span>
+                                <span>Duration</span>
+                                <span>Quiz</span>
+                                <span>Completed By</span>
+                                <span>Status</span>
+                                <span>Actions</span>
                             </div>
-                        ))}
-                    </div>
-                </CardBody>
-            </Card>
-
-            {/* Create/Edit Modal */}
-            {showModal && (
-                <div className="modal-overlay" onClick={() => setShowModal(false)}>
-                    <div className="modal-content modal-lg" onClick={e => e.stopPropagation()}>
-                        <div className="modal-header">
-                            <h3>{editingModule ? 'Edit Module' : 'Create New Module'}</h3>
-                            <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
+                            {modules.map(module => (
+                                <div key={module.id} className="table-row">
+                                    <div className="module-info">
+                                        <strong>{module.title}</strong>
+                                        <small className="text-muted">{module.description}</small>
+                                    </div>
+                                    <span>
+                                        {module.type === 'video' ? '🎬' : module.type === 'pdf' ? '📄' : '📝'} {module.type}
+                                    </span>
+                                    <span>{module.duration}</span>
+                                    <span>
+                                        {module.quiz.length > 0 ? (
+                                            <Badge variant="primary">{module.quiz.length} questions</Badge>
+                                        ) : (
+                                            <span className="text-muted">None</span>
+                                        )}
+                                    </span>
+                                    <span>{module.completedBy} cleaners</span>
+                                    <Badge variant={module.isActive ? 'success' : 'warning'}>
+                                        {module.isActive ? 'Active' : 'Draft'}
+                                    </Badge>
+                                    <div className="row-actions">
+                                        <Button variant="secondary" size="sm" onClick={() => openEditModal(module)}>Edit</Button>
+                                        <Button variant="ghost" size="sm" onClick={() => toggleModuleActive(module.id)}>
+                                            {module.isActive ? 'Deactivate' : 'Activate'}
+                                        </Button>
+                                        <Button variant="ghost" size="sm" onClick={() => deleteModule(module.id)}>🗑️</Button>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
+                    </CardBody>
+                </Card>
 
-                        {/* Tabs */}
-                        <div className="modal-tabs">
-                            <button
-                                className={`modal-tab ${activeTab === 'details' ? 'active' : ''}`}
-                                onClick={() => setActiveTab('details')}
-                            >
-                                📋 Details
-                            </button>
-                            <button
-                                className={`modal-tab ${activeTab === 'quiz' ? 'active' : ''}`}
-                                onClick={() => setActiveTab('quiz')}
-                            >
-                                ❓ Quiz ({formQuestions.length})
-                            </button>
-                        </div>
+                {/* Create/Edit Modal */}
+                {showModal && (
+                    <div className="modal-overlay" onClick={() => setShowModal(false)}>
+                        <div className="modal-content modal-lg" onClick={e => e.stopPropagation()}>
+                            <div className="modal-header">
+                                <h3>{editingModule ? 'Edit Module' : 'Create New Module'}</h3>
+                                <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
+                            </div>
 
-                        <div className="modal-body">
-                            {activeTab === 'details' ? (
-                                <div className="form-grid">
-                                    <div className="form-group">
-                                        <label className="form-label">Title</label>
-                                        <Input
-                                            value={formTitle}
-                                            onChange={e => setFormTitle(e.target.value)}
-                                            placeholder="e.g. Welcome to Queren"
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label className="form-label">Duration</label>
-                                        <Input
-                                            value={formDuration}
-                                            onChange={e => setFormDuration(e.target.value)}
-                                            placeholder="e.g. 15 min"
-                                        />
-                                    </div>
-                                    <div className="form-group full-width">
-                                        <label className="form-label">Description</label>
-                                        <textarea
-                                            className="form-textarea"
-                                            value={formDescription}
-                                            onChange={e => setFormDescription(e.target.value)}
-                                            placeholder="Brief description of this training module"
-                                            rows={3}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label className="form-label">Content Type</label>
-                                        <select
-                                            className="form-select"
-                                            value={formType}
-                                            onChange={e => setFormType(e.target.value as 'video' | 'pdf' | 'document')}
-                                        >
-                                            <option value="video">🎬 Video</option>
-                                            <option value="pdf">📄 PDF</option>
-                                            <option value="document">📝 Document</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-group">
-                                        <label className="form-label">Content URL</label>
-                                        <Input
-                                            value={formUrl}
-                                            onChange={e => setFormUrl(e.target.value)}
-                                            placeholder="https://..."
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label className="form-check">
-                                            <input
-                                                type="checkbox"
-                                                checked={formRequired}
-                                                onChange={e => setFormRequired(e.target.checked)}
+                            {/* Tabs */}
+                            <div className="modal-tabs">
+                                <button
+                                    className={`modal-tab ${activeTab === 'details' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('details')}
+                                >
+                                    📋 Details
+                                </button>
+                                <button
+                                    className={`modal-tab ${activeTab === 'quiz' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('quiz')}
+                                >
+                                    ❓ Quiz ({formQuestions.length})
+                                </button>
+                            </div>
+
+                            <div className="modal-body">
+                                {activeTab === 'details' ? (
+                                    <div className="form-grid">
+                                        <div className="form-group">
+                                            <label className="form-label">Title</label>
+                                            <Input
+                                                value={formTitle}
+                                                onChange={e => setFormTitle(e.target.value)}
+                                                placeholder="e.g. Welcome to Queren"
                                             />
-                                            <span>Required for all cleaners</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="quiz-builder">
-                                    <div className="quiz-settings mb-4">
-                                        <label className="form-label">Passing Score: {formPassingScore}%</label>
-                                        <input
-                                            type="range"
-                                            min="50"
-                                            max="100"
-                                            step="5"
-                                            value={formPassingScore}
-                                            onChange={e => setFormPassingScore(Number(e.target.value))}
-                                            className="range-slider"
-                                        />
-                                    </div>
-
-                                    {formQuestions.length === 0 ? (
-                                        <div className="empty-state">
-                                            <p>No quiz questions yet</p>
-                                            <Button onClick={addQuestion}>+ Add First Question</Button>
                                         </div>
-                                    ) : (
-                                        <div className="questions-list">
-                                            {formQuestions.map((q, qIndex) => (
-                                                <div key={q.id} className="question-card">
-                                                    <div className="question-header">
-                                                        <span className="question-number">Q{qIndex + 1}</span>
-                                                        <button className="btn-remove" onClick={() => removeQuestion(qIndex)}>×</button>
-                                                    </div>
-                                                    <Input
-                                                        value={q.question}
-                                                        onChange={e => updateQuestion(qIndex, 'question', e.target.value)}
-                                                        placeholder="Enter your question"
-                                                        className="mb-3"
-                                                    />
-                                                    <div className="options-grid">
-                                                        {q.options.map((opt, oIndex) => (
-                                                            <div key={oIndex} className={`option-input ${q.correctIndex === oIndex ? 'correct' : ''}`}>
-                                                                <input
-                                                                    type="radio"
-                                                                    name={`correct-${q.id}`}
-                                                                    checked={q.correctIndex === oIndex}
-                                                                    onChange={() => updateQuestion(qIndex, 'correctIndex', oIndex)}
-                                                                />
-                                                                <Input
-                                                                    value={opt}
-                                                                    onChange={e => updateOption(qIndex, oIndex, e.target.value)}
-                                                                    placeholder={`Option ${oIndex + 1}`}
-                                                                />
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                    <small className="text-muted">Select the correct answer</small>
-                                                </div>
-                                            ))}
-                                            <Button variant="secondary" onClick={addQuestion}>+ Add Question</Button>
+                                        <div className="form-group">
+                                            <label className="form-label">Duration</label>
+                                            <Input
+                                                value={formDuration}
+                                                onChange={e => setFormDuration(e.target.value)}
+                                                placeholder="e.g. 15 min"
+                                            />
                                         </div>
-                                    )}
-                                </div>
-                            )}
-                        </div>
+                                        <div className="form-group full-width">
+                                            <label className="form-label">Description</label>
+                                            <textarea
+                                                className="form-textarea"
+                                                value={formDescription}
+                                                onChange={e => setFormDescription(e.target.value)}
+                                                placeholder="Brief description of this training module"
+                                                rows={3}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="form-label">Content Type</label>
+                                            <select
+                                                className="form-select"
+                                                value={formType}
+                                                onChange={e => setFormType(e.target.value as 'video' | 'pdf' | 'document')}
+                                            >
+                                                <option value="video">🎬 Video</option>
+                                                <option value="pdf">📄 PDF</option>
+                                                <option value="document">📝 Document</option>
+                                            </select>
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="form-label">Content URL</label>
+                                            <Input
+                                                value={formUrl}
+                                                onChange={e => setFormUrl(e.target.value)}
+                                                placeholder="https://..."
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="form-check">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={formRequired}
+                                                    onChange={e => setFormRequired(e.target.checked)}
+                                                />
+                                                <span>Required for all cleaners</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="quiz-builder">
+                                        <div className="quiz-settings mb-4">
+                                            <label className="form-label">Passing Score: {formPassingScore}%</label>
+                                            <input
+                                                type="range"
+                                                min="50"
+                                                max="100"
+                                                step="5"
+                                                value={formPassingScore}
+                                                onChange={e => setFormPassingScore(Number(e.target.value))}
+                                                className="range-slider"
+                                            />
+                                        </div>
 
-                        <div className="modal-footer">
-                            <Button variant="ghost" onClick={() => setShowModal(false)}>Cancel</Button>
-                            <Button onClick={handleSave}>
-                                {editingModule ? 'Save Changes' : 'Create Module'}
-                            </Button>
+                                        {formQuestions.length === 0 ? (
+                                            <div className="empty-state">
+                                                <p>No quiz questions yet</p>
+                                                <Button onClick={addQuestion}>+ Add First Question</Button>
+                                            </div>
+                                        ) : (
+                                            <div className="questions-list">
+                                                {formQuestions.map((q, qIndex) => (
+                                                    <div key={q.id} className="question-card">
+                                                        <div className="question-header">
+                                                            <span className="question-number">Q{qIndex + 1}</span>
+                                                            <button className="btn-remove" onClick={() => removeQuestion(qIndex)}>×</button>
+                                                        </div>
+                                                        <Input
+                                                            value={q.question}
+                                                            onChange={e => updateQuestion(qIndex, 'question', e.target.value)}
+                                                            placeholder="Enter your question"
+                                                            className="mb-3"
+                                                        />
+                                                        <div className="options-grid">
+                                                            {q.options.map((opt, oIndex) => (
+                                                                <div key={oIndex} className={`option-input ${q.correctIndex === oIndex ? 'correct' : ''}`}>
+                                                                    <input
+                                                                        type="radio"
+                                                                        name={`correct-${q.id}`}
+                                                                        checked={q.correctIndex === oIndex}
+                                                                        onChange={() => updateQuestion(qIndex, 'correctIndex', oIndex)}
+                                                                    />
+                                                                    <Input
+                                                                        value={opt}
+                                                                        onChange={e => updateOption(qIndex, oIndex, e.target.value)}
+                                                                        placeholder={`Option ${oIndex + 1}`}
+                                                                    />
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                        <small className="text-muted">Select the correct answer</small>
+                                                    </div>
+                                                ))}
+                                                <Button variant="secondary" onClick={addQuestion}>+ Add Question</Button>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="modal-footer">
+                                <Button variant="ghost" onClick={() => setShowModal(false)}>Cancel</Button>
+                                <Button onClick={handleSave}>
+                                    {editingModule ? 'Save Changes' : 'Create Module'}
+                                </Button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </DashboardLayout>
     )
 }

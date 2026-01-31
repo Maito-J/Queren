@@ -816,6 +816,25 @@
     gap: 1rem;
 }
 
+@media (max-width: 768px) {
+    .page-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-tabs {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        justify-content: flex-start;
+    }
+
+    .page-actions input {
+        width: 100%;
+        max-width: none !important;
+    }
+}
+
 .filter-tabs {
     display: flex;
     gap: 0.25rem;
@@ -883,6 +902,30 @@
 
 .data-table .table-row:hover {
     background: var(--color-bg-subtle);
+}
+
+/* Scroll indicator for tables */
+.table-card {
+    position: relative;
+}
+
+.table-card::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.05));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+@media (max-width: 900px) {
+    .table-card::after {
+        opacity: 1;
+    }
 }
 
 /* Bookings table grid */
@@ -1105,6 +1148,17 @@
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px solid var(--color-border);
+    gap: 1rem;
+}
+
+@media (max-width: 480px) {
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
 }
 
 /* Revenue */
@@ -1254,6 +1308,38 @@
     margin-bottom: 1.5rem;
 }
 
+/* Stats Grid for Training & Others */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
 /* General Mobile Spacing */
 @media (max-width: 600px) {
     .dashboard-content {
@@ -1291,58 +1377,90 @@
     text-overflow: ellipsis;
 }
 
-/* Modal Tabs */
-.modal-tabs {
+/* Modal Customizations for Admin */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    gap: 0;
-    border-bottom: 1px solid var(--color-border);
-    padding: 0 var(--space-6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--space-4);
 }
 
-.modal-tab {
-    padding: var(--space-3) var(--space-5);
-    background: none;
-    border: none;
-    font-size: var(--font-size-base);
-    color: var(--color-text-muted);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: all var(--transition-fast);
+.modal-content {
+    background: white;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.modal-tab:hover {
-    color: var(--color-text);
-}
-
-.modal-tab.active {
-    color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
-    font-weight: var(--font-weight-medium);
-}
-
-/* Form Grid */
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
-}
-
-.form-grid .full-width {
-    grid-column: span 2;
+.modal-lg {
+    max-width: 800px;
 }
 
 @media (max-width: 600px) {
-    .form-grid {
-        grid-template-columns: 1fr;
+    .modal-content {
+        max-height: 95vh;
     }
 
-    .form-grid .full-width {
-        grid-column: span 1;
+    .modal-tabs {
+        padding: 0 var(--space-2) !important;
+    }
+
+    .modal-tab {
+        padding: var(--space-3) var(--space-3) !important;
+        font-size: var(--font-size-sm);
     }
 }
 
-/* Quiz Builder */
+.modal-header {
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-body {
+    padding: var(--space-6);
+    overflow-y: auto;
+    flex: 1;
+}
+
+.modal-footer {
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+}
+
+@media (max-width: 480px) {
+    .modal-footer {
+        flex-direction: column-reverse;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+    }
+}
+
 .quiz-builder {
     min-height: 300px;
 }

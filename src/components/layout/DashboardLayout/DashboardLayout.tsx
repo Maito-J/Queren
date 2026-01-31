@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks'
 import { Icon, IconName } from '../../Icon'
 import logo3 from '@/assets/Logo/logo3.png'
+import querenOwner from '@/assets/images/Team/queren_owner.png'
 import './DashboardLayout.css'
 
 interface SidebarLink {
@@ -24,6 +25,7 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
     const [sidebarOpen, setSidebarOpen] = React.useState(false)
     const isClientDemo = location.pathname.startsWith('/dashboard-demo')
     const isWorkerDemo = location.pathname.startsWith('/worker-demo')
+    const isOwner = location.pathname.startsWith('/q-admin')
     const isDemo = isClientDemo || isWorkerDemo
 
     const handleSignOut = async () => {
@@ -53,7 +55,7 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
     const demoData = getDemoData()
     const displayName = profile?.full_name || (demoData?.name ?? 'User')
     const displayRole = profile?.role || (demoData?.role ?? 'Guest')
-    const avatarUrl = demoData?.avatarUrl
+    const avatarUrl = isOwner ? querenOwner : demoData?.avatarUrl
 
     return (
         <div className="dashboard-layout">
@@ -80,12 +82,12 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
 
                 <div className="sidebar-footer">
                     <div className="sidebar-user">
-                        <div className="user-avatar" style={isDemo && avatarUrl ? {
+                        <div className="user-avatar" style={(isDemo || isOwner) && avatarUrl ? {
                             backgroundImage: `url(${avatarUrl})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center'
                         } : {}}>
-                            {!isDemo && (profile?.full_name?.charAt(0) || '?')}
+                            {!(isDemo || isOwner) && (profile?.full_name?.charAt(0) || '?')}
                         </div>
                         <div className="user-info">
                             <span className="user-name">{displayName}</span>
