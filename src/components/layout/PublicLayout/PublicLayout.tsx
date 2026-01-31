@@ -44,29 +44,23 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                         </nav>
 
                         <div className="header-actions">
-                            {user ? (
-                                <>
-                                    {/* Profile icon only for clients - owners/workers have separate portals */}
-                                    {(!profile?.role || profile.role === 'client') && (
-                                        <Link to="/dashboard" className="header-profile-link" title="My Account">
-                                            <Icon name="user" size="md" aria-label="My Account" />
-                                        </Link>
-                                    )}
-                                    <Link to="/booking" className="btn btn-primary">
-                                        Book Now
-                                    </Link>
-                                </>
-                            ) : (
-                                <>
-                                    <Link to="/login" className="btn btn-ghost">
-                                        <span className="login-text-full">Log In / Register</span>
-                                        <span className="login-text-short">Log In</span>
-                                    </Link>
-                                    <Link to="/booking" className="btn btn-primary">
-                                        Book Now
-                                    </Link>
-                                </>
+                            {/* Always show login button first for unauthenticated users - no loading guard */}
+                            {!user && (
+                                <Link to="/login" className="btn btn-ghost">
+                                    <span className="login-text-full">Log In / Register</span>
+                                    <span className="login-text-short">Log In</span>
+                                </Link>
                             )}
+                            {/* Show profile icon for logged-in clients */}
+                            {user && (!profile?.role || profile.role === 'client') && (
+                                <Link to="/dashboard" className="header-profile-link" title="My Account">
+                                    <Icon name="user" size="md" aria-label="My Account" />
+                                </Link>
+                            )}
+                            {/* Book Now button - always visible */}
+                            <Link to="/booking" className="btn btn-primary">
+                                Book Now
+                            </Link>
                         </div>
 
                         <button
