@@ -26,7 +26,6 @@
     height: var(--header-height);
     gap: var(--space-6);
     flex-wrap: nowrap;
-    /* Ensure elements don't wrap */
 }
 
 .logo {
@@ -72,6 +71,28 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
+}
+
+/* Login button styling */
+.header-login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-4);
+    font-weight: 500;
+    color: var(--color-primary);
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.header-login-btn:hover {
+    background: var(--color-primary);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(103, 58, 183, 0.2);
 }
 
 /* Profile button for logged-in users */
@@ -138,10 +159,8 @@
         pointer-events: none;
         transition: all var(--transition-base);
         max-height: calc(100vh - var(--header-height) - 20px);
-        /* Limit height to ensure bottom border is visible */
         overflow-y: auto;
         box-shadow: 0 4px 20px rgba(155, 126, 217, 0.15);
-        /* Purple-tinted shadow */
     }
 
     .nav-main.open {
@@ -160,13 +179,10 @@
         display: flex;
     }
 
-    /* Force reduced container padding on ALL mobile */
     .public-header .container {
         padding: 0 var(--space-3);
     }
 
-<<<<<<< HEAD
-    /* Force logo size with !important to override base rule */
     .logo-icon {
         height: 40px !important;
         max-height: 40px !important;
@@ -181,43 +197,21 @@
         z-index: 102;
     }
 
-    /* Hide Book Now button on mobile - it's in the hamburger menu */
     .header-book-btn {
         display: none !important;
     }
 
-    /* Login button styling for mobile - prominent border style */
+    /* Hide Login button on mobile */
     .header-login-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        padding: 6px 10px;
-        font-size: 0.75rem;
-        font-weight: 500;
-        white-space: nowrap;
-        min-height: 34px;
-        color: var(--color-primary);
-        background: transparent;
-        border: 2px solid var(--color-primary);
-        border-radius: var(--radius-full);
-        text-decoration: none;
-        touch-action: manipulation;
+        display: none !important;
     }
 
-    /* Profile button styling for mobile */
     .header-profile-btn {
         width: 34px;
         height: 34px;
         flex-shrink: 0;
-=======
-    .header-actions .btn-primary,
-    .header-actions .btn-ghost {
-        display: none;
->>>>>>> b3958c5 (Fix mobile header login visibility and adjust footer logo size)
     }
 
-    /* Mobile menu actions */
     .mobile-nav-actions {
         display: flex;
         flex-direction: column;
@@ -237,16 +231,12 @@
         min-height: 40px;
     }
 
-    /* Fallback for gap support */
     .mobile-nav-actions .btn+.btn {
         margin-top: var(--space-4);
     }
 }
 
-/* Narrow mobile screens - Galaxy A53 (412px), iPhone Plus (~428px), etc */
 @media (max-width: 480px) {
-
-    /* Reduce container padding for more space */
     .public-header .container {
         padding: 0 var(--space-2);
     }
@@ -259,33 +249,19 @@
         font-size: var(--font-size-base);
     }
 
-    /* Reduced logo size for more space - with !important */
-    /* Reduced logo size for more space - with !important */
     .logo-icon {
         height: 40px !important;
         max-height: 40px !important;
     }
 
-<<<<<<< HEAD
     .header-actions {
         gap: var(--space-1);
     }
 
-    /* Slightly smaller button on very narrow screens */
-    .header-login-btn {
-        padding: 5px 8px;
-        font-size: 0.7rem;
-        min-height: 30px;
-    }
-
-    /* Smaller profile button on narrow screens */
     .header-profile-btn {
         width: 30px;
         height: 30px;
     }
-=======
-
->>>>>>> b3958c5 (Fix mobile header login visibility and adjust footer logo size)
 
     .mobile-menu-btn {
         padding: 4px;
@@ -296,7 +272,6 @@
     }
 }
 
-/* Main */
 .public-main {
     flex: 1;
 }
@@ -305,81 +280,71 @@
 .public-footer {
     background: #F7F5FB;
     border-top: 1px solid var(--color-border);
-    padding: var(--space-8) 0;
+    padding: var(--space-12) 0 var(--space-8);
     margin-top: auto;
 }
 
-/* Main footer grid: Logo left, links right */
 .footer-grid {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-8);
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Logo and tagline section */
 .footer-brand {
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .footer-brand .logo {
-<<<<<<< HEAD
-    display: block;
-    margin-bottom: var(--space-4);
-}
-
-.footer-brand .logo-icon {
-    height: 164px;
-    width: auto;
-=======
-    margin-bottom: var(--space-2);
-    display: inline-block;
+    margin-bottom: var(--space-3);
+    display: inline-flex;
 }
 
 .footer-brand .logo-icon {
     height: 50px;
     filter: none;
->>>>>>> b3958c5 (Fix mobile header login visibility and adjust footer logo size)
 }
 
 .footer-tagline {
-    color: #5A5A6E;
-    max-width: 200px;
-    line-height: 1.5;
-    font-size: 12px;
+    color: #6B6B7A;
+    max-width: 250px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-top: var(--space-2);
 }
 
-/* Link columns container - centered on the right side */
 .footer-links-group {
     display: flex;
     gap: var(--space-16);
     align-items: flex-start;
 }
 
-/* Individual link column */
 .footer-links {
     min-width: 140px;
 }
 
 .footer-links h4 {
-    font-size: 24px;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--color-primary);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.05em;
 }
 
 .footer-links a {
     display: block;
-    color: #4A4A5A;
-    padding: var(--space-1) 0;
-    font-size: 16px;
+    color: #5A5A6E;
+    padding: var(--space-2) 0;
+    font-size: 0.95rem;
     font-weight: 500;
     text-decoration: none;
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .footer-links a:hover {
@@ -387,14 +352,13 @@
     transform: translateX(4px);
 }
 
-/* Footer bottom copyright */
 .footer-bottom {
     margin-top: var(--space-12);
     padding-top: var(--space-6);
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(103, 58, 183, 0.1);
     text-align: center;
-    color: #6B6B7A;
-    font-size: 0.9rem;
+    color: #8F8F9D;
+    font-size: 0.85rem;
 }
 
 /* ========== FOOTER RESPONSIVE ========== */
@@ -408,32 +372,33 @@
 
     .footer-brand {
         align-items: center;
-        display: flex;
-        flex-direction: column;
     }
 
     .footer-tagline {
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .footer-links-group {
         justify-content: center;
+        width: 100%;
+        gap: var(--space-8);
     }
 }
 
 @media (max-width: 600px) {
     .footer-links-group {
         flex-wrap: wrap;
-        justify-content: center;
         gap: var(--space-8);
     }
 
     .footer-links {
-        min-width: 120px;
+        min-width: 140px;
         text-align: center;
     }
 
-    .footer-links a:hover {
-        transform: none;
+    .footer-links h4 {
+        margin-bottom: var(--space-3);
     }
 }
