@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { DashboardLayout } from '@/components/layout'
 import { Card, CardBody, Button, Input, Badge, Alert } from '@/components/ui'
 import { Icon, IconName } from '@/components/Icon'
-import querenOwner from '@/assets/images/Team/queren_owner.png'
 import './OwnerPages.css'
 
 const ownerLinks: { to: string; label: string; icon: IconName }[] = [
