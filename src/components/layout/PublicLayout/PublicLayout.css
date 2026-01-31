@@ -155,18 +155,31 @@
     }
 
     .header-actions {
+        display: flex !important;
+        align-items: center;
         gap: var(--space-2);
         flex-shrink: 0;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .header-actions .btn-primary {
         display: none;
     }
 
-    /* Ensure login button is visible in header */
+    /* Ensure login button is visible in header - aggressive fix */
     .header-actions .btn-ghost {
-        display: inline-flex;
+        display: inline-flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         flex-shrink: 0;
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--font-size-sm);
+        white-space: nowrap;
+        color: var(--color-primary) !important;
+        background: var(--color-primary-50) !important;
+        border: 1px solid var(--color-primary-light) !important;
+        border-radius: var(--radius-full);
     }
 
     /* Mobile menu actions */
@@ -207,7 +220,7 @@
 
     /* Reduced logo size for more space */
     .logo-icon {
-        height: 40px;
+        height: 36px;
     }
 
     .header-actions {
@@ -215,9 +228,9 @@
     }
 
     .header-actions .btn-ghost {
-        display: inline-flex;
-        padding: var(--space-2) var(--space-3);
-        font-size: 0.8rem;
+        display: inline-flex !important;
+        padding: var(--space-1) var(--space-2);
+        font-size: 0.75rem;
         white-space: nowrap;
         flex-shrink: 0;
     }
