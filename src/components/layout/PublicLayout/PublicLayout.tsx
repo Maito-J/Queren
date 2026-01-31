@@ -65,9 +65,8 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                         <div className="header-actions">
                             {/* Logged OUT: Show login button */}
                             {!user && (
-                                <Link to="/login" className="btn btn-ghost header-login-btn">
-                                    <span className="login-text-full">Log In / Register</span>
-                                    <span className="login-text-short">Log In</span>
+                                <Link to="/login" className="header-login-btn">
+                                    Log In / Register
                                 </Link>
                             )}
 
@@ -106,31 +105,31 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                             <Link to="/" className="logo">
                                 <img src={logo} alt="Queren" className="logo-icon" />
                             </Link>
-                            <p className="footer-tagline">
-                                Professional cleaning services for your home. Trusted, vetted cleaners.
-                            </p>
                         </div>
 
-                        <div className="footer-links">
-                            <h4>Services</h4>
-                            <Link to="/services#regular">Regular Cleaning</Link>
-                            <Link to="/services#deep">Deep Cleaning</Link>
-                            <Link to="/contact">Custom Cleaning</Link>
-                        </div>
+                        {/* Link columns grouped together */}
+                        <div className="footer-links-group">
+                            <div className="footer-links">
+                                <h4>Services</h4>
+                                <Link to="/services#regular">Regular Cleaning</Link>
+                                <Link to="/services#deep">Deep Cleaning</Link>
+                                <Link to="/contact">Custom Cleaning</Link>
+                            </div>
 
-                        <div className="footer-links">
-                            <h4>Company</h4>
-                            <Link to="/about">About</Link>
-                            <Link to="/careers">Careers</Link>
-                            <Link to="/contact">Contact</Link>
-                            <Link to="/cleaner-login" className="cleaner-link">Staff Login</Link>
-                        </div>
+                            <div className="footer-links">
+                                <h4>Company</h4>
+                                <Link to="/about">About</Link>
+                                <Link to="/careers">Careers</Link>
+                                <Link to="/contact">Contact</Link>
+                                <Link to="/cleaner-login" className="cleaner-link">Staff Login</Link>
+                            </div>
 
-                        <div className="footer-links">
-                            <h4>Legal</h4>
-                            <Link to="/policies#privacy">Privacy Policy</Link>
-                            <Link to="/policies#terms">Terms of Service</Link>
-                            <Link to="/faq">FAQ</Link>
+                            <div className="footer-links">
+                                <h4>Legal</h4>
+                                <Link to="/policies#privacy">Privacy Policy</Link>
+                                <Link to="/policies#terms">Terms of Service</Link>
+                                <Link to="/faq">FAQ</Link>
+                            </div>
                         </div>
                     </div>
 
