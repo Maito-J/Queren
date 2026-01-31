@@ -159,7 +159,7 @@ export function LoginPage() {
                                             variant="ghost"
                                             fullWidth
                                             onClick={() => {
-                                                setEmail('owner@queren.com')
+                                                setEmail('queren@admin.local')
                                                 setPassword('owner123')
                                             }}
                                         >
@@ -172,7 +172,7 @@ export function LoginPage() {
                                             fullWidth
                                             onClick={async () => {
                                                 setLoading(true)
-                                                const { error: signInError } = await signIn('owner@queren.com', 'owner123')
+                                                const { error: signInError } = await signIn('queren@admin.local', 'owner123')
                                                 if (signInError) {
                                                     setError(signInError.message)
                                                     setLoading(false)
