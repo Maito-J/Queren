@@ -1,6 +1,16 @@
+/* Global correct accent color */
 .booking-page {
     padding: var(--space-8) 0 var(--space-16);
     background: var(--color-bg);
+    accent-color: var(--color-primary);
+}
+
+.booking-page input:focus,
+.booking-page select:focus,
+.booking-page textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-50);
 }
 
 .booking-header {

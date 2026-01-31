@@ -106,8 +106,8 @@
     transition: all var(--transition-fast);
 }
 
-/* Mobile book button - hidden on desktop */
-.mobile-book-btn {
+/* Mobile-only nav items - hidden on desktop */
+.mobile-only-nav-btn {
     display: none;
 }
 
@@ -145,11 +145,6 @@
         padding: var(--space-3);
     }
 
-    /* Push navigation/actions to the right */
-    .logo {
-        margin-right: auto;
-    }
-
     .mobile-menu-btn {
         display: flex;
     }
@@ -162,16 +157,16 @@
         display: none;
     }
 
-    /* Styling for the mobile book button */
-    .mobile-book-btn {
-        display: inline-flex;
-        background-color: var(--color-primary-50);
-        color: var(--color-primary);
-        font-weight: 600;
-        padding: 4px 10px;
-        font-size: 0.8rem;
-        border-radius: var(--radius-full);
-        white-space: nowrap;
+    /* Styling for the mobile book button inside menu - matching login link */
+    .mobile-only-nav-btn {
+        display: block;
+        margin-top: var(--space-2);
+        padding-top: var(--space-3);
+        border-top: 1px solid var(--color-border);
+        color: var(--color-primary) !important;
+        font-weight: var(--font-weight-semibold) !important;
+        margin-bottom: 0;
+        /* No bottom margin to sit tight with next item if needed, but login has top margin */
     }
 
     .header-actions .btn-ghost.hide-mobile {

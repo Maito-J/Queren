@@ -29,7 +29,10 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                             <NavLink to="/careers" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Careers</NavLink>
                             <NavLink to="/faq" className="nav-link" onClick={() => setMobileMenuOpen(false)}>FAQ</NavLink>
                             <NavLink to="/contact" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Contact</NavLink>
-                            {/* Mobile-only login link */}
+                            {/* Mobile-only menu items */}
+                            <Link to="/booking" className="nav-link mobile-only-nav-btn" onClick={() => setMobileMenuOpen(false)}>
+                                Book Now
+                            </Link>
                             {!isLoading && !user && (
                                 <NavLink to="/login" className="nav-link mobile-login-link" onClick={() => setMobileMenuOpen(false)}>Log In / Register</NavLink>
                             )}
@@ -47,9 +50,6 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                     <Link to="/booking" className="btn btn-primary">
                                         Book Now
                                     </Link>
-                                    <Link to="/booking" className="btn mobile-book-btn">
-                                        Book Now
-                                    </Link>
                                 </>
                             ) : (
                                 <>
@@ -57,9 +57,6 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                         Log In / Register
                                     </Link>
                                     <Link to="/booking" className="btn btn-primary">
-                                        Book Now
-                                    </Link>
-                                    <Link to="/booking" className="btn mobile-book-btn">
                                         Book Now
                                     </Link>
                                 </>

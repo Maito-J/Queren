@@ -1,6 +1,8 @@
 /* Contact Page Styles */
 .contact-page {
     background: var(--color-bg);
+    accent-color: var(--color-primary);
+    caret-color: var(--color-primary);
 }
 
 /* Hero Section */
