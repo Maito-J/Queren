@@ -617,6 +617,12 @@
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
+@media (max-width: 480px) {
+    .kpi-grid.small {
+        grid-template-columns: 1fr;
+    }
+}
+
 .kpi-card {
     transition: transform 0.2s ease;
 }
@@ -648,6 +654,13 @@
 .kpi-data {
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 480px) {
+    .kpi-content {
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 .kpi-value {
@@ -870,6 +883,7 @@
 .table-card {
     padding: 0;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .data-table {
@@ -929,22 +943,164 @@
 }
 
 /* Bookings table grid */
-.data-table .table-header,
-.data-table .table-row {
+.bookings-table .table-header,
+.bookings-table .table-row {
     grid-template-columns: 60px 150px 120px 150px 100px 80px 100px 80px;
     min-width: 900px;
 }
 
-.amount {
-    font-weight: 600;
+/* Revenue table grid */
+.revenue-table .table-header,
+.revenue-table .table-row {
+    grid-template-columns: 100px 100px 1fr 100px;
+    min-width: 600px;
 }
 
-.amount.positive {
-    color: var(--color-success);
+/* Support table grid */
+.support-table .table-header,
+.support-table .table-row {
+    grid-template-columns: 100px 1fr 120px 100px 100px 120px 80px;
+    min-width: 800px;
 }
 
-.amount.negative {
-    color: var(--color-error);
+/* Training table grid */
+.training-table .table-row.table-header-row,
+.training-table .table-row {
+    grid-template-columns: 1fr 100px 100px 120px 120px 100px 180px;
+    min-width: 900px;
+}
+
+@media (max-width: 768px) {
+    .data-table .table-header {
+        display: none;
+    }
+
+    .data-table .table-row {
+        grid-template-columns: 1fr !important;
+        min-width: unset !important;
+        gap: 0.75rem;
+        padding: 1.25rem 1rem;
+    }
+
+    .data-table .table-row>* {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+    }
+
+    /* Add context labels for mobile if possible, or just style the values */
+    .booking-id,
+    .ticket-id {
+        font-size: 1.125rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
+        justify-content: flex-start;
+    }
+
+    .row-actions {
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 1rem;
+}
+
+.filter-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-tab {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    background: white;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-tab.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* Page Actions */
+.page-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .page-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-actions .input,
+    .page-actions input {
+        max-width: none !important;
+    }
+}
+
+/* Forms in Modals */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form-textarea,
+.form-select {
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 0.875rem;
+}
+
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-50);
 }
 
 .row-actions {

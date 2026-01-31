@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { DashboardLayout } from '@/components/layout'
 import { Card, CardBody, Button, Input, Badge, Alert } from '@/components/ui'
 import { Icon, IconName } from '@/components/Icon'
+import querenOwner from '@/assets/images/Team/queren_owner.png'
 import './OwnerPages.css'
 
 const ownerLinks: { to: string; label: string; icon: IconName }[] = [
@@ -450,7 +451,7 @@ export function OwnerBookings() {
 
             <Card>
                 <CardBody className="table-card">
-                    <div className="data-table">
+                    <div className="data-table bookings-table">
                         <div className="table-header">
                             <span>ID</span>
                             <span>Client</span>
@@ -731,7 +732,7 @@ export function OwnerRevenue() {
             <Card className="mt-6">
                 <CardBody>
                     <h3>Transaction History</h3>
-                    <div className="data-table">
+                    <div className="data-table revenue-table">
                         <div className="table-header">
                             <span>Date</span>
                             <span>Type</span>
@@ -861,7 +862,7 @@ export function OwnerSupport() {
 
                 <Card>
                     <CardBody className="table-card">
-                        <div className="data-table">
+                        <div className="data-table support-table">
                             <div className="table-header">
                                 <span>Ticket</span>
                                 <span>Subject</span>
@@ -1132,7 +1133,7 @@ export function OwnerTraining() {
                         <div className="table-header">
                             <h3>Training Modules</h3>
                         </div>
-                        <div className="data-table">
+                        <div className="data-table training-table">
                             <div className="table-row table-header-row">
                                 <span>Module</span>
                                 <span>Type</span>
