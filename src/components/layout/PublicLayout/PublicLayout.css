@@ -145,6 +145,11 @@
         padding: var(--space-3);
     }
 
+    /* Push navigation/actions to the right */
+    .logo {
+        margin-right: auto;
+    }
+
     .mobile-menu-btn {
         display: flex;
     }
@@ -163,8 +168,8 @@
         background-color: var(--color-primary-50);
         color: var(--color-primary);
         font-weight: 600;
-        padding: 6px 12px;
-        font-size: 0.9rem;
+        padding: 4px 10px;
+        font-size: 0.8rem;
         border-radius: var(--radius-full);
         white-space: nowrap;
     }

@@ -312,10 +312,10 @@ export function ClientPreferences() {
                                         style={{
                                             padding: '0.375rem 0.5rem',
                                             fontSize: '0.75rem',
-                                            border: '1px solid #FCA5A5',
+                                            border: '1px solid var(--color-primary-light)',
                                             borderRadius: 'var(--radius-sm)',
-                                            background: '#FEF2F2',
-                                            color: '#DC2626',
+                                            background: 'var(--color-primary-50)',
+                                            color: 'var(--color-primary)',
                                             cursor: 'pointer',
                                             transition: 'all 0.15s ease'
                                         }}
