@@ -9,7 +9,9 @@ export function LoginPage() {
     const { signIn } = useAuth()
     const navigate = useNavigate()
     const [searchParams] = useSearchParams()
-    const isWorkerLogin = searchParams.get('role') === 'worker'
+    const role = searchParams.get('role')
+    const isWorkerLogin = role === 'worker'
+    const isOwnerLogin = role === 'owner'
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState<string | null>(null)
@@ -51,12 +53,24 @@ export function LoginPage() {
         }
     }
 
+    const getTitle = () => {
+        if (isWorkerLogin) return 'Cleaner Portal'
+        if (isOwnerLogin) return 'Owner Portal'
+        return 'Welcome Back'
+    }
+
+    const getSubtitle = () => {
+        if (isWorkerLogin) return 'Sign in to access your dashboard'
+        if (isOwnerLogin) return 'Sign in to manage your business'
+        return 'Sign in to your account'
+    }
+
     return (
         <div className="auth-page">
             <div className="auth-container">
                 <div className="auth-header">
-                    <h1>{isWorkerLogin ? 'Cleaner Portal' : 'Welcome Back'}</h1>
-                    <p>{isWorkerLogin ? 'Sign in to access your dashboard' : 'Sign in to your account'}</p>
+                    <h1>{getTitle()}</h1>
+                    <p>{getSubtitle()}</p>
                 </div>
 
                 <Card className="auth-card">
@@ -67,8 +81,8 @@ export function LoginPage() {
 
                         <form onSubmit={handleSubmit} className="auth-form">
                             <Input
-                                label={isWorkerLogin ? "Email / Employee Number" : "Email"}
-                                type={isWorkerLogin ? "text" : "email"}
+                                label={isWorkerLogin || isOwnerLogin ? "Email / Employee Number" : "Email"}
+                                type={isWorkerLogin || isOwnerLogin ? "text" : "email"}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -127,6 +141,37 @@ export function LoginPage() {
                                             <Icon name="sparkle" size="sm" />
                                             Try Staff Demo
                                         </Button>
+                                        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                                            <Link
+                                                to="/login?role=owner"
+                                                style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}
+                                            >
+                                                Owner Login
+                                            </Link>
+                                        </div>
+                                    </>
+                                ) : isOwnerLogin ? (
+                                    <>
+                                        <Button
+                                            type="button"
+                                            variant="ghost"
+                                            fullWidth
+                                            onClick={() => {
+                                                setEmail('owner@queren.com')
+                                                setPassword('owner123')
+                                            }}
+                                        >
+                                            <Icon name="user" size="sm" />
+                                            Fill Owner Demo
+                                        </Button>
+                                        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                                            <Link
+                                                to="/login?role=worker"
+                                                style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}
+                                            >
+                                                Staff Login
+                                            </Link>
+                                        </div>
                                     </>
                                 ) : (
                                     <>
@@ -156,7 +201,7 @@ export function LoginPage() {
                             </div>
                         </form>
 
-                        {!isWorkerLogin && (
+                        {!isWorkerLogin && !isOwnerLogin && (
                             <div className="auth-footer">
                                 <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
                             </div>
