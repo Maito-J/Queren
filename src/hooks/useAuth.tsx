@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { Session, User } from '@supabase/supabase-js'
-import { supabase } from '@/lib/supabase'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import type { Profile, UserRole } from '@/types'
 
 // Demo mode configuration - activated when Supabase is not configured
-const DEMO_MODE = import.meta.env.VITE_SUPABASE_URL?.includes('your-project') ||
-    !import.meta.env.VITE_SUPABASE_URL
+// Use the centralized isSupabaseConfigured flag for reliable detection
+const DEMO_MODE = !isSupabaseConfigured
 
 // Demo users for testing without Supabase
 const DEMO_USERS: Record<string, { password: string; profile: Profile }> = {
@@ -65,7 +65,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [session, setSession] = useState<Session | null>(null)
     const [user, setUser] = useState<User | null>(null)
     const [profile, setProfile] = useState<Profile | null>(null)
-    const [isLoading, setIsLoading] = useState(true)
+    // Start with isLoading false in demo mode so buttons render immediately
+    const [isLoading, setIsLoading] = useState(!DEMO_MODE)
 
     useEffect(() => {
         // Check for demo user in localStorage
