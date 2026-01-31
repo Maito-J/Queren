@@ -30,7 +30,7 @@ export function BookingConfirmationPage() {
                         <Link to="/">
                             <Button variant="secondary">Back to Home</Button>
                         </Link>
-                        <Link to="/dashboard">
+                        <Link to="/dashboard-demo">
                             <Button>View Dashboard</Button>
                         </Link>
                     </div>
