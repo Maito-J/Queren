@@ -743,7 +743,7 @@ export function OwnerRevenue() {
                         ].map((tx, i) => (
                             <div key={i} className="table-row">
                                 <span>{tx.date}</span>
-                                <Badge variant={tx.type === 'income' ? 'success' : 'warning'}>{tx.type}</Badge>
+                                <Badge variant={tx.type === 'income' ? 'primary' : 'warning'}>{tx.type.toUpperCase()}</Badge>
                                 <span>{tx.desc}</span>
                                 <span className={tx.amount > 0 ? 'amount positive' : 'amount negative'}>
                                     {tx.amount > 0 ? '+' : ''}{tx.amount < 0 ? '-' : ''}${Math.abs(tx.amount)}
@@ -875,15 +875,15 @@ export function OwnerSupport() {
                                     <span>{ticket.client}</span>
                                     <Badge variant={
                                         ticket.priority === 'high' ? 'error' :
-                                            ticket.priority === 'medium' ? 'warning' : 'default'
+                                            ticket.priority === 'medium' ? 'warning' : 'success'
                                     }>
-                                        {ticket.priority}
+                                        {ticket.priority.toUpperCase()}
                                     </Badge>
                                     <Badge variant={
                                         ticket.status === 'resolved' ? 'success' :
                                             ticket.status === 'in_progress' ? 'warning' : 'primary'
                                     }>
-                                        {ticket.status.replace('_', ' ')}
+                                        {ticket.status.replace('_', ' ').toUpperCase()}
                                     </Badge>
                                     <span className="text-muted">{ticket.created}</span>
                                     <div className="row-actions">
@@ -1145,9 +1145,10 @@ export function OwnerTraining() {
                                         <strong>{module.title}</strong>
                                         <small className="text-muted">{module.description}</small>
                                     </div>
-                                    <span>
-                                        {module.type === 'video' ? '🎬' : module.type === 'pdf' ? '📄' : '📝'} {module.type}
-                                    </span>
+                                    <div className="flex items-center gap-2">
+                                        {module.type === 'video' ? <Icon name="video" size="sm" /> : module.type === 'pdf' ? <Icon name="document" size="sm" /> : <Icon name="clipboard" size="sm" />}
+                                        <span>{module.type}</span>
+                                    </div>
                                     <span>{module.duration}</span>
                                     <span>
                                         {module.quiz.length > 0 ? (
@@ -1234,9 +1235,9 @@ export function OwnerTraining() {
                                                 value={formType}
                                                 onChange={e => setFormType(e.target.value as 'video' | 'pdf' | 'document')}
                                             >
-                                                <option value="video">🎬 Video</option>
-                                                <option value="pdf">📄 PDF</option>
-                                                <option value="document">📝 Document</option>
+                                                <option value="video">Video</option>
+                                                <option value="pdf">PDF</option>
+                                                <option value="document">Document</option>
                                             </select>
                                         </div>
                                         <div className="form-group">
