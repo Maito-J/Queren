@@ -47,6 +47,9 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                     <Link to="/booking" className="btn btn-primary">
                                         Book Now
                                     </Link>
+                                    <Link to="/booking" className="btn mobile-book-btn">
+                                        Book Now
+                                    </Link>
                                 </>
                             ) : (
                                 <>
@@ -54,6 +57,9 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                         Log In / Register
                                     </Link>
                                     <Link to="/booking" className="btn btn-primary">
+                                        Book Now
+                                    </Link>
+                                    <Link to="/booking" className="btn mobile-book-btn">
                                         Book Now
                                     </Link>
                                 </>
