@@ -25,6 +25,8 @@
     justify-content: space-between;
     height: var(--header-height);
     gap: var(--space-6);
+    flex-wrap: nowrap;
+    /* Ensure elements don't wrap */
 }
 
 .logo {
@@ -161,8 +163,9 @@
 
     /* Force logo size with !important to override base rule */
     .logo-icon {
-        height: 44px !important;
-        max-height: 44px !important;
+        height: 52px !important;
+        max-height: 52px !important;
+        width: auto;
     }
 
     .header-actions {
@@ -172,6 +175,10 @@
         flex-shrink: 0;
         visibility: visible !important;
         opacity: 1 !important;
+        min-width: max-content;
+        /* Prevent crushing */
+        z-index: 102;
+        /* Ensure above other elements */
     }
 
     .header-actions .btn-primary {
@@ -196,6 +203,10 @@
         background: var(--color-primary-50) !important;
         border: 1px solid var(--color-primary-light) !important;
         border-radius: var(--radius-full);
+        min-width: max-content;
+        /* Prevent crushing */
+        pointer-events: auto !important;
+        /* Ensure clickable */
     }
 
     /* Show full text, hide short text on regular mobile */
@@ -246,9 +257,10 @@
     }
 
     /* Reduced logo size for more space - with !important */
+    /* Reduced logo size for more space - with !important */
     .logo-icon {
-        height: 32px !important;
-        max-height: 32px !important;
+        height: 40px !important;
+        max-height: 40px !important;
     }
 
     .header-actions {
