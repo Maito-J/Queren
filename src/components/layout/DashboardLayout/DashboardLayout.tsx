@@ -57,9 +57,48 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
     const displayRole = profile?.role || (demoData?.role ?? 'Guest')
     const avatarUrl = isOwner ? querenOwner : demoData?.avatarUrl
 
+    const [sidebarWidth, setSidebarWidth] = React.useState(260)
+    const [isResizing, setIsResizing] = React.useState(false)
+    const sidebarRef = React.useRef<HTMLDivElement>(null)
+
+    const startResizing = React.useCallback(() => {
+        setIsResizing(true)
+    }, [])
+
+    const stopResizing = React.useCallback(() => {
+        setIsResizing(false)
+    }, [])
+
+    const resize = React.useCallback(
+        (mouseMoveEvent: MouseEvent) => {
+            if (isResizing) {
+                const newWidth = mouseMoveEvent.clientX
+                if (newWidth >= 200 && newWidth <= 480) {
+                    setSidebarWidth(newWidth)
+                }
+            }
+        },
+        [isResizing]
+    )
+
+    React.useEffect(() => {
+        window.addEventListener('mousemove', resize)
+        window.addEventListener('mouseup', stopResizing)
+        return () => {
+            window.removeEventListener('mousemove', resize)
+            window.removeEventListener('mouseup', stopResizing)
+        }
+    }, [resize, stopResizing])
+
     return (
-        <div className="dashboard-layout">
-            <aside className={`dashboard-sidebar ${sidebarOpen ? 'open' : ''}`}>
+        <div
+            className={`dashboard-layout ${isResizing ? 'resizing' : ''}`}
+            style={{ '--sidebar-width': `${sidebarWidth}px` } as React.CSSProperties}
+        >
+            <aside
+                ref={sidebarRef}
+                className={`dashboard-sidebar ${sidebarOpen ? 'open' : ''}`}
+            >
                 <div className="sidebar-header">
                     <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 0' }}>
                         <img src={logo3} alt="Queren" style={{ height: '40px', width: 'auto' }} />
@@ -98,6 +137,12 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
                         Sign Out
                     </button>
                 </div>
+
+                {/* Resizer Handle - Visible on Desktop only */}
+                <div
+                    className={`sidebar-resizer hide-mobile ${isResizing ? 'resizing' : ''}`}
+                    onMouseDown={startResizing}
+                />
             </aside>
 
             <div className="dashboard-main">

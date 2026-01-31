@@ -178,3 +178,35 @@
         margin-left: 0;
     }
 }
+
+/* Resizer Handle */
+.sidebar-resizer {
+    position: absolute;
+    top: 0;
+    right: -3px;
+    /* Center over the border */
+    bottom: 0;
+    width: 6px;
+    cursor: col-resize;
+    z-index: 1000;
+    opacity: 0;
+    /* Hidden unless hovered/active to keep UI clean */
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.sidebar-resizer:hover,
+.sidebar-resizer.resizing {
+    opacity: 1;
+    background-color: var(--color-primary);
+}
+
+.dashboard-layout.resizing {
+    cursor: col-resize;
+    user-select: none;
+    /* Prevent text selection while dragging */
+}
+
+.dashboard-layout.resizing .dashboard-main {
+    pointer-events: none;
+    /* Prevent iframe/interaction issues */
+}
