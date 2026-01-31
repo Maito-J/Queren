@@ -160,7 +160,7 @@ export function LoginPage() {
                                             fullWidth
                                             onClick={() => {
                                                 setEmail('queren@admin.local')
-                                                setPassword('owner123')
+                                                setPassword('admin')
                                             }}
                                         >
                                             <Icon name="user" size="sm" />
@@ -172,7 +172,7 @@ export function LoginPage() {
                                             fullWidth
                                             onClick={async () => {
                                                 setLoading(true)
-                                                const { error: signInError } = await signIn('queren@admin.local', 'owner123')
+                                                const { error: signInError } = await signIn('queren@admin.local', 'admin')
                                                 if (signInError) {
                                                     setError(signInError.message)
                                                     setLoading(false)
