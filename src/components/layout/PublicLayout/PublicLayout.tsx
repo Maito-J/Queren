@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { useAuth } from '@/hooks'
+
 import { LandingBackgroundBubbles } from '../../ui/LandingBackgroundBubbles/LandingBackgroundBubbles'
 import logo from '@/assets/Logo/transparent-logo.svg'
 import './PublicLayout.css'
@@ -15,16 +15,10 @@ interface PublicLayoutProps {
  * - Logged IN: Shows profile icon that links to dashboard
  */
 export function PublicLayout({ children }: PublicLayoutProps) {
-    const { user, profile } = useAuth()
+
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
 
-    // Determine dashboard link based on user role
-    const getDashboardLink = () => {
-        if (!profile?.role) return '/dashboard'
-        if (profile.role === 'worker') return '/worker'
-        if (profile.role === 'owner') return '/q-admin'
-        return '/dashboard'
-    }
+
 
     return (
         <div className="public-layout">
@@ -48,27 +42,22 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                 <Link to="/booking" className="btn btn-primary btn-block" onClick={() => setMobileMenuOpen(false)}>
                                     Book Now
                                 </Link>
-                                {!user && (
-                                    <Link to="/login" className="btn btn-outline btn-block" onClick={() => setMobileMenuOpen(false)}>
-                                        Log In / Register
-                                    </Link>
-                                )}
-                                {user && (
-                                    <Link to={getDashboardLink()} className="btn btn-outline btn-block" onClick={() => setMobileMenuOpen(false)}>
-                                        My Dashboard
-                                    </Link>
-                                )}
+                                <Link
+                                    to="/login"
+                                    className="btn btn-outline btn-block"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    Log In / Register
+                                </Link>
                             </div>
                         </nav>
 
                         {/* Header actions - conditional based on auth state */}
                         <div className="header-actions">
-                            {/* Logged OUT: Show login button */}
-                            {!user && (
-                                <Link to="/login" className="header-login-btn">
-                                    Log In / Register
-                                </Link>
-                            )}
+                            {/* Always show login button */}
+                            <Link to="/login" className="header-login-btn">
+                                Log In / Register
+                            </Link>
 
                             {/* Logged IN: Profile button removed as requested */}
 
