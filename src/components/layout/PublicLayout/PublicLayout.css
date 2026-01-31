@@ -146,7 +146,7 @@
     .nav-link {
         width: 100%;
         text-align: center;
-        padding: var(--space-3);
+        padding: var(--space-2);
     }
 
     .mobile-menu-btn {
@@ -165,7 +165,7 @@
     .mobile-nav-actions {
         display: flex;
         flex-direction: column;
-        gap: var(--space-4);
+        gap: var(--space-6);
         margin-top: var(--space-4);
         padding-top: var(--space-6);
         border-top: 1px solid var(--color-border);
