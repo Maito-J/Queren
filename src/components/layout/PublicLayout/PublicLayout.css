@@ -280,7 +280,8 @@
 .public-footer {
     background: #F7F5FB;
     border-top: 1px solid var(--color-border);
-    padding: var(--space-12) 0 var(--space-8);
+    padding: var(--space-16) 0 var(--space-8);
+    /* Increased top padding */
     margin-top: auto;
 }
 
@@ -301,64 +302,71 @@
 }
 
 .footer-brand .logo {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
+    /* Increased spacing below logo */
     display: inline-flex;
 }
 
 .footer-brand .logo-icon {
-    height: 50px;
+    height: 60px;
+    /* Slight increase to match image weight */
     filter: none;
 }
 
 .footer-tagline {
     color: #6B6B7A;
-    max-width: 250px;
+    max-width: 280px;
     line-height: 1.6;
     font-size: 0.95rem;
-    margin-top: var(--space-2);
+    margin-top: var(--space-1);
 }
 
 .footer-links-group {
     display: flex;
-    gap: var(--space-16);
+    gap: 100px;
+    /* Further increased gap to match wide spacing in image */
     align-items: flex-start;
 }
 
 .footer-links {
-    min-width: 140px;
+    min-width: 100px;
 }
 
 .footer-links h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: var(--space-6);
+    font-size: 11px;
+    font-weight: 800;
+    color: #4A4A5A;
+    /* Darker gray, not primary color */
+    margin-bottom: var(--space-4);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .footer-links a {
     display: block;
-    color: #5A5A6E;
-    padding: var(--space-2) 0;
-    font-size: 0.95rem;
-    font-weight: 500;
+    color: #8F8F9D;
+    /* Lighter gray for links */
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 400;
+    /* Regular weight */
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
 .footer-links a:hover {
     color: var(--color-primary);
-    transform: translateX(4px);
+    transform: translateX(2px);
 }
 
 .footer-bottom {
     margin-top: var(--space-12);
-    padding-top: var(--space-6);
-    border-top: 1px solid rgba(103, 58, 183, 0.1);
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    /* Very subtle border */
     text-align: center;
     color: #8F8F9D;
-    font-size: 0.85rem;
+    font-size: 12px;
 }
 
 /* ========== FOOTER RESPONSIVE ========== */
