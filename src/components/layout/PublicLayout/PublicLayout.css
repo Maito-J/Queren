@@ -185,32 +185,33 @@
         display: none;
     }
 
-    /* Login button styling for mobile */
+    /* Login button styling for mobile - prominent border style */
     .header-login-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        padding: 8px 12px;
-        font-size: 0.85rem;
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        font-weight: 500;
         white-space: nowrap;
-        min-height: 36px;
+        min-height: 34px;
         color: var(--color-primary);
-        background: var(--color-primary-50);
-        border: 1px solid var(--color-primary-light);
+        background: transparent;
+        border: 2px solid var(--color-primary);
         border-radius: var(--radius-full);
         text-decoration: none;
         touch-action: manipulation;
     }
 
-    /* Profile button styling for mobile - same size as login button area */
+    /* Profile button styling for mobile */
     .header-profile-btn {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
         flex-shrink: 0;
     }
 
-    /* Show full text on regular mobile (>480px) */
+    /* Always show full "Log In / Register" text on mobile */
     .login-text-short {
         display: none;
     }
@@ -272,26 +273,26 @@
         gap: var(--space-1);
     }
 
-    /* Smaller login button on narrow screens */
+    /* Slightly smaller button on very narrow screens */
     .header-login-btn {
-        padding: 6px 10px;
-        font-size: 0.75rem;
-        min-height: 32px;
+        padding: 5px 8px;
+        font-size: 0.7rem;
+        min-height: 30px;
     }
 
     /* Smaller profile button on narrow screens */
     .header-profile-btn {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
     }
 
-    /* Show short text only on narrow screens (<480px) */
+    /* Still show full "Log In / Register" text on narrow screens */
     .login-text-full {
-        display: none;
+        display: inline;
     }
 
     .login-text-short {
-        display: inline;
+        display: none;
     }
 
     .mobile-menu-btn {
