@@ -121,6 +121,7 @@
 @media (max-width: 600px) {
     .service-type-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-3);
     }
 }
 
@@ -128,13 +129,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: var(--space-3);
+    padding: var(--space-4);
     background: var(--color-bg-subtle);
-    border: 2px solid var(--color-border);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     cursor: pointer;
     transition: all var(--transition-base);
     text-align: center;
+    height: 100%;
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .service-type-card {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: var(--space-3) var(--space-4);
+        gap: var(--space-4);
+    }
 }
 
 .service-type-card:hover {
@@ -145,30 +158,60 @@
 .service-type-card.active {
     border-color: var(--color-primary);
     background: var(--color-primary-50);
+    box-shadow: 0 0 0 1px var(--color-primary);
 }
 
-.service-type-icon {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-2);
+.service-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: white;
     color: var(--color-primary);
+    margin-bottom: var(--space-3);
+    transition: all var(--transition-base);
+}
+
+@media (max-width: 600px) {
+    .service-icon-wrapper {
+        margin-bottom: 0;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+    }
+}
+
+.service-type-card.active .service-icon-wrapper {
+    background: var(--color-primary);
+    color: white;
+}
+
+.service-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .service-type-name {
     font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-md);
-    margin-bottom: var(--space-1);
+    font-size: var(--font-size-base);
     color: var(--color-text);
+    margin-bottom: 2px;
 }
 
 .service-type-price {
     color: var(--color-primary);
-    font-weight: var(--font-weight-semibold);
-    margin-bottom: var(--space-2);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-1);
 }
 
 .service-type-desc {
     color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
 }
 
 /* Info card - with contact button */

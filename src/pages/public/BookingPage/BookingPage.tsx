@@ -184,34 +184,50 @@ export function BookingPage() {
                                     className={`service-type-card ${formData.serviceType === 'regular' ? 'active' : ''}`}
                                     onClick={() => handleServiceTypeChange('regular')}
                                 >
-                                    <span className="service-type-icon"><Icon name="broom" size="lg" /></span>
-                                    <span className="service-type-name">Regular Cleaning</span>
-                                    <span className="service-type-price">From $89</span>
-                                    <span className="service-type-desc">Weekly or bi-weekly maintenance</span>
+                                    <div className="service-icon-wrapper">
+                                        <Icon name="broom" size="lg" />
+                                    </div>
+                                    <div className="service-content-wrapper">
+                                        <span className="service-type-name">Regular Cleaning</span>
+                                        <span className="service-type-price">From $89</span>
+                                        <span className="service-type-desc">Weekly or bi-weekly maintenance</span>
+                                    </div>
                                 </button>
                                 <button
                                     type="button"
                                     className={`service-type-card ${formData.serviceType === 'deep' ? 'active' : ''}`}
                                     onClick={() => handleServiceTypeChange('deep')}
                                 >
-                                    <span className="service-type-icon"><Icon name="sparkle" size="lg" /></span>
-                                    <span className="service-type-name">Deep Cleaning</span>
-                                    <span className="service-type-price">From $149</span>
-                                    <span className="service-type-desc">Thorough top-to-bottom clean</span>
+                                    <div className="service-icon-wrapper">
+                                        <Icon name="sparkle" size="lg" />
+                                    </div>
+                                    <div className="service-content-wrapper">
+                                        <span className="service-type-name">Deep Cleaning</span>
+                                        <span className="service-type-price">From $149</span>
+                                        <span className="service-type-desc">Thorough top-to-bottom clean</span>
+                                    </div>
                                 </button>
                                 <div className="service-type-card service-type-info">
-                                    <span className="service-type-icon"><Icon name="tool" size="lg" /></span>
-                                    <span className="service-type-name">Custom Cleaning</span>
-                                    <span className="service-type-price">Custom Quote</span>
-                                    <span className="service-type-desc">Contact us to know more details</span>
-                                    <Link to="/contact" className="btn btn-outline btn-sm service-contact-btn">Contact Us</Link>
+                                    <div className="service-icon-wrapper">
+                                        <Icon name="tool" size="lg" />
+                                    </div>
+                                    <div className="service-content-wrapper">
+                                        <span className="service-type-name">Custom Cleaning</span>
+                                        <span className="service-type-price">Custom Quote</span>
+                                        <span className="service-type-desc">Contact us to know more details</span>
+                                        <Link to="/contact" className="btn btn-outline btn-sm service-contact-btn">Contact Us</Link>
+                                    </div>
                                 </div>
                                 <div className="service-type-card service-type-coming-soon">
                                     <span className="coming-soon-badge">Coming Soon</span>
-                                    <span className="service-type-icon"><Icon name="home" size="lg" /></span>
-                                    <span className="service-type-name">AirBnb Cleaning</span>
-                                    <span className="service-type-price">TBD</span>
-                                    <span className="service-type-desc">Professional turnover cleaning</span>
+                                    <div className="service-icon-wrapper">
+                                        <Icon name="home" size="lg" />
+                                    </div>
+                                    <div className="service-content-wrapper">
+                                        <span className="service-type-name">AirBnb Cleaning</span>
+                                        <span className="service-type-price">TBD</span>
+                                        <span className="service-type-desc">Professional turnover cleaning</span>
+                                    </div>
                                 </div>
                             </div>
                             <p className="reassurance"><Icon name="check" size="sm" /> Great choice! Our cleaners love this service.</p>
