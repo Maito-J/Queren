@@ -35,9 +35,6 @@ export function OwnerDashboard() {
             <Card className="welcome-banner-owner mb-6">
                 <CardBody>
                     <div className="welcome-content">
-                        <div className="owner-avatar-welcome">
-                            <img src={querenOwner} alt="Queren" />
-                        </div>
                         <div className="welcome-text">
                             <h2>Good afternoon, Queren! <Icon name="wave" size="md" /></h2>
                             <p>{currentDate}</p>
