@@ -41,10 +41,10 @@ export function HomePage() {
                         </p>
                         <div className="hero-actions">
                             <Link to="/booking">
-                                <Button size="lg">Book Now</Button>
+                                <Button size="md">Book Now</Button>
                             </Link>
                             <Link to="/services">
-                                <Button variant="outline" size="lg" className="hero-pricing-btn">View Pricing</Button>
+                                <Button variant="outline" size="md" className="hero-pricing-btn">View Pricing</Button>
                             </Link>
                         </div>
                         <div className="hero-trust">

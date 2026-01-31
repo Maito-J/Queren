@@ -796,6 +796,169 @@
     padding: 1.5rem;
 }
 
+
+/* Responsive Adjustments */
+
+/* 1. Schedule Mobile Fixes */
+@media (max-width: 768px) {
+    .calendar-week {
+        overflow-x: auto;
+    }
+
+    .calendar-header,
+    .calendar-body {
+        min-width: 700px;
+        /* Force minimum width to maintain grid structure */
+    }
+
+    .schedule-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* 2. Time Tracking Mobile Fixes */
+@media (max-width: 480px) {
+    .tracking-job {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .tracking-job-info {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .tracking-job-info h4 {
+        min-width: auto;
+    }
+
+    .tracking-job .btn {
+        width: 100%;
+    }
+
+    .active-job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .timer {
+        align-self: flex-start;
+    }
+}
+
+/* 3. Earnings Table Mobile Fixes */
+@media (max-width: 900px) {
+    .earnings-table .table-header {
+        display: none;
+        /* Hide table headers on mobile */
+    }
+
+    .earnings-table .table-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.25rem;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        margin-bottom: 1rem;
+        background: var(--color-bg);
+    }
+
+    .earnings-table .table-row span {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    /* Add labels via ::before pseudo-element for context */
+    .earnings-table .table-row span:nth-child(1)::before {
+        content: "Date:";
+        color: var(--color-text-muted);
+    }
+
+    .earnings-table .table-row span:nth-child(2)::before {
+        content: "Job:";
+        color: var(--color-text-muted);
+    }
+
+    .earnings-table .table-row span:nth-child(3)::before {
+        content: "Customer #:";
+        color: var(--color-text-muted);
+    }
+
+    .earnings-table .table-row span:nth-child(4)::before {
+        content: "Hours:";
+        color: var(--color-text-muted);
+    }
+
+    .earnings-table .table-row span:nth-child(5)::before {
+        content: "Amount:";
+        color: var(--color-text-muted);
+    }
+
+    .earnings-table .table-row span:nth-child(6)::before {
+        content: "Status:";
+        color: var(--color-text-muted);
+    }
+
+    .earnings-table .table-row span:nth-child(2) {
+        font-weight: 600;
+        font-size: 1.1rem;
+        order: -1;
+        /* Move Job Title to top */
+    }
+
+    .earnings-table .table-row span:nth-child(6) {
+        justify-content: flex-start;
+        /* Badge alignment */
+    }
+
+    .earnings-table .table-row> :last-child {
+        justify-self: flex-start;
+        text-align: left;
+    }
+}
+
+/* General Mobile Adjustments */
+@media (max-width: 480px) {
+    .job-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .job-details {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .job-actions {
+        flex-direction: column;
+    }
+
+    .job-actions .btn {
+        width: 100%;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+    }
+
+    .filter-bar .form-select,
+    .filter-bar .form-input {
+        width: 100%;
+        max-width: none !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .empty-icon {
     font-size: 3rem;
     margin-bottom: 1rem;

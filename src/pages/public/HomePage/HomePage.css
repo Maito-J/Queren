@@ -62,7 +62,7 @@
 }
 
 .hero-actions .btn {
-    min-width: 180px;
+    min-width: 150px;
     justify-content: center;
 }
 
@@ -527,5 +527,36 @@
     .cta-features {
         flex-direction: column;
         gap: var(--space-3);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--space-3);
+    }
+
+    .hero-actions a {
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .hero-trust {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .hero-trust span:nth-child(even) {
+        display: none;
+        /* Hide bullets when stacked */
     }
 }
