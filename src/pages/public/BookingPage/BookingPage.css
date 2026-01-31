@@ -231,7 +231,13 @@
     font-size: var(--font-size-sm);
     text-decoration: none;
     margin-top: var(--space-2);
-    align-self: flex-end;
+    align-self: center;
+}
+
+@media (max-width: 600px) {
+    .service-contact-link {
+        align-self: flex-end;
+    }
 }
 
 .service-contact-link:hover {
