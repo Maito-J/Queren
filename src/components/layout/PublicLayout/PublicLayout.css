@@ -74,21 +74,25 @@
     gap: var(--space-3);
 }
 
-.header-profile-link {
+/* Profile button for logged-in users */
+.header-profile-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
-    font-size: 1.25rem;
     background: var(--color-primary-50);
+    border: 1px solid var(--color-primary-light);
     border-radius: var(--radius-full);
+    color: var(--color-primary);
     text-decoration: none;
     transition: all var(--transition-fast);
 }
 
-.header-profile-link:hover {
+.header-profile-btn:hover {
     background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
     transform: scale(1.05);
 }
 
@@ -169,49 +173,50 @@
     }
 
     .header-actions {
-        display: flex !important;
+        display: flex;
         align-items: center;
         gap: var(--space-2);
         flex-shrink: 0;
-        visibility: visible !important;
-        opacity: 1 !important;
-        min-width: max-content;
-        /* Prevent crushing */
         z-index: 102;
-        /* Ensure above other elements */
     }
 
-    .header-actions .btn-primary {
+    /* Hide Book Now button on mobile - it's in the hamburger menu */
+    .header-book-btn {
         display: none;
     }
 
-    /* Reduce button min-height on mobile */
-    .header-actions .btn {
-        min-height: 36px;
-    }
-
-    /* Ensure login button is visible in header - aggressive fix */
-    .header-actions .btn-ghost {
-        display: inline-flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+    /* Login button styling for mobile */
+    .header-login-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         flex-shrink: 0;
         padding: 8px 12px;
         font-size: 0.85rem;
         white-space: nowrap;
-        color: var(--color-primary) !important;
-        background: var(--color-primary-50) !important;
-        border: 1px solid var(--color-primary-light) !important;
+        min-height: 36px;
+        color: var(--color-primary);
+        background: var(--color-primary-50);
+        border: 1px solid var(--color-primary-light);
         border-radius: var(--radius-full);
-        min-width: max-content;
-        /* Prevent crushing */
-        pointer-events: auto !important;
-        /* Ensure clickable */
+        text-decoration: none;
+        touch-action: manipulation;
     }
 
-    /* Show full text, hide short text on regular mobile */
+    /* Profile button styling for mobile - same size as login button area */
+    .header-profile-btn {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+    }
+
+    /* Show full text on regular mobile (>480px) */
     .login-text-short {
         display: none;
+    }
+
+    .login-text-full {
+        display: inline;
     }
 
     /* Mobile menu actions */
@@ -264,20 +269,23 @@
     }
 
     .header-actions {
-        flex-shrink: 0;
         gap: var(--space-1);
     }
 
-    .header-actions .btn-ghost {
-        display: inline-flex !important;
-        padding: 6px 8px;
-        font-size: 0.7rem;
-        white-space: nowrap;
-        flex-shrink: 0;
-        min-height: 28px;
+    /* Smaller login button on narrow screens */
+    .header-login-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        min-height: 32px;
     }
 
-    /* Show short text only, hide full text on narrow screens */
+    /* Smaller profile button on narrow screens */
+    .header-profile-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Show short text only on narrow screens (<480px) */
     .login-text-full {
         display: none;
     }

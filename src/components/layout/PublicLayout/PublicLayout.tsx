@@ -9,9 +9,22 @@ interface PublicLayoutProps {
     children: React.ReactNode
 }
 
+/**
+ * Public layout with proper auth state handling.
+ * - Logged OUT: Shows "Log In / Register" button
+ * - Logged IN: Shows profile icon that links to dashboard
+ */
 export function PublicLayout({ children }: PublicLayoutProps) {
     const { user, profile } = useAuth()
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+
+    // Determine dashboard link based on user role
+    const getDashboardLink = () => {
+        if (!profile?.role) return '/dashboard'
+        if (profile.role === 'worker') return '/worker'
+        if (profile.role === 'owner') return '/q-admin'
+        return '/dashboard'
+    }
 
     return (
         <div className="public-layout">
@@ -40,25 +53,33 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                         Log In / Register
                                     </Link>
                                 )}
+                                {user && (
+                                    <Link to={getDashboardLink()} className="btn btn-outline btn-block" onClick={() => setMobileMenuOpen(false)}>
+                                        My Dashboard
+                                    </Link>
+                                )}
                             </div>
                         </nav>
 
+                        {/* Header actions - conditional based on auth state */}
                         <div className="header-actions">
-                            {/* Always show login button first for unauthenticated users - no loading guard */}
+                            {/* Logged OUT: Show login button */}
                             {!user && (
-                                <Link to="/login" className="btn btn-ghost">
+                                <Link to="/login" className="btn btn-ghost header-login-btn">
                                     <span className="login-text-full">Log In / Register</span>
                                     <span className="login-text-short">Log In</span>
                                 </Link>
                             )}
-                            {/* Show profile icon for logged-in clients */}
-                            {user && (!profile?.role || profile.role === 'client') && (
-                                <Link to="/dashboard" className="header-profile-link" title="My Account">
-                                    <Icon name="user" size="md" aria-label="My Account" />
+
+                            {/* Logged IN: Show profile icon */}
+                            {user && (
+                                <Link to={getDashboardLink()} className="header-profile-btn" title="My Account">
+                                    <Icon name="user" size="sm" />
                                 </Link>
                             )}
-                            {/* Book Now button - always visible */}
-                            <Link to="/booking" className="btn btn-primary">
+
+                            {/* Book Now button - always visible on desktop, hidden on mobile */}
+                            <Link to="/booking" className="btn btn-primary header-book-btn">
                                 Book Now
                             </Link>
                         </div>
