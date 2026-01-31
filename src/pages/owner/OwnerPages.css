@@ -946,18 +946,17 @@
 /* Bookings table grid */
 .bookings-table .table-header,
 .bookings-table .table-row {
-    grid-template-columns: 60px 150px 140px 1fr 100px 80px 120px 80px;
-    /* Widened Service and Date/Time (4th col) */
-    min-width: 1000px;
-    /* Increased min-width to accommodate */
+    grid-template-columns: 60px 1.5fr 1.5fr 130px 1fr 80px 100px 80px;
+    min-width: unset;
+    width: 100%;
 }
 
 /* Revenue table grid */
 .revenue-table .table-header,
 .revenue-table .table-row {
     grid-template-columns: 120px 140px 2fr 1fr;
-    /* Adjusted for better spacing */
-    min-width: 600px;
+    min-width: unset;
+    width: 100%;
 }
 
 /* Ensure amount text is purple (primary) for income */
@@ -972,11 +971,10 @@
 /* Support table grid */
 .support-table .table-header,
 .support-table .table-row {
-    grid-template-columns: 80px 1fr 120px 120px 140px 120px 80px;
-    /* Adjusted widths for Priority/Status */
-    min-width: 900px;
-    gap: 1.5rem;
-    /* Increase gap for cleaner separation */
+    grid-template-columns: 80px 2fr 110px 110px 120px 110px 80px;
+    min-width: unset;
+    width: 100%;
+    gap: 1rem;
 }
 
 /* Center badges and actions in support table for cleaner look */
@@ -998,8 +996,9 @@
 /* Training table grid */
 .training-table .table-row.table-header-row,
 .training-table .table-row {
-    grid-template-columns: 1fr 100px 100px 120px 120px 100px 180px;
-    min-width: 900px;
+    grid-template-columns: 2fr 100px 100px 110px 110px 90px 140px;
+    min-width: unset;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -1555,11 +1554,10 @@
     .training-table {
         width: 100% !important;
         max-width: 100vw !important;
-        overflow-x: hidden;
-        /* Prevent horizontal scroll on body */
+        /* Removed overflow-x: hidden to allow natural behavior */
     }
 
-    /* Allow horizontal scroll ONLY on table container */
+    /* Allow horizontal scroll ONLY on table container if content is too wide */
     .table-card {
         width: 100%;
         overflow-x: auto;

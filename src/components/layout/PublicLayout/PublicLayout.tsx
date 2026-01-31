@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '@/hooks'
-import { Icon } from '../../Icon'
 import { LandingBackgroundBubbles } from '../../ui/LandingBackgroundBubbles/LandingBackgroundBubbles'
 import logo from '@/assets/Logo/transparent-logo.svg'
 import './PublicLayout.css'
@@ -71,12 +70,8 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                 </Link>
                             )}
 
-                            {/* Logged IN: Show profile icon */}
-                            {user && (
-                                <Link to={getDashboardLink()} className="header-profile-btn" title="My Account">
-                                    <Icon name="user" size="sm" />
-                                </Link>
-                            )}
+                            {/* Logged IN: Profile button removed as requested */}
+
 
                             {/* Book Now button - always visible on desktop, hidden on mobile */}
                             <Link to="/booking" className="btn btn-primary header-book-btn">
