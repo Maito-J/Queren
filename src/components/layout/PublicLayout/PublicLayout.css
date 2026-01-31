@@ -154,9 +154,15 @@
         display: flex;
     }
 
-    /* Reduce logo size on mobile for more header space */
+    /* Force reduced container padding on ALL mobile */
+    .public-header .container {
+        padding: 0 var(--space-3);
+    }
+
+    /* Force logo size with !important to override base rule */
     .logo-icon {
-        height: 48px;
+        height: 44px !important;
+        max-height: 44px !important;
     }
 
     .header-actions {
@@ -172,19 +178,29 @@
         display: none;
     }
 
+    /* Reduce button min-height on mobile */
+    .header-actions .btn {
+        min-height: 36px;
+    }
+
     /* Ensure login button is visible in header - aggressive fix */
     .header-actions .btn-ghost {
         display: inline-flex !important;
         visibility: visible !important;
         opacity: 1 !important;
         flex-shrink: 0;
-        padding: var(--space-2) var(--space-3);
-        font-size: var(--font-size-sm);
+        padding: 8px 12px;
+        font-size: 0.85rem;
         white-space: nowrap;
         color: var(--color-primary) !important;
         background: var(--color-primary-50) !important;
         border: 1px solid var(--color-primary-light) !important;
         border-radius: var(--radius-full);
+    }
+
+    /* Show full text, hide short text on regular mobile */
+    .login-text-short {
+        display: none;
     }
 
     /* Mobile menu actions */
@@ -229,9 +245,10 @@
         font-size: var(--font-size-base);
     }
 
-    /* Reduced logo size for more space */
+    /* Reduced logo size for more space - with !important */
     .logo-icon {
-        height: 32px;
+        height: 32px !important;
+        max-height: 32px !important;
     }
 
     .header-actions {
@@ -241,11 +258,20 @@
 
     .header-actions .btn-ghost {
         display: inline-flex !important;
-        padding: 6px 10px;
+        padding: 6px 8px;
         font-size: 0.7rem;
         white-space: nowrap;
         flex-shrink: 0;
-        min-height: 32px;
+        min-height: 28px;
+    }
+
+    /* Show short text only, hide full text on narrow screens */
+    .login-text-full {
+        display: none;
+    }
+
+    .login-text-short {
+        display: inline;
     }
 
     .mobile-menu-btn {
