@@ -70,7 +70,7 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
                             key={link.to}
                             to={link.to}
                             className="sidebar-link"
-                            end={link.to === '/dashboard' || link.to === '/dashboard-demo' || link.to === '/worker' || link.to === '/worker-demo' || link.to === '/owner'}
+                            end={link.to === '/dashboard' || link.to === '/dashboard-demo' || link.to === '/worker' || link.to === '/worker-demo' || link.to === '/owner' || link.to === '/q-admin'}
                         >
                             <span className="sidebar-icon"><Icon name={link.icon} size="sm" /></span>
                             {link.label}
