@@ -80,132 +80,153 @@ export function LoginPage() {
                         )}
 
                         <form onSubmit={handleSubmit} className="auth-form">
-                            <Input
-                                label={isWorkerLogin || isOwnerLogin ? "Email / Employee Number" : "Email"}
-                                type={isWorkerLogin || isOwnerLogin ? "text" : "email"}
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                            <Input
-                                label="Password"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
+                            <form onSubmit={handleSubmit} className="auth-form">
+                                <>
+                                    <Input
+                                        label={isWorkerLogin ? "Email / Employee Number" : "Email"}
+                                        type={isWorkerLogin ? "text" : "email"}
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                    <Input
+                                        label="Password"
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
 
-                            <div className="auth-forgot">
-                                <button
-                                    type="button"
-                                    onClick={() => setShowForgotModal(true)}
-                                    style={{
-                                        background: 'none',
-                                        border: 'none',
-                                        padding: 0,
-                                        color: 'var(--color-primary)',
-                                        cursor: 'pointer',
-                                        fontSize: 'var(--font-size-sm)',
-                                        textDecoration: 'underline'
-                                    }}
-                                >
-                                    Forgot password?
-                                </button>
-                            </div>
-
-                            <Button type="submit" fullWidth isLoading={loading}>
-                                Sign In
-                            </Button>
-
-                            <div className="demo-buttons">
-                                {isWorkerLogin ? (
-                                    <>
-                                        <Button
+                                    <div className="auth-forgot">
+                                        <button
                                             type="button"
-                                            variant="ghost"
-                                            fullWidth
-                                            onClick={() => {
-                                                setEmail('demo.cleaner@queren.com')
-                                                setPassword('demo123')
+                                            onClick={() => setShowForgotModal(true)}
+                                            style={{
+                                                background: 'none',
+                                                border: 'none',
+                                                padding: 0,
+                                                color: 'var(--color-primary)',
+                                                cursor: 'pointer',
+                                                fontSize: 'var(--font-size-sm)',
+                                                textDecoration: 'underline'
                                             }}
                                         >
-                                            <Icon name="user" size="sm" />
-                                            Fill Staff Demo
-                                        </Button>
-                                        <Button
-                                            type="button"
-                                            variant="outline"
-                                            fullWidth
-                                            onClick={() => navigate('/worker-demo')}
-                                        >
-                                            <Icon name="sparkle" size="sm" />
-                                            Try Staff Demo
-                                        </Button>
-                                        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-                                            <Link
-                                                to="/login?role=owner"
-                                                style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}
+                                            Forgot password?
+                                        </button>
+                                    </div>
+                                </>
+
+                                <Button type="submit" fullWidth isLoading={loading}>
+                                    Sign In
+                                </Button>
+
+                                <div className="demo-buttons">
+                                    {isWorkerLogin ? (
+                                        <>
+                                            <Button
+                                                type="button"
+                                                variant="ghost"
+                                                fullWidth
+                                                onClick={() => {
+                                                    setEmail('demo.cleaner@queren.com')
+                                                    setPassword('demo123')
+                                                }}
                                             >
-                                                Owner Login
-                                            </Link>
-                                        </div>
-                                    </>
-                                ) : isOwnerLogin ? (
-                                    <>
-                                        <Button
-                                            type="button"
-                                            variant="ghost"
-                                            fullWidth
-                                            onClick={() => {
-                                                setEmail('owner@queren.com')
-                                                setPassword('owner123')
-                                            }}
-                                        >
-                                            <Icon name="user" size="sm" />
-                                            Fill Owner Demo
-                                        </Button>
-                                        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-                                            <Link
-                                                to="/login?role=worker"
-                                                style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}
+                                                <Icon name="user" size="sm" />
+                                                Fill Staff Demo
+                                            </Button>
+                                            <Button
+                                                type="button"
+                                                variant="outline"
+                                                fullWidth
+                                                onClick={() => navigate('/worker-demo')}
                                             >
-                                                Staff Login
-                                            </Link>
-                                        </div>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Button
-                                            type="button"
-                                            variant="ghost"
-                                            fullWidth
-                                            onClick={() => {
-                                                setEmail('demo@queren.com')
-                                                setPassword('demo123')
-                                            }}
-                                        >
-                                            <Icon name="user" size="sm" />
-                                            Fill Client Demo
-                                        </Button>
-                                        <Button
-                                            type="button"
-                                            variant="outline"
-                                            fullWidth
-                                            onClick={() => navigate('/dashboard-demo')}
-                                        >
-                                            <Icon name="sparkle" size="sm" />
-                                            Try Client Demo
-                                        </Button>
-                                    </>
-                                )}
-                            </div>
-                        </form>
+                                                <Icon name="sparkle" size="sm" />
+                                                Try Staff Demo
+                                            </Button>
+                                            <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                                                <Link
+                                                    to="/login?role=owner"
+                                                    style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}
+                                                >
+                                                    Owner Login
+                                                </Link>
+                                            </div>
+                                        </>
+                                    ) : isOwnerLogin ? (
+                                        <>
+                                            <Button
+                                                type="button"
+                                                variant="ghost"
+                                                fullWidth
+                                                onClick={() => {
+                                                    setEmail('owner@queren.com')
+                                                    setPassword('owner123')
+                                                }}
+                                            >
+                                                <Icon name="user" size="sm" />
+                                                Fill Owner Demo
+                                            </Button>
+                                            <Button
+                                                type="button"
+                                                variant="outline"
+                                                fullWidth
+                                                onClick={async () => {
+                                                    setLoading(true)
+                                                    const { error: signInError } = await signIn('owner@queren.com', 'owner123')
+                                                    if (signInError) {
+                                                        setError(signInError.message)
+                                                        setLoading(false)
+                                                    } else {
+                                                        navigate('/q-admin')
+                                                    }
+                                                }}
+                                            >
+                                                <Icon name="sparkle" size="sm" />
+                                                Try Owner Demo
+                                            </Button>
+                                            <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+                                                <Link
+                                                    to="/login?role=worker"
+                                                    style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}
+                                                >
+                                                    Staff Login
+                                                </Link>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Button
+                                                type="button"
+                                                variant="ghost"
+                                                fullWidth
+                                                onClick={() => {
+                                                    setEmail('demo@queren.com')
+                                                    setPassword('demo123')
+                                                }}
+                                            >
+                                                <Icon name="user" size="sm" />
+                                                Fill Client Demo
+                                            </Button>
+                                            <Button
+                                                type="button"
+                                                variant="outline"
+                                                fullWidth
+                                                onClick={() => navigate('/dashboard-demo')}
+                                            >
+                                                <Icon name="sparkle" size="sm" />
+                                                Try Client Demo
+                                            </Button>
+                                        </>
+                                    )}
+                                </div>
+                            </form>
 
-                        {!isWorkerLogin && !isOwnerLogin && (
-                            <div className="auth-footer">
-                                <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
-                            </div>
-                        )}
+                            {!isWorkerLogin && !isOwnerLogin && (
+                                <div className="auth-footer">
+                                    <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+                                </div>
+                            )}
                     </CardBody>
                 </Card>
             </div>
