@@ -111,7 +111,8 @@
 }
 
 /* Mobile-only nav items - hidden on desktop */
-.mobile-only-nav-btn {
+.mobile-only-nav-btn,
+.mobile-nav-actions {
     display: none;
 }
 
