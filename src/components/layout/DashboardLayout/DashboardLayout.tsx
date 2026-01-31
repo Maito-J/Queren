@@ -2,8 +2,7 @@ import React from 'react'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '@/hooks'
 import { Icon, IconName } from '../../Icon'
-import logoIcon from '@/assets/Logo/logo-icon.png'
-import logoText from '@/assets/Logo/logo-text.png'
+import logo3 from '@/assets/Logo/logo3.png'
 import './DashboardLayout.css'
 
 interface SidebarLink {
@@ -60,9 +59,8 @@ export function DashboardLayout({ children, title, links }: DashboardLayoutProps
         <div className="dashboard-layout">
             <aside className={`dashboard-sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="sidebar-header">
-                    <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.5rem 0' }}>
-                        <img src={logoIcon} alt="Queren" style={{ height: '36px', width: 'auto' }} />
-                        <img src={logoText} alt="Queren Cleaning" style={{ height: '28px', width: 'auto' }} />
+                    <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 0' }}>
+                        <img src={logo3} alt="Queren" style={{ height: '40px', width: 'auto' }} />
                     </Link>
                 </div>
 
