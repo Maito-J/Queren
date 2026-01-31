@@ -4,7 +4,8 @@
    =================================== */
 
 .bubble-background {
-    position: fixed;
+    position: absolute;
+    /* Changed from fixed to absolute to stay within container */
     inset: 0;
     overflow: hidden;
     pointer-events: none;

@@ -280,9 +280,13 @@
 .public-footer {
     background: #F7F5FB;
     border-top: 1px solid var(--color-border);
-    padding: var(--space-16) 0 var(--space-8);
-    /* Increased top padding */
+    padding: var(--space-12) 0 var(--space-8);
     margin-top: auto;
+    position: relative;
+    /* Ensure it is a positioning context for bubbles */
+    overflow: hidden;
+    /* Contain bubbles within footer */
+    z-index: 1;
 }
 
 .footer-grid {
@@ -292,6 +296,9 @@
     gap: var(--space-8);
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    /* Content above bubbles */
 }
 
 .footer-brand {
@@ -303,13 +310,11 @@
 
 .footer-brand .logo {
     margin-bottom: var(--space-4);
-    /* Increased spacing below logo */
     display: inline-flex;
 }
 
 .footer-brand .logo-icon {
-    height: 60px;
-    /* Slight increase to match image weight */
+    height: 80px;
     filter: none;
 }
 
@@ -318,13 +323,12 @@
     max-width: 280px;
     line-height: 1.6;
     font-size: 0.95rem;
-    margin-top: var(--space-1);
+    margin-top: var(--space-2);
 }
 
 .footer-links-group {
     display: flex;
-    gap: 100px;
-    /* Further increased gap to match wide spacing in image */
+    gap: 4rem;
     align-items: flex-start;
 }
 

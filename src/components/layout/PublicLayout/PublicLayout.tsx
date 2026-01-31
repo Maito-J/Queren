@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '@/hooks'
 import { Icon } from '../../Icon'
+import { LandingBackgroundBubbles } from '../../ui/LandingBackgroundBubbles/LandingBackgroundBubbles'
 import logo from '@/assets/Logo/transparent-logo.svg'
 import './PublicLayout.css'
 
@@ -99,12 +100,24 @@ export function PublicLayout({ children }: PublicLayoutProps) {
             <main className="public-main">{children}</main>
 
             <footer className="public-footer">
+                {/* Background Bubbles strictly for footer */}
+                <LandingBackgroundBubbles
+                    density={10}
+                    minSpeed={15}
+                    maxSpeed={30}
+                    minOpacity={0.1}
+                    maxOpacity={0.3}
+                />
+
                 <div className="container">
                     <div className="footer-grid">
                         <div className="footer-brand">
                             <Link to="/" className="logo">
                                 <img src={logo} alt="Queren" className="logo-icon" />
                             </Link>
+                            <p className="footer-tagline">
+                                Simplify your life with our professional cleaning services. Book in minutes, relax for hours.
+                            </p>
                         </div>
 
                         {/* Link columns grouped together */}
