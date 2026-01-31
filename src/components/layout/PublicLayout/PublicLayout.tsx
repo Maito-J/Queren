@@ -10,7 +10,7 @@ interface PublicLayoutProps {
 }
 
 export function PublicLayout({ children }: PublicLayoutProps) {
-    const { user, profile, isLoading } = useAuth()
+    const { user, profile } = useAuth()
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
 
     return (
@@ -35,7 +35,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                                 <Link to="/booking" className="btn btn-primary btn-block" onClick={() => setMobileMenuOpen(false)}>
                                     Book Now
                                 </Link>
-                                {!isLoading && !user && (
+                                {!user && (
                                     <Link to="/login" className="btn btn-outline btn-block" onClick={() => setMobileMenuOpen(false)}>
                                         Log In / Register
                                     </Link>
@@ -44,7 +44,7 @@ export function PublicLayout({ children }: PublicLayoutProps) {
                         </nav>
 
                         <div className="header-actions">
-                            {isLoading ? null : user ? (
+                            {user ? (
                                 <>
                                     {/* Profile icon only for clients - owners/workers have separate portals */}
                                     {(!profile?.role || profile.role === 'client') && (
