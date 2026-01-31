@@ -80,40 +80,38 @@ export function LoginPage() {
                         )}
 
                         <form onSubmit={handleSubmit} className="auth-form">
-                            <>
-                                <Input
-                                    label={isWorkerLogin ? "Email / Employee Number" : "Email"}
-                                    type={isWorkerLogin ? "text" : "email"}
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                />
-                                <Input
-                                    label="Password"
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    required
-                                />
+                            <Input
+                                label={isWorkerLogin ? "Email / Employee Number" : "Email"}
+                                type={isWorkerLogin ? "text" : "email"}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            <Input
+                                label="Password"
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
 
-                                <div className="auth-forgot">
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowForgotModal(true)}
-                                        style={{
-                                            background: 'none',
-                                            border: 'none',
-                                            padding: 0,
-                                            color: 'var(--color-primary)',
-                                            cursor: 'pointer',
-                                            fontSize: 'var(--font-size-sm)',
-                                            textDecoration: 'underline'
-                                        }}
-                                    >
-                                        Forgot password?
-                                    </button>
-                                </div>
-                            </>
+                            <div className="auth-forgot">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowForgotModal(true)}
+                                    style={{
+                                        background: 'none',
+                                        border: 'none',
+                                        padding: 0,
+                                        color: 'var(--color-primary)',
+                                        cursor: 'pointer',
+                                        fontSize: 'var(--font-size-sm)',
+                                        textDecoration: 'underline'
+                                    }}
+                                >
+                                    Forgot password?
+                                </button>
+                            </div>
 
                             <Button type="submit" fullWidth isLoading={loading}>
                                 Sign In
