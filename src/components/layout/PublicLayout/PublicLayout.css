@@ -182,7 +182,7 @@
 
     /* Hide Book Now button on mobile - it's in the hamburger menu */
     .header-book-btn {
-        display: none;
+        display: none !important;
     }
 
     /* Login button styling for mobile - prominent border style */
