@@ -209,11 +209,10 @@ export function BookingPage() {
                                 </button>
                                 <div className="service-type-card service-type-info">
                                     <div className="service-icon-wrapper">
-                                        <Icon name="tool" size="lg" />
+                                        <Icon name="handshake" size="lg" />
                                     </div>
                                     <div className="service-content-wrapper">
                                         <span className="service-type-name">Custom Cleaning</span>
-                                        <span className="service-type-price">Custom Quote</span>
                                         <span className="service-type-desc">Contact us to know more details</span>
                                         <Link to="/contact" className="btn btn-outline btn-sm service-contact-btn">Contact Us</Link>
                                     </div>
