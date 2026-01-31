@@ -156,10 +156,17 @@
 
     .header-actions {
         gap: var(--space-2);
+        flex-shrink: 0;
     }
 
     .header-actions .btn-primary {
         display: none;
+    }
+
+    /* Ensure login button is visible in header */
+    .header-actions .btn-ghost {
+        display: inline-flex;
+        flex-shrink: 0;
     }
 
     /* Mobile menu actions */
@@ -198,15 +205,21 @@
         font-size: var(--font-size-lg);
     }
 
-    /* Increased logo size slightly for better visibility */
+    /* Reduced logo size for more space */
     .logo-icon {
-        height: 44px;
+        height: 40px;
+    }
+
+    .header-actions {
+        flex-shrink: 0;
     }
 
     .header-actions .btn-ghost {
-        padding: var(--space-1) var(--space-2);
-        font-size: var(--font-size-xs);
+        display: inline-flex;
+        padding: var(--space-2) var(--space-3);
+        font-size: 0.8rem;
         white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .mobile-menu-btn {
