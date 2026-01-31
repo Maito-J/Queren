@@ -165,6 +165,7 @@
         padding: 0 var(--space-3);
     }
 
+<<<<<<< HEAD
     /* Force logo size with !important to override base rule */
     .logo-icon {
         height: 40px !important;
@@ -209,6 +210,11 @@
         width: 34px;
         height: 34px;
         flex-shrink: 0;
+=======
+    .header-actions .btn-primary,
+    .header-actions .btn-ghost {
+        display: none;
+>>>>>>> b3958c5 (Fix mobile header login visibility and adjust footer logo size)
     }
 
     /* Mobile menu actions */
@@ -260,6 +266,7 @@
         max-height: 40px !important;
     }
 
+<<<<<<< HEAD
     .header-actions {
         gap: var(--space-1);
     }
@@ -276,6 +283,9 @@
         width: 30px;
         height: 30px;
     }
+=======
+
+>>>>>>> b3958c5 (Fix mobile header login visibility and adjust footer logo size)
 
     .mobile-menu-btn {
         padding: 4px;
@@ -315,6 +325,7 @@
 }
 
 .footer-brand .logo {
+<<<<<<< HEAD
     display: block;
     margin-bottom: var(--space-4);
 }
@@ -322,6 +333,15 @@
 .footer-brand .logo-icon {
     height: 164px;
     width: auto;
+=======
+    margin-bottom: var(--space-2);
+    display: inline-block;
+}
+
+.footer-brand .logo-icon {
+    height: 50px;
+    filter: none;
+>>>>>>> b3958c5 (Fix mobile header login visibility and adjust footer logo size)
 }
 
 .footer-tagline {
