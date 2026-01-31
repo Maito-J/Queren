@@ -291,9 +291,10 @@
 
 .footer-grid {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
-    gap: 15%;
+    gap: 4rem;
+    padding-right: 10%;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
